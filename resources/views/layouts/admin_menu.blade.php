@@ -6,6 +6,10 @@
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>用户管理<b class="fa fa-plus dropdown-plus"></b></a>
       <ul class="dropdown-menu">
+<<<<<<< HEAD
+
+=======
+>>>>>>> ae0dd22ec69a86513328a0e344b4a6b7c594ea89
           <li>
             <a href="form-elements.html">
               <i class="fa fa-caret-right"></i>
@@ -42,10 +46,32 @@
               <i class="fa fa-caret-right"></i>
               添加管理员
             </a>
+<<<<<<< HEAD
           </li>
       </ul>
     </li>
-
+=======
+          </li>          
+        <li>
+          <a href="form-elements.html">
+            <i class="fa fa-caret-right"></i>
+            会员列表
+          </a>
+        </li>
+        <li>
+          <a href="/admin/user/create">
+            <i class="fa fa-caret-right"></i>
+            添加会员
+          </a>
+        </li>
+        <li>
+          <a href="form-wizard.html">
+            <i class="fa fa-caret-right"></i>
+            待激活会员
+          </a>
+        </li>
+      </ul>
+    </li>
     <!-- 广告管理 -->
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>广告管理<b class="fa fa-plus dropdown-plus"></b></a>
@@ -64,6 +90,8 @@
         </li>
       </ul>
     </li>
+    
+>>>>>>> ae0dd22ec69a86513328a0e344b4a6b7c594ea89
 
   </ul>
 

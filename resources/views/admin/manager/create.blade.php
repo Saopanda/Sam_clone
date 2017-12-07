@@ -1,1 +1,1 @@
-@extends('layouts.admin_index')
+ssss
