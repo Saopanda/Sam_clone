@@ -1,1 +1,1 @@
-<?php echo '1223'; ?>
+@extends('layouts.admin_index')

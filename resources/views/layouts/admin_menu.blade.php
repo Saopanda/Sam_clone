@@ -26,7 +26,24 @@
         </li>
       </ul>
     </li>
-
+    <!-- 广告管理 -->
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>广告管理<b class="fa fa-plus dropdown-plus"></b></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="form-elements.html">
+            <i class="fa fa-caret-right"></i>
+            广告列表
+          </a>
+        </li>
+        <li>
+          <a href="validation-elements.html">
+            <i class="fa fa-caret-right"></i>
+            添加广告
+          </a>
+        </li>
+      </ul>
+    </li>
     
 
   </ul>
