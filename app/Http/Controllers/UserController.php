@@ -26,7 +26,7 @@ class UserController extends Controller
     public function create()
     {
         //用户添加页面
-        echo "用户 add";
+        return view('admin.user.add');
     }
 
     /**
