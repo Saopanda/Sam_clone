@@ -13,7 +13,7 @@
           </a>
         </li>
         <li>
-          <a href="validation-elements.html">
+          <a href="/admin/user/create">
             <i class="fa fa-caret-right"></i>
             添加会员
           </a>
