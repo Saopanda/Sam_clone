@@ -13,7 +13,7 @@ class ManagerController extends Controller
      */
     public function index()
     {
-        return view('admin.manager');
+        return view('admin.manager.index');
     }
 
     /**
@@ -23,7 +23,7 @@ class ManagerController extends Controller
      */
     public function create()
     {
-        //
+        echo "string";
     }
 
     /**
@@ -34,7 +34,7 @@ class ManagerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
     }
 
     /**
