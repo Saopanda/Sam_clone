@@ -18,7 +18,7 @@ Route::get('/list','indexController@list');
 Route::get('/{id}.html','GoodsController@show');
 
 //前台注册
-Route::get('/signin','indexController@sigin');
+Route::get('/signup','indexController@signup');
 // 前台登陆
 Route::get('/login','indexController@login');
 
@@ -32,7 +32,7 @@ Route::group([],function(){
 	Route::get('/home/order','HomeController@order');
 
 
-})
+});
 
 
 

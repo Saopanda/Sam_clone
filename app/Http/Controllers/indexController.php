@@ -19,11 +19,11 @@ class indexController extends Controller
     //登陆
     public function login()
     {
-    	echo "denglu";
+    	return view('');
     }
     //注册
-    public function signin($value='')
+    public function signup()
     {
-    	# code...
-    }
+		echo "";
+	}
 }
