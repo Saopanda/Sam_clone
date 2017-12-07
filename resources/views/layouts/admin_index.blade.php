@@ -55,13 +55,11 @@
               </li>
             </ul>
             <!-- /Page refresh -->
-
             <!-- Search -->
             <div class="search" id="main-search">
               <i class="fa fa-search"></i> <input type="text" placeholder="Search...">
             </div>
             <!-- Search end -->
-
             <!-- Quick Actions -->
             <ul class="nav navbar-nav quick-actions">
               <li class="dropdown divided user" id="current-user">
@@ -82,48 +80,23 @@
             <!-- Sidebar -->
             <ul class="nav navbar-nav side-nav" id="sidebar">
               @include('layouts.admin_menu')
-
             </ul>
             <!-- Sidebar end -->
-
           </div>
           <!--/.nav-collapse -->
-
         </div>
         <!-- Fixed navbar end -->
-        
-
-
-
-
-        
         <!-- Page content -->
         <div id="content" class="col-md-12">
-          
-
-
-
-
-
-
-
-
           <!-- page header -->
           <div class="pageheader">
-            
+            @section('nr')
 
-            <h2><i class="fa fa-tachometer"></i> Dashboard
-            <span>// Place subtitle here...</span></h2>
-            
+            @show
           </div>
           <!-- /page header -->
-          
         </div>
         <!-- Page content end -->
-
-
-
-
         <div id="mmenu" class="right-panel">
           <!-- Nav tabs -->
           <ul class="nav nav-tabs nav-justified">
@@ -133,22 +106,9 @@
             <li class=""><a href="#mmenu-settings" data-toggle="tab"><i class="fa fa-gear"></i></a></li>
           </ul>
         </div>
-
       </div>
       <!-- Make page fluid-->
-
-
-
-
     </div>
-    <!-- Wrap all page content end -->
-
-
-
-    <section class="videocontent" id="video"></section>
-
-
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/js/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -180,8 +140,5 @@
     <!-- <script src="/js/vendor/chosen/chosen.jquery.min.js"></script> -->
 
     <script src="/js/minimal.min.js"></script>
-
-    
   </body>
 </html>
-      
