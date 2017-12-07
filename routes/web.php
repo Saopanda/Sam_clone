@@ -32,7 +32,7 @@ Route::group([],function(){
 	Route::get('/home/order','HomeController@order');
 
 
-})
+});
 
 
 
