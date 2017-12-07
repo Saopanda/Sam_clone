@@ -1,0 +1,324 @@
+
+
+.content{
+	height: auto;
+}
+nav{
+	width: 178px;
+	height: auto;
+	float: left;
+	margin-right: 20px;
+	overflow: hidden;
+}
+.list_right{
+	width:1000px;
+	height: auto;
+	float: left;
+	margin-bottom: 32px;
+}
+.title{
+	border-bottom: 1px solid #b2d9ee;
+}
+.title span{
+	font-size: 20px;
+	color: #0069aa;
+	line-height: 34px;
+	font-weight: 600;
+}
+nav .clear{
+	cursor: pointer;
+	font-size: 14px;
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+}
+nav .dl_a{
+	margin-bottom: 0;
+}
+nav .clear .d1{
+	float: left;
+	width: 20px;
+	line-height: 30px;
+	text-align: left;
+}
+nav .clear .d2{
+	float: left;
+	font-weight: 500;
+	width: 160px;
+	overflow: hidden;
+}
+nav .a2{
+	margin-right: 10px;
+	color: #aaa;
+}
+nav .a1{
+	font-size: 12px;
+	color: #666;
+}
+nav .list_a ul li{
+	margin-left: 24px;
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+	cursor: pointer;
+}
+nav dl .list_a .a_hover li:hover span{
+	color:#2E6DA4; 
+}
+nav .list_a{
+	/*display: none;*/
+}
+.xuanxiang .biaoqian{
+	background:  #ddd;
+}
+section{
+	font-size: 12px;
+}
+.container{
+	padding:0;
+	width: 1200px;
+}
+section .list_right .fl_1{
+	height: auto;
+    border: 1px solid #dfdfdf;
+}
+section .list_right .fl_1 .fl_1_a{
+	width: 100%;
+    border-width: 1px 1px 0 1px;
+    padding-bottom: 7px;
+    overflow: hidden;
+	
+}
+
+section .list_right .fl_1 .fl_1_a .title{ 
+	width: 110px;
+	height: auto;
+	float: left;
+	border: 0px;
+}
+section .list_right .fl_1 .fl_1_a .title h2{
+	color: #999;
+	font-weight: normal;
+	font-size: 12px;
+	text-align: left;
+	padding-left: 10px;
+	width: 110px;
+	overflow: hidden;
+}
+section .list_right .fl_1 .fl_1_a .zuo{
+	width: 750px;
+	float: left;
+	padding-top: 14px;
+} 
+section .list_right .fl_1 .fl_1_a .zuo a{
+	float: left;
+	height: 25px;
+	line-height: 25px;
+	padding: 0 10px;
+	margin-right: 5px;
+}
+section .list_right .fl_1 .fl_1_a .dd_a{
+color: #999;
+float: right;
+margin-right: 20px;
+cursor: pointer;
+margin-top: 20px;
+}
+section dl{
+	margin-bottom:0;
+}
+section .list_right .biaoqian{
+	margin-top: 20px;
+	border: 1px solid #ddd;
+}
+section .list_right .you{
+	line-height: 40px;
+	padding-right: 20px;
+}
+.panel-heading{
+	padding:0;
+}
+.panel-default > .panel-heading{
+	background: none;
+}
+.panel-default{
+	border: none;
+}
+.panel{
+	background: none;
+}
+/*商品*/
+.tab-content .goods_1{
+	margin-top: 10px;
+	width: 230px;
+    float: left;
+    height: 364px;
+    margin-bottom: 30px;
+    margin-right: 20px;
+    z-index: 1;
+    position: relative;
+    transition: all 0.3s;
+    transition-delay: 0.1s;
+}
+.tab-content .goods_1 .proImg{
+	 height: 230px;
+	position: relative;
+    margin-bottom: 14px;
+}
+.tab-content .goods_1 .proImg img{
+	position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+.tab-content .goods_1 .proImg .tagBox{
+	position: absolute;
+	left: 10px;
+	bottom: -8px;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	border-radius: 100%;
+	color: #fff;
+	display: table;
+}
+.tab-content .goods_1 .proImg .tagBox img{
+	border-radius: 50%;
+}
+.tab-content .goods_1 .proName{
+	height: 16px;
+	line-height: 16px;
+	margin-bottom: 6px;
+	width: 100%;
+	overflow: hidden;
+}
+.tab-content .goods_1 .proName2{
+	color: #999;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin-bottom: 12px;
+}
+.tab-content .goods_1 .proPrice{
+	height: 20px;
+	line-height: 20px;
+	margin-bottom: 11px;
+	}
+.tab-content .goods_1 .proPrice em{
+color: #0069aa;
+font-size: 18px;
+font-weight: bold;
+}
+.tab-content .goods_1 .proPrice em b{
+font-size: 12px;
+}
+.tab-content .goods_1 .shoppingAct{
+	height: 30px;
+}
+.tab-content .goods_1 .shoppingAct .num{
+	border: 1px solid #dfdfdf;
+	height: 26px;
+	border-radius: 2px;
+	float: left;
+	width: 108px;
+	margin-right: 10px;
+}
+.tab-content .goods_1 .shoppingAct .num li{
+	width: 26px;
+	text-align: center;
+	line-height: 24px;
+	font-size: 16px;
+	cursor: pointer;
+	color: #0069aa;
+	height: 26px;
+	float: left;
+}
+.tab-content .goods_1 .shoppingAct .num .no{
+	color: #aaa;
+	width: 26px;
+	text-align: center;
+	line-height: 24px;
+	font-size: 16px;
+	cursor: pointer;
+	height: 26px;
+	float: left;
+}
+.tab-content .goods_1 .shoppingAct .num .m{
+	margin-top: 3px;
+	width: 54px;
+	border: solid #dfdfdf;
+	border-width: 0 1px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 12px;
+	cursor: text;
+}
+.tab-content .goods_1 .shoppingAct .num .m input{
+	width: 30px;
+	outline: 0;
+	border: 0;
+	box-shadow: none;
+	color: #0069aa;
+	text-align: center;
+}
+.tab-content .goods_1 .shoppingAct .shopCar{
+	width: 108px;
+	color: #0069aa;
+	line-height: 26px;
+	text-align: center;
+	overflow: hidden;
+	position: relative;
+	background-color: #fff;
+	border: 1px solid #dfdfdf;
+	height: 26px;
+	border-radius: 2px;
+	float: left;
+	transition: all 0.3s;
+
+}
+.tab-content .goods_1 .shoppingAct .shopCar i{
+font-size: 14px;
+margin-right: 8px;
+}
+.tab-content .goods_1 .shoppingAct .num .add:hover{
+	transition: all 0.3s;
+	border: 1px solid #0069aa;
+}
+
+.tab-content .goods_1:hover .shopCar{
+	background: #3E8F3E;
+	color: #fff;
+}
+.tab-content .goods_1 .proBorder{
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
+	background-color: #fff;
+	padding: 15px 20px;
+	top: -15px;
+	left: -20px;
+	width: 270px;
+	height: 390px;
+	box-shadow: 0 0 6px 2px rgba(0,0,0,0.15);
+	transition-delay: 0.1s;
+	transition: all 0.2s;
+}
+.tab-content .goods_1:hover .proBorder{	
+	opacity: 1;
+	box-shadow: 0 0 6px 2px rgba(0,0,0,0.15);
+	background-color: #fff;
+}
+
+.jiantuo{
+	transform: rotate(0deg);
+	transition: all 0.3s;
+}
+.jiantuo_up{
+	transform: rotate(180deg);
+}
+.toggle-hide{
+	display: none;
+	height: 64px;
+	float: left;
+}

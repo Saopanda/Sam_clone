@@ -1,0 +1,108 @@
+
+.container{
+	width: 1200px;
+	padding: 0px;
+}
+.ljsanmu{
+	text-align: center;
+	font-weight: bold;
+    font-size: 18px;
+}
+.ljnr{
+	width: 1200px;
+	height: 680px;
+}
+.lj_Left{
+	width: 310px;
+	height: 680px;
+}
+.lj_Left .L_Top{
+	width: 310px;
+	height: 480px;
+}
+.lj_Left .L_Bottom{
+	width: 310px;
+	margin-top: 10px;
+	height: 190px;
+	background: #fff;
+    padding: 36px 30px;
+}
+.lj_Left .L_Bottom ul li{
+	width: 125px;
+	height: 113px;
+	text-align: center;
+    padding: 5px 20px;
+	float: left;
+}
+.lj_Left .L_Bottom ul li span a{
+	color: #333;
+}
+.lj_Left .L_Bottom ul li span a:hover{
+	text-decoration: none;
+	color: #333;
+}
+.lj_Right{
+	width: 880px;
+	height: 680px;
+	background: #fff;
+	overflow: auto;
+}
+
+.container .gdt{
+	height: 680px;
+	padding: 30px;
+}
+.comment:first-child{
+	margin-top: 0px;
+}
+.comment{
+	margin: 24px 0;
+	overflow: hidden;
+}
+.comment .info{
+	height: 40px;
+    margin-bottom: 10px;
+}
+.comment .info .touxiang{
+	float: left;
+	border-radius: 100%;
+}
+.comment .info .name{
+	height: 12px;
+	text-indent: 10px;
+	font-size: 14px;
+	color: #000;
+	margin-bottom: 9px;
+}
+.comment .info .des{
+	margin-left: 10px;
+	color: #666;
+	text-decoration: none;
+}
+.comment .info .des:hover{
+	text-decoration: none;
+}
+
+.comment .comment-text{
+	color: #666;
+}
+.comment .show-time{
+	width: inherit;
+	max-height: 50px;
+}
+.comment .show-time .tabs ul li:first-child{
+	margin-left: 0px;
+}
+.comment .show-time .tabs ul li{
+	float: left;
+	margin-left: 10px;
+	position: relative;
+}
+.tpfd_1{
+	position: absolute;
+	display: none;
+}
+
+.tpfd:hover + img{
+	display: block;
+}

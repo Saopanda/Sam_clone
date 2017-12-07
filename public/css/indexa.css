@@ -1,0 +1,196 @@
+.biaoti{
+	margin-top:30px;
+	margin-bottom: 30px;
+}
+.biaoti h2{
+	font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+.one_1 .item{
+	width: 20%;
+    float: left;
+    text-align: center;
+    margin-bottom: 10px;
+    position: relative;
+    padding: 15px 0px 0px;
+
+    /*transition: box-shadow 0.5s, -moz-box-shadow 0.5s;*/
+    transition: all 0.5s;
+   
+}
+.one_1 .item:hover{
+	 background: #fff;
+	 box-shadow: 0 0 5px #9D9D9D;
+}
+.one_1 .item a{
+	display: block;
+    position: relative;
+    color: rgb(51, 51, 51);
+    transition: color 0.3s ease;
+}
+.one_1 .item a img{
+	position: absolute;
+    left: 5%;
+    top: 0px;
+    width: 90%;
+    margin-bottom: 5px;
+}
+.one_1 .item .i-size-box{
+	position: relative;
+    width: 100%;
+    padding-top: 100%;
+}
+.one_1 .item p{
+	font-size: 14px;
+    width: 92%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 5px 8px;
+    overflow: hidden;
+}
+.one_1 .item span{
+    font-size: 16px;
+    font-weight: bold;
+}
+.one_1 .item .save {
+    background: rgb(255, 242, 0);
+}
+.one_1 .item .marking {
+	position: absolute;
+    left: 20px;
+    bottom: 55px;
+    width: 44px;
+    height: 44px;
+    border-radius: 100%;
+    color: rgb(255, 255, 255);
+    z-index:10;
+  
+}
+.one_1 .item .marking .box{
+	margin-top: 8px;
+}
+.one_1 .item .marking.save p{
+	color: rgb(0, 105, 170);
+}
+.one_1 .item .marking .box p{
+	font-size: 12px;
+    width: 100%;
+    line-height: 16px;
+    padding: 0px;
+    margin:0;
+}
+.one_1 .item .outline{
+	color: rgb(153, 153, 153);
+    height: 40px;
+    line-height: 20px;
+    margin: 10px 20px;
+    padding: 10px 0px 0px;
+    border-top: 1px dashed rgb(229, 229, 229);
+    /*overflow: hidden;*/
+    position:relative;
+    top: -10px;
+}
+.one_1 .item .outline .item-info{
+	line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    padding: 0px;
+    margin:0px;
+}
+.booth{
+	text-align: center;
+    position: relative;
+    height: 130px;
+    overflow: hidden;
+}
+.kitchen{
+	padding-top: 118px;
+    margin-top: 30px;
+    padding-bottom: 10px;
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+.kitchen .kitchen-box{
+	box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px;
+    background: rgb(255, 255, 255);
+}
+.kitchen .kitchen-box .show-pic{
+	float: left;
+    position: relative;	
+}
+.kitchen .kitchen-box .content{
+	padding-top: 25px;
+    margin: 0px 25px 0px 505px;
+}
+.kitchen .kitchen-box .content h1{
+	font-size: 30px;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    font-weight: 800;
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+.kitchen .kitchen-box .content h1 span{
+	display: block;
+    font-weight: normal;
+    color: rgb(153, 153, 153);
+    margin-left: 5px;
+}
+.kitchen .kitchen-box .content h3{
+	font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+.kitchen .kitchen-box .content .menus-box{
+	position: relative;
+}
+.kitchen .kitchen-box .content .menus-box .menus{
+	overflow: hidden;
+}
+.clear {
+    zoom: 1;
+    overflow: hidden;
+}
+.kitchen .kitchen-box .content .menus-box .menus .item{
+	float: left;
+    text-align: center;
+}
+
+.kitchen .kitchen-box .content .menus-box .menus .item .i-size-box{
+	position: relative;
+    width: 100%;
+    padding-top: 65%;
+}
+.kitchen .kitchen-box .content .menus-box .menus .item .i-size-box img{
+	position: absolute;
+    left: 2%;
+    top: 0px;
+    width: 96%;
+}
+.kitchen .kitchen-box .content .menus-box .menus .item .name{
+	text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0px 10%;
+    overflow: hidden;
+    margin: 15px 0px;
+}
+.kitchen .kitchen-box .content .menus-box .menus .item .text{
+    text-align: center;
+    height: 60px;
+    line-height: 20px;
+    color: rgb(153, 153, 153);
+    padding: 0px 10%;
+    overflow: hidden;
+}
+.kitchen .kitchen-box .content .menus-box .menus .item .btn-study{
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    background: rgb(82, 176, 20);
+    padding: 5px 25px;
+    border-radius: 2px;
+    margin: 15px;
+}

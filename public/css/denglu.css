@@ -1,0 +1,70 @@
+*{
+	padding:0;
+	margin:0;
+	list-style: none;
+	font-family: "Microsoft YaHei";
+}
+.big{
+	height: 260px;
+	width: 100%;
+	background: #f8f8f8;
+}
+.big_1{
+	width: 190px;
+	margin: 0 auto;
+	padding: 50px 0;
+	/*background: #ff0;*/
+}
+.big .big_2{
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+	/*background: url('../img/logo.png');*/
+}
+.big_1 .hb{
+	margin-top: 30px;
+	border-top: 1px solid #b3b3b3;
+	text-align: center;
+	color: #333;
+	font-size: 20px;
+}
+.big_1 .hb span{
+	position: relative;
+	top: -15px;
+	background: #f8f8f8;
+	padding: 0 20px;
+	line-height: 30px;
+}
+.form-wrap{
+	padding: 30px 0 30px;
+	border-top: 1px solid #eee;
+}
+.form-wrap h4{
+	text-align: center;
+	color: #333;
+	font-size: 18px;	
+	font-weight: normal;
+	line-height: 50px;
+}
+.form-wrap .form_box{
+	width: 320px;
+	margin: 0 auto;
+	text-align: center;
+}
+.form-wrap .form_box .buts{
+	height: 36px;
+}
+.form-wrap .form_box .cols{
+	font-size: 12px;
+}
+.form-wrap .form_box .col{
+	color: #666;
+}
+.form_box .sub{
+	height: 50px;
+	font-size: 18px;
+	font-weight: bold;
+	background: #006aaf;
+	color: #fff;
+	margin-top: 14px;
+}

@@ -1,0 +1,285 @@
+
+
+body{
+	background: #fff;
+}
+
+.xxk{
+	border-bottom: 3px solid #f2f2f2;
+	padding-left: 200px;
+	height: 45px;
+}
+
+.xxk-tabs{
+	overflow: hidden;
+}
+
+.xxk li{
+	float: left;
+	width: 138px;
+	height: 44px;
+	text-align: center;
+	line-height: 44px;
+	color: #333;
+}
+
+.xxk li a{
+	display: inline-block;
+	width: 100%;
+	color: #333;
+}
+
+.xxk .active{
+	border-bottom: 4px solid #0069aa;
+}
+
+.xxk .active a{
+	color: #0069aa;
+}
+
+.line-2{
+	width: 1px;
+	height: 22px;
+	background: #e5e5e5;
+	float: left;
+	margin-top: 11px;
+}
+
+.pinpai{
+	width: 985px;
+	padding: 20px 0;
+}
+
+.container .pinpai-in{
+	padding: 20px;
+}
+
+.pinlun{
+	padding: 20px;
+}
+
+.pinlun dd{
+	padding: 30px 10px;
+	border-bottom: 1px solid #efefef;
+}
+.fenye{
+	width: 1000px;
+}
+.fenye ul{;
+}
+
+.fenye ul li{
+	display: inline-block;
+}
+
+.user-pinlun{
+	overflow: hidden;
+}
+
+.detail-pinlun-user{
+	width: 150px;
+	height: 50px;
+	float: left;
+}
+
+.detail-pinlun-user .star span{
+	color: #006aaf;
+	font-size: 14px;
+}
+
+.detail-pinlun-con{
+	width: 900px;
+	float: left;
+}
+
+.detail-pinlun-info{
+	width: 200px;
+	float: left;
+}
+
+.container .zixun{
+	padding: 40px 10px;
+}
+
+.zixun-in{
+	width: 171px;
+}
+
+.empty-img{
+	width: 80px;
+	height: 85px;
+	background: url(../file/img/xiangqing/empty.png);
+}
+
+.empty-txt{
+	line-height: 86px;
+	font-family: 'Microsoft Yahei';
+	font-size: 14px;
+	color: #666;
+}
+
+.btn-zixun{
+	width: 160px;
+	height: 50px;
+	font-size: 20px;
+	margin-top: 41px;
+	border: 1px solid #eee;
+	background: #f7f7f7;
+}
+
+.xxk{
+	border-bottom:3px solid #f2f2f2;
+	padding-left: 200px;
+	height: 45px;
+}
+.xxk-tabs{
+	overflow: hidden;
+}
+.xxk li{
+	float: left;
+	width: 138px;
+	height: 44px;
+	text-align: center;
+	line-height: 44px;
+	color: #333;
+}
+.xxk li a{
+	display: inline-block;
+	width: 100%;
+	color: #333;
+}
+.xxk .active{
+	border-bottom:4px solid #0069aa;
+}
+.xxk .active a{
+	color: #0069aa;
+}
+.line-2{
+	width: 1px;
+	height: 22px;
+	background: #e5e5e5;
+	float: left;
+	margin-top:11px ;
+}
+.pinpai{
+	padding:20px 0;
+}
+.container .pinpai-in{
+	padding: 20px;
+}
+.pinlun{
+	padding:20px;
+}
+.pinlun dd{
+	padding:30px 10px; 
+	border-bottom:1px solid #efefef;
+}
+.fenye ul{
+	text-align: center;
+	width: 1000px;
+}
+.fenye ul li{
+	display: inline-block;
+}
+.user-pinlun{
+	overflow: hidden;
+}
+.detail-pinlun-user{
+	width: 150px;
+	height: 50px;
+	float: left;
+}
+.detail-pinlun-user .star span{
+	color: #006aaf;
+	font-size: 14px;
+}
+.detail-pinlun-con{
+	width: 750px;
+	float: left;
+}
+.detail-pinlun-info{
+	width: 200px;
+	float: left;
+}
+.container .zixun{
+	padding:40px 10px;
+}
+.empty-img{
+	width: 80px;
+	height: 85px;
+	background: url(../file/img/xiangqing/empty.png);
+}
+.empty-txt {
+    line-height: 86px;
+    font-family: 'Microsoft Yahei';
+    font-size: 14px;
+    color: #666;
+}
+.btn-zixun{
+	width: 160px;
+	height: 50px;
+	font-size: 20px;
+	margin-top: 30px;
+	border: 1px solid #eee;
+	background: #f7f7f7;
+}
+.tpxq{
+	width: 1200px;
+}
+.shop_js{
+	width: 985px;
+	margin: 30px auto;
+}
+.shop_Tp{
+	width: 385px;
+	height: auto;
+	margin-bottom: 5px;			
+}
+.canshu table{
+	width: 100%;
+	margin-bottom: 15px;
+}
+.canshu table tr td{
+	width: 50%;
+	font-size: 12px;
+	color: #666666;
+}
+.liyou ul li{
+	width:985px;
+	height: 35px;
+	list-style: disc;
+	margin-left: 20px;
+}
+.shopTs{
+	width: 950px;
+	margin: 10px auto;
+}
+
+/*商品介绍*/
+
+/*规格参数*/
+.ggcs{
+	width: 965px;
+	margin: auto;
+}
+.h5show dl{
+	display: block;
+}
+
+
+.h5show dl dt{
+   background-color: #f7f7f7;
+	   font-size: 14px;
+	   color: #333;
+	   /*user-select: none;*/
+}
+.h5show dl dt,.h5show dl dd{
+		height: 40px;
+		line-height: 40px;
+		padding-left: 28px;
+		user-select: none;
+}
+.h5show dl dd label{
+	display: inline-block;
+	width: 30%;    		
+}

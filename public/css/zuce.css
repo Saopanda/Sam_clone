@@ -1,0 +1,132 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	list-style:none;
+	text-decoration: none;
+	font-size: 12px;
+}
+/*logo start*/
+header{
+	width: 100%;
+	height: 261px;
+	background: #f8f8f8;
+	overflow: hidden;
+}
+.logo{
+	width: 100%;
+	height: 131px;
+	margin-top: 50px;
+}
+.logo .logo_top{
+	width: 190px;
+	height: 100px;
+	/*background: green;*/
+	margin: auto;
+}
+.logo .logo_top .tp{
+	width: 100px;
+	height: 100px;
+	/*background: blue;*/
+	margin: auto;
+}
+.logo .logo_down{
+	width: 190px;
+	height: 31px;
+	margin: 30px auto;
+	/*background: pink;*/
+	font-size: 20px;
+	overflow: hidden;
+}
+.xian{
+	display: block;
+	height: 1px;
+	width: 190px;
+	background: black;
+	margin-top:15px; 
+}
+.kuai{
+	display: inline-block;
+	width: 100px;
+	line-height: 30px;
+	font-weight: normal;
+	color: #333;
+	user-select: none;
+	position: relative;
+	top: -15px;
+	left: 45px;
+	height: 30px;
+	font-size: 20px;
+	background: #f8f8f8;
+	text-align: center;
+}
+/*logo end*/
+
+/*bd start*/
+.biaodan{
+	width: 100%;
+	height: 543px;
+	/*background: red;*/
+	border-top:1px solid #eee;
+}
+.biaodan .bd{
+	width: 442px;
+	height: inherit;
+	margin: auto;
+	font-size: 16px;
+}
+.biaodan .bd p{
+	height: 32px;
+	line-height: 32px;
+	width: 442px;
+	text-indent: 4px;
+	color: #aaa;
+	/*background: black;*/	
+}
+.biaodan .bd .bq{
+	width: 438px;
+	height: 34px;
+	text-indent: 4px;
+	font-size: 14px;
+	color: #333;
+}
+
+.biaodan .bd .yzm{
+	width: 292px;
+	height: 34px;
+	text-indent: 4px;	
+}
+input[type="checkbox"]{
+	float: left;
+	position: relative;
+}
+.wz{
+	display: block;
+	float: left;
+	height: 14px;
+	/*background: red;*/
+	position: relative;
+	top: -2px;
+	left: 2px;
+	color: #333;
+}
+.btn_1{
+	margin: auto;
+	/*background: red;*/
+	width: 220px;
+	height: 50px;
+}
+.btn{
+	width: 220px;
+	height: 50px;
+	background: #006aaf;
+	color: #fff;
+	font-weight: bold;
+	font-size: 18px;
+	border-radius: 3px;
+	border: none;
+	cursor: pointer;
+}
+
+
+
+

@@ -1,0 +1,182 @@
+
+/*********轮播图开始**********/
+.banner{
+	height: 400px;
+	background: rgb(241, 241, 241);
+}
+.banner > div{
+	height: 400px;
+	position: relative;
+}
+.banner-in{
+	overflow: hidden;
+	position: absolute;
+	transition:all 0.5;
+	display: none;
+}
+.banner-in img{
+	margin-left: -12%;
+}
+.banner-active{
+	display: block;
+}
+.banner ul{
+	position: absolute;
+	bottom: 10px;
+	left: 330px;
+}
+.banner li {
+	float: left;
+	height: 34px;
+	line-height: 34px;
+	padding: 0 15px;
+	background: rgba(255,255,255,0.9);
+	cursor: pointer;
+	margin-right: 20px;
+}
+.banner .li-active{
+	background: #004b8d;
+	color: #fff;
+}
+
+/*******中部开始***********/
+
+
+.nr{
+	margin:10px auto;
+}
+.nr-in{
+	margin-top:22px;
+	background: #fff;
+}
+.nr-1{
+	width: 240px;
+	height: 295px;
+	margin-right: 10px;
+	color: #fff;
+	background: url(../file/img/index/member_bg.png) no-repeat;
+}
+.nr-1 p{
+	line-height: 20px;
+}
+.nr-1 > div{
+	width: 82px;
+	height: 23px;
+	line-height: 23px;
+	margin-top: 10px;
+}
+.nr-1 .sam_vip{
+	width: 110px;
+	height: 110px;
+	margin:40px 0px 14px 66px;
+	position: relative;
+	overflow: hidden;
+}
+.nr-1 .sam_logo{
+	width: 110px;
+	height: 110px;
+	padding: 16px;
+	background: url(../file/img/index/gui.png) no-repeat center;
+}
+@keyframes zhuan{
+	0%{
+		transform: rotate(0deg);
+		
+	}
+	100%{
+		transform: rotate(1080deg);
+	}
+}
+.nr-1 .sam_quan{
+	position: absolute;
+	top: 0;
+	left: 1px;
+	animation-name: zhuan;
+	animation-duration: 2s;
+	animation-timing-function:ease;
+	animation-iteration-count: infinite;
+}
+.sam_logo img{
+	width: 80px;
+	height:80px;
+}
+.nr-img{
+	width: 216px;
+	height: 216px;
+	margin:8px auto;
+}
+.nr-img img{
+	width: 100%;
+	height: 100%;
+}
+.nr-goods{
+	width: 950px;
+	margin-right:0px;
+}
+.nr-goods >div{
+	padding: 10px;
+}
+.nr-goods >div:hover{
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.nr-goods p{
+	height: 17px;
+	overflow: hidden;
+	padding: 0 20px;
+	margin-bottom: 6px;
+	font-size:14px;
+}
+.nr-goods b{
+	font-size: 14px;
+}
+
+.nr-2,.nr-3,.nr-4,.nr-5,.nr-6{
+	position: relative;
+	width: 240px;
+	height: 300px;
+	padding-top: 20px !important;
+	background-image: url(../file/img/index/shengxian.jpg);
+	background-repeat: no-repeat;
+}
+.nr-3{
+	background-image: url(../file/img/index/shipin.jpg);
+}
+.nr-4{
+	background-image: url(../file/img/index/muyin.jpg);
+}
+.nr-5{
+	background-image: url(../file/img/index/qingjie.jpg);
+}
+.nr-6{
+	background-image: url(../file/img/index/shuma.jpg);
+}
+.nr-2 ul{
+	background: #80bc0e;
+}
+.nr-3 ul{
+	background: #f68595;
+}
+.nr-4 ul{
+	background: #7855c0;
+}
+.nr-5 ul{
+	background: #1777dd;
+}
+.nr-6 ul{
+	background: #1777dd;
+}
+.nr-in > .col-md-3 ul{
+	position: absolute;
+	height: 56px;
+	color: #fff;
+	bottom: 0px;
+	padding-top: 2px;
+}
+.nr-in > .col-md-3 ul li{
+	float: left;
+	padding: 0 35px;
+}
+.nr-in h3,.nr-in h4{
+	margin-left: 24px;
+	color: #fff;
+}
