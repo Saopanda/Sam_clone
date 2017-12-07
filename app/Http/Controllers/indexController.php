@@ -19,7 +19,7 @@ class indexController extends Controller
     //登陆
     public function login()
     {
-    	return view('');
+    	return view('login');
     }
     //注册
     public function signup()
