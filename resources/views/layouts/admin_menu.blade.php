@@ -6,7 +6,6 @@
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>用户管理<b class="fa fa-plus dropdown-plus"></b></a>
       <ul class="dropdown-menu">
-<<<<<<< HEAD
           <li>
             <a href="form-elements.html">
               <i class="fa fa-caret-right"></i>
@@ -44,7 +43,6 @@
               添加管理员
             </a>
           </li>          
-=======
         <li>
           <a href="form-elements.html">
             <i class="fa fa-caret-right"></i>
@@ -63,7 +61,6 @@
             待激活会员
           </a>
         </li>
->>>>>>> e540435a08b49235c09760f413f6ea66c203caa9
       </ul>
     </li>
     <!-- 广告管理 -->
