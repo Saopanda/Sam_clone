@@ -85,4 +85,10 @@ class UserController extends Controller
     {
         //用户删除操作
     }
+
+
+    public function jihuo()
+    {
+        // 待激活会员
+    }
 }
