@@ -27,6 +27,24 @@
 
     <link href="/css/minimal.css" rel="stylesheet">
   </head>
+  <style>
+    label{
+      font-weight: normal;
+    }
+    .btn-default{
+      opacity: 0.7
+    }
+    .has-error{
+      color: #FF9999;
+    }
+    .btn-a{
+      display: inline-block;
+      border: 0;
+      background: rgba(255,255,255,0);
+      color: #428bca;
+    }
+    
+  </style>
   <body class="bg-1">
     <!-- Preloader -->
     <div class="mask"><div id="loader"></div></div>
@@ -88,7 +106,15 @@
         <!-- Page content -->
         <div id="content" class="col-md-12">
           <!-- page header -->
-          <div class="pageheader">
+            @section('nr_title')
+              
+            @show
+            <div style="height: 20px"></div>
+            @if(!empty(session('msg')))
+            <div class="alert {{session('msg_info')}}">
+              <strong>{{session('msg')}}</strong>
+            </div>
+            @endif
             @section('nr')
 
             @show
