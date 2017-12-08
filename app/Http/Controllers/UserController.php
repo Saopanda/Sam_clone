@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 class UserController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class UserController extends Controller
     public function index()
     {
         //用户管理首页,显示用户列表
-        echo "用户列表";
+        $rs = DB::table('user')->paginate(12);
+        return view('admin.user.liebiao',['rs'=>$rs]);
 
     }
 
@@ -38,7 +39,18 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //用户添加操作页面
-
+        $data = $request->except('_token','repwd');
+        $count = DB::table('user')->where('name',$data['name'])->count();
+        if($count>0){
+            return back()->with(['msg'=>'oh! 添加失败! 已存在相同用户名','msg_info'=>'alert-danger']);
+        }else{
+            $rs = DB::table('user')->insert($data);
+            if($rs){
+                return redirect('/admin/user')->with(['msg'=>'ok~ 添加成功!','msg_info'=>'alert-success']);
+            }else{
+                return back()->with(['msg'=>'oh! 添加失败!','msg_info'=>'alert-danger']);
+            }
+        }
     }
 
     /**
@@ -61,6 +73,8 @@ class UserController extends Controller
     public function edit($id)
     {
         //用户编辑
+        $rs = DB::table('user')->where('id',$id)->first();
+        return view('admin.user.edit',['rs'=>$rs]);
     }
 
     /**
@@ -73,6 +87,13 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //用户编辑更新操作
+        $data = $request->only('phone','email');
+        $rs = DB::table('user')->where('id',$id)->update($data);
+        if($rs){
+            return redirect('/admin/user')->with(['msg'=>'ok~ 修改成功!','msg_info'=>'alert-success']);
+        }else{
+            return back()->with(['msg'=>'oh! 修改失败!','msg_info'=>'alert-danger']);
+        }
     }
 
     /**
@@ -84,6 +105,12 @@ class UserController extends Controller
     public function destroy($id)
     {
         //用户删除操作
+        $rs = DB::table('user')->where('id',$id)->delete();
+        if($rs){
+            return redirect('/admin/user')->with(['msg'=>'ok~ 删除成功!','msg_info'=>'alert-success']);
+        }else{
+            return back()->with(['msg'=>'oh! 删除失败!','msg_info'=>'alert-danger']);
+        }
     }
 
 
