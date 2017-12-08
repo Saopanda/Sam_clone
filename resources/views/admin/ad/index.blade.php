@@ -3,13 +3,12 @@
 @section('title')
     <title>Sam 后台管理--广告列表</title>
 @endsection
-
+@section('nr_title')
+<div class="pageheader">
+	<h2><i class="fa fa-check-square" style="line-height: 48px;padding-left: 1px;"></i> 广告列表<span> Sam 广告列表页</span></h2>
+</div>
+@stop
 @section('nr')
-
-	<div class="pageheader">
-	    <h2><i class="fa fa-check-square" style="line-height: 48px;padding-left: 1px;"></i> 广告列表</h2>   
-	</div>
-	<div style="height: 20px;"></div>
 
 	<section class="tile color transparent-black">
 	<!-- tile header -->

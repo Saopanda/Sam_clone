@@ -53,9 +53,9 @@ class AdController extends Controller
         }
          //将数据插入到数据库中
         if(DB::table('ad')->insert($data)) {
-            return redirect('/admin/ad')->with('msg','添加成功');
+            return redirect('/admin/ad')->with(['msg'=>'ok~ 添加成功!','msg_info'=>'alert-success']);
         }else{
-            return back()->with('msg','添加失败!!');
+            return back()->with(['msg'=>'ok~ 添加失败!','msg_info'=>'alert-danger']);
         }
     }
 
@@ -109,9 +109,9 @@ class AdController extends Controller
         }
          //将数据插入到数据库中
         if(DB::table('ad')->where('id',$id)->update($data)) {
-            return redirect('/admin/ad')->with('msg','修改成功');
+            return redirect('/admin/ad')->with(['msg'=>'ok~ 修改成功!','msg_info'=>'alert-success']);
         }else{
-            return back()->with('msg','修改失败!!');
+            return back()->with(['msg'=>'添加失败!','msg_info'=>'alert-danger']);
         }
     }
 
@@ -124,9 +124,9 @@ class AdController extends Controller
     public function destroy($id)
     {
         if(DB::table('ad')->where('id', $id)->delete()) {
-            return back()->with('msg','删除成功');
+            return back()->with(['msg'=>'ok~ 删除成功!','msg_info'=>'alert-success']);
         }else{
-            return back()->with('msg','删除失败!!');
+            return back()->with(['msg'=>'ok~ 删除失败!','msg_info'=>'alert-danger']);
         }
     }
 }

@@ -1,9 +1,13 @@
 @extends('layouts.admin_index')
 
 @section('title')
-    <title>Sam 后台管理--添加广告</title>
+    <title>Sam 后台管理--修改广告</title>
 @endsection
-
+@section('nr_title')
+<div class="pageheader">
+  <h2><i class="fa fa-check-square" style="line-height: 48px;padding-left: 1px;"></i> 广告修改<span> Sam 广告修改页</span></h2>
+</div>
+@stop
 @section('nr')
 <style>
 	label{
@@ -28,11 +32,7 @@
   }
 	
 </style>
-<!-- 头 -->
-<div class="pageheader">
-	<h2><i class="fa fa-check-square" style="line-height: 48px;padding-left: 1px;"></i> 广告添加<span> Sam 广告添加页</span></h2>
-</div>
-<div style="height: 20px"></div>
+
 <!-- 主题表单 -->
 <section class="col-md-7 col-md-offset-2 tile color transparent-black">
   <!-- tile header -->
