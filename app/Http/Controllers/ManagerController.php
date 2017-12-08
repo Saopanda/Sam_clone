@@ -23,7 +23,7 @@ class ManagerController extends Controller
      */
     public function create()
     {
-        echo "string";
+        return view('admin.manager.create');
     }
 
     /**
