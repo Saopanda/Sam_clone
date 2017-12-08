@@ -24,6 +24,6 @@ class indexController extends Controller
     //注册
     public function signup()
     {
-		echo "";
+		return view('signup');
 	}
 }

@@ -1,22 +1,12 @@
 @extends('layouts.admin_index')
-@section('nr')
-<style>
-	label{
-		font-weight: normal;
-	}
-	.btn-default{
-		opacity: 0.7
-	}
-	.has-error{
-		color: #FF9999;
-	}
-	
-</style>
+
+@section('nr_title')
 <!-- 头 -->
 <div class="pageheader">
 	<h2><i class="fa fa-check-square" style="line-height: 48px;padding-left: 1px;"></i> 会员添加<span> Sam 会员添加页</span></h2>
 </div>
-<div style="height: 20px"></div>
+@stop
+@section('nr')
 <!-- 主题表单 -->
 <section class="col-md-7 col-md-offset-2 tile color transparent-black">
   <!-- tile header -->
@@ -31,6 +21,7 @@
   <div class="tile-body">
     <form class="form-horizontal" role="form" parsley-validate="" id="basicvalidations" action="/admin/user" method="post">
       {{csrf_field()}}
+
       <div class="form-group">
         <label for="fullname" class="col-sm-4 control-label">用户名</label>
         <div class="col-sm-8">
