@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Hash;
+use DB;
 
 class ManagerController extends Controller
 {
@@ -11,9 +13,10 @@ class ManagerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.manager.index');
+        $data=DB::table('manager')->orderBy('id','desc')->paginate(10);
+        return view('admin.manager.index',['data'=>$data,]);
     }
 
     /**
@@ -35,6 +38,16 @@ class ManagerController extends Controller
     public function store(Request $request)
     {
        
+       $data=$request->except(['_token','repwd']);
+       $data['pwd']=Hash::make($data['pwd']);
+       // DB::table('manager')->insert($data);
+       $res=DB::table('manager')->where('name',$data['name'])->first();       
+       if (empty($res)){
+           DB::table('manager')->insert($data);
+           return back()->with('msg','添加成功!!!');
+       }else{
+           return back()->with('msg','添加失败!!!');
+       }  
     }
 
     /**
@@ -54,9 +67,10 @@ class ManagerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request,$id)
     {
-        //
+        $res=DB::table('manager')->where('id',$id)->first();
+        return view('admin.manager.edit',['res'=>$res]);
     }
 
     /**
@@ -68,7 +82,20 @@ class ManagerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data=$request->except(['_token','_method']);
+        $res=DB::table('manager')->where('id',$id)->first();
+        $yz=Hash::check($data['oldpwd'],$res->pwd);
+        // dd($yz);    
+        $newdata=$request->except(['_token','_method','oldpwd']); 
+        $newdata['pwd']=Hash::make($data['pwd']);        
+        if (!$yz) {
+            return back()->with('msg','密码错误,请重新修改!!!');
+        }else{
+            DB::table('manager')->where('id',$id)->update($newdata);
+            return back()->with('msg','恭喜您,修改成功!!!');
+            // alert(1);
+        }
+        
     }
 
     /**
@@ -79,6 +106,11 @@ class ManagerController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $res = DB::table('manager')->where('id',$id)->delete();
+       if ($res) {
+           return back()->with('msg','删除成功');
+       }else{
+           return back()->with('msg','删除成功');
+       }
     }
 }

@@ -10,7 +10,7 @@
 	}
 </style>
 <div class="pageheader">
-    <h2><i class="fa fa-check-square" style="line-height: 48px;padding-left: 1px;"></i> 管理员列表</h2>   
+    <h2><i class="fa fa-check-square" style="line-height: 48px;padding-left: 1px;"></i> 管理员列表<span> Sam 管理员列表页</span></h2>   
 </div>
 <div style="height: 20px;"></div>
 
@@ -33,18 +33,25 @@
 					<th class="text-center" style="width: 140px;">操作</th>
 				</tr>
 			</thead>
-			<tbody>
+			@foreach($data as $key => $val)
+			<tbody> 
 				<tr>					
-					<td class="text-center">ID</td>
-					<td class="text-center">帐号</td>
-					<td class="text-center">状态</td>
+					<td class="text-center">{{$val->id}}</td>
+					<td class="text-center">{{$val->name}}</td>
+					<td class="text-center">{{$val->status}}</td>
 					<td class="text-center" >
-						<a href="">修改</a>
+						<a href="/admin/manager/{{$val->id}}/edit" style="display: block;" class="pull-left btn">修改</a>
 						&nbsp;
-						<a href="">删除</a>
+						<form method="post" action="/admin/manager/{{$val->id}}" style="display: inline-block;">
+							{{csrf_field()}}
+							{{method_field('DELETE')}}
+							<button class="btn-a">删除</button>							
+						</form>
+						
 					</td>
 				</tr>				
 			</tbody>
+			@endforeach
 		</table>
 	</div>
 <!-- /tile body -->
@@ -52,16 +59,8 @@
 
 <!-- 分页 -->
 <div style="margin-bottom: 20px;"></div>
-<div class="col-sm-4 text-right sm-center pull-right">
-	<ul class="pagination pagination-xs nomargin pagination-custom">
-		<li class="disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-		<li class="active"><a href="#">1</a></li>
-		<li><a href="#">2</a></li>
-		<li><a href="#">3</a></li>
-		<li><a href="#">4</a></li>
-		<li><a href="#">5</a></li>
-		<li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-	</ul>
+<div class="text-right sm-center pull-right">
+	{{$data->links()}}
 </div>
 <!-- /tile footer -->
 </section>
