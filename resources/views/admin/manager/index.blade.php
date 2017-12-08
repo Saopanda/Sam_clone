@@ -40,7 +40,7 @@
 					<td class="text-center">{{$val->name}}</td>
 					<td class="text-center">{{$val->status}}</td>
 					<td class="text-center" >
-						<a href="/admin/manager/{{$val->id}}/edit" style="display: block;" class="pull-left btn">修改</a>
+						<a href="/admin/manager/{{$val->id}}/edit">修改</a>
 						&nbsp;
 						<form method="post" action="/admin/manager/{{$val->id}}" style="display: inline-block;">
 							{{csrf_field()}}
