@@ -65,9 +65,6 @@
             <!-- Quick Actions -->
             <ul class="nav navbar-nav quick-actions">
               <li class="dropdown divided user" id="current-user">
-                <div class="profile-photo">
-                  <img src="/images/manage/profile-photo.jpg" alt />
-                </div>
                 <a class="dropdown-toggle options" style="height: 45px" data-toggle="dropdown" href="#">
                   用户名 <i class="fa fa-caret-down"></i>
                 </a>
@@ -143,4 +140,7 @@
 
     <script src="/js/minimal.min.js"></script>
   </body>
+  @section('js')
+
+  @show
 </html>

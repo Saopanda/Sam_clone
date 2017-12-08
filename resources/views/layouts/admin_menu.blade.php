@@ -7,19 +7,19 @@
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>用户管理<b class="fa fa-plus dropdown-plus"></b></a>
       <ul class="dropdown-menu">
           <li>
-            <a href="form-elements.html">
+            <a href="/admin/user">
               <i class="fa fa-caret-right"></i>
               会员列表
             </a>
           </li>
           <li>
-            <a href="validation-elements.html">
+            <a href="/admin/user/create">
               <i class="fa fa-caret-right"></i>
               添加会员
             </a>
           </li>
           <li>
-            <a href="form-wizard.html">
+            <a href="/admin/user/jihuo">
               <i class="fa fa-caret-right"></i>
               待激活会员
             </a>
@@ -32,7 +32,7 @@
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>管理员管理<b class="fa fa-plus dropdown-plus"></b></a>
       <ul class="dropdown-menu">
           <li>
-            <a href="#">
+            <a href="/admin/manager">
               <i class="fa fa-caret-right"></i>
               管理员列表
             </a>
@@ -43,27 +43,6 @@
               添加管理员
             </a>
           </li>
-          </li>          
-        
-          </li>          
-        <li>
-          <a href="form-elements.html">
-            <i class="fa fa-caret-right"></i>
-            会员列表
-          </a>
-        </li>
-        <li>
-          <a href="/admin/user/create">
-            <i class="fa fa-caret-right"></i>
-            添加会员
-          </a>
-        </li>
-        <li>
-          <a href="form-wizard.html">
-            <i class="fa fa-caret-right"></i>
-            待激活会员
-          </a>
-        </li>
       </ul>
     </li>
     <!-- 广告管理 -->
