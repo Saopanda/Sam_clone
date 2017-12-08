@@ -5,6 +5,7 @@
 @endsection
 
 @section('nr')
+
 	<div class="pageheader">
 	    <h2><i class="fa fa-check-square" style="line-height: 48px;padding-left: 1px;"></i> 广告列表</h2>   
 	</div>
@@ -31,20 +32,38 @@
 						<th class="text-center" style="width: 140px;">操作</th>
 					</tr>
 				</thead>
+				@foreach($data as $k=>$v)
 				<tbody>
+				
 					<tr>					
-						<td class="text-center">ID</td>
-						<td class="text-center">标题</td>
-						<td class="text-center"><img src=""/></td>
+						<td class="text-center">{{$v->id}}</td>
+						<td class="text-center">{{$v->title}}</td>
+						<td class="text-center"><img src="{{$v->img_url}}" width="50" height="50" /></td>
+						@if($v->is_show == 1)
 						<td class="text-center">是</td>
+						@else
+						<td class="text-center">否</td>
+						@endif
+						@if($v->show_order == 1)
 						<td class="text-center">轮播图</td>
+						@elseif($v->show_order == 2)
+						<td class="text-center">中部广告</td>
+						@else
+						<td class="text-center">尾部广告</td>
+						@endif
 						<td class="text-center" >
-							<a href="">修改</a>
+							<a href="/admin/ad/{{$v->id}}/edit">修改</a>
 							&nbsp;
-							<a href="">删除</a>
+							<form style="display: inline-block;" action="/admin/ad/{{$v->id}}" method="post" class="del">
+							{{method_field('DELETE')}}
+                            {{csrf_field()}}
+							<button class='btn-a'>删除</button>
+							</form>
 						</td>
-					</tr>				
+					</tr>
+				
 				</tbody>
+				@endforeach
 			</table>
 		</div>
 	<!-- /tile body -->
@@ -53,16 +72,15 @@
 	<!-- 分页 -->
 	<div style="margin-bottom: 20px;"></div>
 	<div class="col-sm-4 text-right sm-center pull-right">
-		<ul class="pagination pagination-xs nomargin pagination-custom">
-			<li class="disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-			<li class="active"><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">4</a></li>
-			<li><a href="#">5</a></li>
-			<li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-		</ul>
+		{{$data->links()}}
 	</div>
 <!-- /tile footer -->
 </section>
+@endsection
+@section('js')
+<script>
+$('.del').submit(function(){
+    if(!confirm('您确定要删除该广告?')) return false;
+});
+</script>
 @endsection

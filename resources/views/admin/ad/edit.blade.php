@@ -23,6 +23,9 @@
     -webkit-font-smoothing: antialiased;
     line-height: 20px;
 	}
+  .tex{
+    margin:14px 0;
+  }
 	
 </style>
 <!-- 头 -->
@@ -42,12 +45,13 @@
   <!-- /tile header -->
   <!-- tile body -->
   <div class="tile-body">
-    <form class="form-horizontal" role="form" parsley-validate="" id="basicvalidations" action="/admin/ad" method="post" enctype="multipart/form-data">
+    <form class="form-horizontal" role="form" parsley-validate="" id="basicvalidations" action="/admin/ad/{{$xginfo->id}}" method="post" enctype="multipart/form-data">
       {{csrf_field()}}
+      {{method_field('PUT')}}
       <div class="form-group">
         <label for="fullname" class="col-sm-4 control-label">标题</label>
         <div class="col-sm-8">
-          <input name="title" type="text" class="form-control parsley-validated" id="fullname" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1">
+          <input name="title" type="text" class="form-control parsley-validated" id="fullname" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1" value="{{$xginfo->title}}">
           <label></label>
         </div>
       </div>
@@ -55,6 +59,9 @@
       <div class="form-group">
         <label for="img_url" class="col-sm-4 control-label ">上传图片</label>
         <div class="col-sm-8">
+        <div class="tex">
+        <img src="{{$xginfo->img_url}}" alt="" width="100" height="100">
+        </div>
           <input name="img_url" type="file" class="form-control parsley-validated btn btn-default" id="email" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-type="email" parsley-validation-minlength="1">
           <label></label>
         </div>
@@ -64,9 +71,13 @@
         <label for="password" class="col-sm-4 control-label">是否显示</label>
         <div class="col-sm-8">
           <select name="is_show" class="form-control parsley-validated">
-            <option value="">请选择</option>
-          	<option value="1">显示</option>
+            @if($xginfo->is_show == 1)
+          	<option value="1" selected>显示</option>
           	<option value="0">隐藏</option>
+            @else
+            <option value="1">显示</option>
+            <option value="0" selected>隐藏</option>
+            @endif
           </select>
           <label></label>
         </div>
@@ -76,10 +87,19 @@
         <label for="website" class="col-sm-4 control-label">显示位置</label>
         <div class="col-sm-8">
           <select name="show_order" class="form-control parsley-validated">
-          	<option value="">请选择</option>
-          	<option value="1">轮播图</option>
+          	@if($xginfo->show_order == 1)
+          	<option value="1" selected>轮播图</option>
           	<option value="2">中部广告</option>
           	<option value="3">尾部广告</option>
+            @elseif($xginfo->show_order == 2)
+            <option value="1">轮播图</option>
+            <option value="2" selected>中部广告</option>
+            <option value="3">尾部广告</option>
+            @else
+            <option value="1">轮播图</option>
+            <option value="2" >中部广告</option>
+            <option value="3" selected>尾部广告</option>
+            @endif
           </select>
           <label></label>
         </div>
@@ -87,7 +107,7 @@
 
       <div class="form-group form-footer">
         <div class="col-sm-offset-4 col-sm-8">
-          <button type="submit" class="btn btn-default">添加</button>
+          <button type="submit" class="btn btn-default">修改</button>
           <button type="reset" class="btn btn-default">重写</button>
         </div>
       </div>
