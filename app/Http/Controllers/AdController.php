@@ -14,6 +14,7 @@ class AdController extends Controller
     public function index()
     {
         //
+        return view('admin.ad.index');
     }
 
     /**
@@ -23,7 +24,7 @@ class AdController extends Controller
      */
     public function create()
     {
-        return view('admin.Ad.ad');
+        return view('admin.ad.create');
     }
 
     /**

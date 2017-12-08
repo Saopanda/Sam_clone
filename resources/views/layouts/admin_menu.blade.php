@@ -71,13 +71,13 @@
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>广告管理<b class="fa fa-plus dropdown-plus"></b></a>
       <ul class="dropdown-menu">
         <li>
-          <a href="form-elements.html">
+          <a href="/admin/ad">
             <i class="fa fa-caret-right"></i>
             广告列表
           </a>
         </li>
         <li>
-          <a href="validation-elements.html">
+          <a href="/admin/ad/create">
             <i class="fa fa-caret-right"></i>
             添加广告
           </a>
