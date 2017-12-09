@@ -1,5 +1,12 @@
 @extends('layouts.admin_index')
 
+@section('nr_title')
+<div class="pageheader">
+    <h2><i class="fa fa-check-square" style="line-height: 48px;padding-left: 1px;"></i> 管理员列表<span> Sam 管理员列表页</span></h2>   
+</div>
+@stop
+
+
 @section('nr')
 <style type="text/css">
 	a{
@@ -9,10 +16,6 @@
 		text-decoration: none;
 	}
 </style>
-<div class="pageheader">
-    <h2><i class="fa fa-check-square" style="line-height: 48px;padding-left: 1px;"></i> 管理员列表<span> Sam 管理员列表页</span></h2>   
-</div>
-<div style="height: 20px;"></div>
 
 <section class="tile color transparent-black">
 <!-- tile header -->
@@ -29,7 +32,7 @@
 				<tr>					
 					<th class="text-center">ID</th>
 					<th class="text-center">管理员帐号</th>
-					<th class="text-center sort-asc">状态</th>
+					<th class="text-center">状态</th>
 					<th class="text-center" style="width: 140px;">操作</th>
 				</tr>
 			</thead>
@@ -58,7 +61,6 @@
 
 
 <!-- 分页 -->
-<div style="margin-bottom: 20px;"></div>
 <div class="text-right sm-center pull-right">
 	{{$data->links()}}
 </div>

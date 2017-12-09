@@ -1,5 +1,11 @@
 @extends('layouts.admin_index')
 
+@section('nr_title')
+<div class="pageheader">
+    <h2><i class="fa fa-check-square" style="line-height: 48px;padding-left: 1px;"></i> 修改管理员信息 <span>sam  管理员修改页</span></h2>    
+</div>
+@stop
+
 @section('nr')
 <style>
 	label{
@@ -23,9 +29,7 @@
 	}
 
 </style>
-<div class="pageheader">
-    <h2><i class="fa fa-check-square" style="line-height: 48px;padding-left: 1px;"></i> 修改管理员信息 <span>sam  管理员修改页</span></h2>    
-</div>
+
 
 
 <section class="col-md-7 col-md-offset-2 tile color transparent-black">	
