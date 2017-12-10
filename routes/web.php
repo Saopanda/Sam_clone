@@ -39,6 +39,8 @@ Route::group([],function(){
 // 后台登陆
 Route::get('/admin/login','adminController@login');
 
+Route::get('/getwomenu','ClassController@getwomenu');
+
 // 后台已登陆界面
 Route::group([],function(){
 	// 后台首页
