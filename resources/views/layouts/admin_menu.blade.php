@@ -63,6 +63,7 @@
         </li>
       </ul>
     </li>
+<<<<<<< HEAD
      <!-- 分类管理 -->
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>分类管理<b class="fa fa-plus dropdown-plus"></b></a>
@@ -81,5 +82,27 @@
         </li>
       </ul>
     </li>
+=======
+    <!-- 商品管理 -->
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>商品管理<b class="fa fa-plus dropdown-plus"></b></a>
+      <ul class="dropdown-menu">
+          <li>
+            <a href="/admin/goods">
+              <i class="fa fa-caret-right"></i>
+              商品列表
+            </a>
+          </li>
+          <li>
+            <a href="/admin/goods/create">
+              <i class="fa fa-caret-right"></i>
+              添加商品
+            </a>
+          </li>
+      </ul>
+    </li>
+
+
+>>>>>>> a018ffe3c0a906c4023cdc8336a64a01ea53e05a
   </ul>
 </li>

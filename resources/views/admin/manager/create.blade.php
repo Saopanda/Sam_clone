@@ -1,5 +1,10 @@
 @extends('layouts.admin_index')
 
+@section('nr_title')
+<div class="pageheader">
+    <h2><i class="fa fa-check-square" style="line-height: 48px;padding-left: 1px;"></i> 添加管理员 <span>sam  管理员添加页</span></h2>    
+</div>
+@stop
 @section('nr')
 <style>
 	label{
@@ -13,9 +18,7 @@
 	}
 	
 </style>
-<div class="pageheader">
-    <h2><i class="fa fa-check-square" style="line-height: 48px;padding-left: 1px;"></i> 添加管理员 <span>sam  管理员添加页</span></h2>    
-</div>
+
 
 
 <section class="col-md-7 col-md-offset-2 tile color transparent-black">	
@@ -33,7 +36,7 @@
       <div class="form-group">
         <label for="fullname" class="col-sm-4 control-label">管理员帐号</label>
         <div class="col-sm-8">
-          <input name="name" type="text" class="form-control parsley-validated" id="fullname" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1" value="1">
+          <input name="name" type="text" class="form-control parsley-validated" id="fullname" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1">
           <label></label>
         </div>
       </div>      

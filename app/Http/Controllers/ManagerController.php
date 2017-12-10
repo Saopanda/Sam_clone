@@ -36,17 +36,15 @@ class ManagerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-       
+    {       
        $data=$request->except(['_token','repwd']);
        $data['pwd']=Hash::make($data['pwd']);
-       // DB::table('manager')->insert($data);
        $res=DB::table('manager')->where('name',$data['name'])->first();       
        if (empty($res)){
            DB::table('manager')->insert($data);
-           return back()->with('msg','添加成功!!!');
+           return redirect('/admin/manager')->with(['msg'=>'ok~ 添加成功!','msg_info'=>'alert-success']);
        }else{
-           return back()->with('msg','添加失败!!!');
+           return back()->with(['msg'=>'oh! 添加失败!','msg_info'=>'alert-danger']);
        }  
     }
 
@@ -89,11 +87,11 @@ class ManagerController extends Controller
         $newdata=$request->except(['_token','_method','oldpwd']); 
         $newdata['pwd']=Hash::make($data['pwd']);        
         if (!$yz) {
-            return back()->with('msg','密码错误,请重新修改!!!');
+
+            return back()->with(['msg'=>'oh! 修改失败!','msg_info'=>'alert-danger']);
         }else{
             DB::table('manager')->where('id',$id)->update($newdata);
-            return back()->with('msg','恭喜您,修改成功!!!');
-            // alert(1);
+            return redirect('/admin/manager')->with(['msg'=>'ok~ 修改成功!','msg_info'=>'alert-success']);     
         }
         
     }
@@ -108,9 +106,9 @@ class ManagerController extends Controller
     {
        $res = DB::table('manager')->where('id',$id)->delete();
        if ($res) {
-           return back()->with('msg','删除成功');
+           return redirect('/admin/manager')->with(['msg'=>'ok~ 删除成功!','msg_info'=>'alert-success']);
        }else{
-           return back()->with('msg','删除成功');
+           return back()->with(['msg'=>'oh! 删除失败!','msg_info'=>'alert-danger']);
        }
     }
 }

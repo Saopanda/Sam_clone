@@ -4,41 +4,34 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * 显示用户列表
      */
     public function index()
     {
-        //用户管理首页,显示用户列表
-        $rs = DB::table('user')->paginate(12);
+        
+        $rs = DB::table('user')->paginate(10);
         return view('admin.user.liebiao',['rs'=>$rs]);
-
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     *  创建新用户
      */
     public function create()
     {
-        //用户添加页面
+        
         return view('admin.user.add');
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * 用户添加操作页面
      */
     public function store(Request $request)
     {
-        //用户添加操作页面
+        
         $data = $request->except('_token','repwd');
         $count = DB::table('user')->where('name',$data['name'])->count();
         if($count>0){
@@ -54,39 +47,34 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * 未激活会员
      */
     public function show($id)
     {
-        //...
+        if($id == 'jihuo'){
+            $rs = DB::table('user')->where('ztid','0')->paginate(10);
+            return view('admin.user.jihuo',['rs'=>$rs]);
+        }else{
+            abort(404);
+        }
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * 用户编辑
      */
     public function edit($id)
     {
-        //用户编辑
+        
         $rs = DB::table('user')->where('id',$id)->first();
         return view('admin.user.edit',['rs'=>$rs]);
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * 用户编辑更新操作
      */
     public function update(Request $request, $id)
     {
-        //用户编辑更新操作
+        
         $data = $request->only('phone','email');
         $rs = DB::table('user')->where('id',$id)->update($data);
         if($rs){
@@ -97,14 +85,11 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * 用户删除操作
      */
     public function destroy($id)
     {
-        //用户删除操作
+        
         $rs = DB::table('user')->where('id',$id)->delete();
         if($rs){
             return redirect('/admin/user')->with(['msg'=>'ok~ 删除成功!','msg_info'=>'alert-success']);
@@ -113,9 +98,11 @@ class UserController extends Controller
         }
     }
 
-
-    public function jihuo()
+    public function tx($id)
     {
-        // 待激活会员
+        //return back()->with(['msg'=>'ok~ 已发送邮件提醒','msg_info'=>'alert-success']);
+        return back()->with(['msg'=>'oh! 邮件发送失败','msg_info'=>'alert-danger']);
     }
+
+
 }

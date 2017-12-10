@@ -17,8 +17,29 @@ Route::get('/list','indexController@list');
 // 商品详情
 Route::get('/{id}.html','GoodsController@show');
 
-//前台注册
-Route::get('/signup','indexController@signup');
+
+################### 注册 ########################
+Route::get('/signup','signupController@signup');
+
+	//验证重名
+Route::get('/signup/name','signupController@name');
+	//短信验证码创建
+Route::get('/signup/sms_create','signupController@sms_create');
+	//短信验证
+Route::get('/signup/sms','signupController@sms');
+	//注册操作
+Route::post('/signup','signupcontroller@store');
+	//激活邮件发送
+Route::get('/signup/send/{id}','signupController@send');
+	//激活邮件验证
+Route::get('/signup/yz/{id}','signupController@yz');
+
+################### 注册 ########################
+
+
+
+
+Route::get('/test','testController@test');
 // 前台登陆
 Route::get('/login','indexController@login');
 
@@ -45,8 +66,10 @@ Route::get('/getwomenu','ClassController@getwomenu');
 Route::group([],function(){
 	// 后台首页
 	Route::get('/admin','adminController@index');
-	//后台用户管理
+	//用户管理
 	Route::resource('/admin/user','UserController');
+		//用户激活提醒
+	Route::get('/admin/user/{id}/tx','UserController@tx');
 	//商品管理
 	Route::resource('/admin/goods','GoodsController');
 	//分类管理
@@ -57,11 +80,8 @@ Route::group([],function(){
 	Route::resource('/admin/order','OrderController');
 	//评价管理
 	Route::resource('/admin/pinglun','PinglunController');
-
 	//后台管理员
 	Route::resource('/admin/manager','ManagerController');
-
-
 });
 
 

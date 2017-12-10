@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use DB;
+=======
+use Mail;
+>>>>>>> a018ffe3c0a906c4023cdc8336a64a01ea53e05a
 class indexController extends Controller
 {
 	// 首页展示
@@ -33,9 +37,4 @@ class indexController extends Controller
     {
     	return view('login');
     }
-    //注册
-    public function signup()
-    {
-		return view('signup');
-	}
 }

@@ -20,7 +20,1027 @@
 	<title>sam_index</title>
 </head>
 <body id="body">
+<<<<<<< HEAD
  @include('layouts.header')
+=======
+<!-- 头部 -->
+<header class="container-fulid">
+	<div class="container-fulid header-top">
+		<div class="container">
+			<div class="pull-left">
+				<span>下午好，山姆欢迎您！</span>
+				<a href="">登陆 </a>|
+				<a href="/signup"> 注册</a>
+			</div>
+			<div class="pull-right">
+				<dl>
+					<dt><a href="">我的山姆</a><i class="glyphicon glyphicon-menu-down"></i></dt>
+					<dd class="xiala-my">
+						<ul>
+							<li><a href="">个人资料</a></li>
+							<li><a href="">我的订单</a></li>
+							<li><a href="">我的优惠券</a></li>
+							<li><a href="">服务中心</a></li>
+							<li><a href="">商品点评</a></li>
+							<li><a href="">购物咨询</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<div class="line-1"></div>
+				<dl>
+					<dt><a href="">帮助中心</a><i class="glyphicon glyphicon-menu-down"></i></dt>
+					<dd class="xiala-help">
+						<ul>
+							<li><a href="">常见问题</a></li>
+							<li><a href="">忘记密码</a></li>
+							<li><a href="">联系我们</a></li>
+							<li><a href="">增值服务</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<div class="line-1"></div>
+				<dl>
+					<dt><a href="">快购工具</a><i class="glyphicon glyphicon-menu-down"></i></dt>
+					<dd class="xiala-kuai">
+						<ul>
+							<li><a href="">常购清单</a></li>
+							<li><a href="">一页购齐</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<div class="line-1"></div>
+				<dl>
+					<dt><a href="">会籍介绍</a></dt>
+				</dl>
+				<div class="line-1"></div>
+				<dl>
+					<dt><a href="">掌上山姆</a><i class="glyphicon glyphicon-menu-down"></i></dt>
+					<dd class="xiala-phone">
+						<ul>
+							<li><img src="" alt="山姆微信"><p>山姆微信服务</p></li>
+							<li><img src="" alt="客户端"><p>山姆手机客户端</p></li>
+						</ul>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+	<div class="container-fulid header-middle">
+		<div class="container">
+			<div class="pull-left logo">
+				<img src="/file/img/logo.png" alt="">
+			</div>
+			<a href="">
+			<div class="location pull-left">
+				<i class="fa fa-location-arrow"></i>
+				北京
+			</div>
+			</a>
+			<div class="news pull-left">
+				<p class="pull-left">山姆头条 1/1 </p>&nbsp;<span>年终感恩回馈</span>
+			</div>
+			<div class="pull-right search">
+				<form action="" >
+					<input class="form-control" type="text" name="">
+					<button><i class="glyphicon glyphicon-search"></i></button>
+				</form>
+				<div class="cart">
+					<span>0</span><i class="fa fa-shopping-cart"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fulid nav">
+		<div class="container">
+			<dl class="nav-x-1">
+				<dt><a href="">生鲜食品</a></dt>
+				<dd>
+					<div class="nav-two">
+						<h5>肉蛋水产</h5>
+						<ul>
+							<li><a href="">猪肉</a></li>
+							<li><a href="">牛/羊肉</a></li>
+							<li><a href="">禽类</a></li>
+							<li><a href="">鱼/肉类制品</a></li>
+							<li><a href="">鲜蛋/蛋制品</a></li>
+							<li><a href="">香肠/火腿</a></li>
+							<li><a href="">鱼/贝</a></li>
+							<li><a href="">虾/蟹</a></li>
+							<li><a href="">海参</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+						</ul>
+					</div>
+				</dd>
+			</dl>
+			<dl class="nav-x-2">
+				<dt><a href="">生鲜食品</a></dt>
+				<dd>
+					<div class="nav-two">
+						<h5>肉蛋水产</h5>
+						<ul>
+							<li><a href="">猪肉</a></li>
+							<li><a href="">牛/羊肉</a></li>
+							<li><a href="">禽类</a></li>
+							<li><a href="">鱼/肉类制品</a></li>
+							<li><a href="">鲜蛋/蛋制品</a></li>
+							<li><a href="">香肠/火腿</a></li>
+							<li><a href="">鱼/贝</a></li>
+							<li><a href="">虾/蟹</a></li>
+							<li><a href="">海参</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+						</ul>
+					</div>
+				</dd>
+			</dl>
+			<dl class="nav-x-3">
+				<dt><a href="">生鲜食品</a></dt>
+				<dd>
+					<div class="nav-two">
+						<h5>肉蛋水产</h5>
+						<ul>
+							<li><a href="">猪肉</a></li>
+							<li><a href="">牛/羊肉</a></li>
+							<li><a href="">禽类</a></li>
+							<li><a href="">鱼/肉类制品</a></li>
+							<li><a href="">鲜蛋/蛋制品</a></li>
+							<li><a href="">香肠/火腿</a></li>
+							<li><a href="">鱼/贝</a></li>
+							<li><a href="">虾/蟹</a></li>
+							<li><a href="">海参</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+						</ul>
+					</div>
+				</dd>
+			</dl>
+			<dl class="nav-x-4">
+				<dt><a href="">生鲜食品</a></dt>
+				<dd>
+					<div class="nav-two">
+						<h5>肉蛋水产</h5>
+						<ul>
+							<li><a href="">猪肉</a></li>
+							<li><a href="">牛/羊肉</a></li>
+							<li><a href="">禽类</a></li>
+							<li><a href="">鱼/肉类制品</a></li>
+							<li><a href="">鲜蛋/蛋制品</a></li>
+							<li><a href="">香肠/火腿</a></li>
+							<li><a href="">鱼/贝</a></li>
+							<li><a href="">虾/蟹</a></li>
+							<li><a href="">海参</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+						</ul>
+					</div>
+				</dd>
+			</dl>
+			<dl class="nav-x-5">
+				<dt><a href="">生鲜食品</a></dt>
+				<dd>
+					<div class="nav-two">
+						<h5>肉蛋水产</h5>
+						<ul>
+							<li><a href="">猪肉</a></li>
+							<li><a href="">牛/羊肉</a></li>
+							<li><a href="">禽类</a></li>
+							<li><a href="">鱼/肉类制品</a></li>
+							<li><a href="">鲜蛋/蛋制品</a></li>
+							<li><a href="">香肠/火腿</a></li>
+							<li><a href="">鱼/贝</a></li>
+							<li><a href="">虾/蟹</a></li>
+							<li><a href="">海参</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+						</ul>
+					</div>
+				</dd>
+			</dl>
+			<dl class="nav-x-6">
+				<dt><a href="">生鲜食品</a></dt>
+				<dd>
+					<div class="nav-two">
+						<h5>肉蛋水产</h5>
+						<ul>
+							<li><a href="">猪肉</a></li>
+							<li><a href="">牛/羊肉</a></li>
+							<li><a href="">禽类</a></li>
+							<li><a href="">鱼/肉类制品</a></li>
+							<li><a href="">鲜蛋/蛋制品</a></li>
+							<li><a href="">香肠/火腿</a></li>
+							<li><a href="">鱼/贝</a></li>
+							<li><a href="">虾/蟹</a></li>
+							<li><a href="">海参</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+						</ul>
+					</div>
+				</dd>
+			</dl>
+			<dl class="nav-x-7">
+				<dt><a href="">生鲜食品</a></dt>
+				<dd>
+					<div class="nav-two">
+						<h5>肉蛋水产</h5>
+						<ul>
+							<li><a href="">猪肉</a></li>
+							<li><a href="">牛/羊肉</a></li>
+							<li><a href="">禽类</a></li>
+							<li><a href="">鱼/肉类制品</a></li>
+							<li><a href="">鲜蛋/蛋制品</a></li>
+							<li><a href="">香肠/火腿</a></li>
+							<li><a href="">鱼/贝</a></li>
+							<li><a href="">虾/蟹</a></li>
+							<li><a href="">海参</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+						</ul>
+					</div>
+				</dd>
+			</dl>
+			<dl class="nav-x-8">
+				<dt><a href="">生鲜食品</a></dt>
+				<dd>
+					<div class="nav-two">
+						<h5>肉蛋水产</h5>
+						<ul>
+							<li><a href="">猪肉</a></li>
+							<li><a href="">牛/羊肉</a></li>
+							<li><a href="">禽类</a></li>
+							<li><a href="">鱼/肉类制品</a></li>
+							<li><a href="">鲜蛋/蛋制品</a></li>
+							<li><a href="">香肠/火腿</a></li>
+							<li><a href="">鱼/贝</a></li>
+							<li><a href="">虾/蟹</a></li>
+							<li><a href="">海参</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+						</ul>
+					</div>
+				</dd>
+			</dl>
+			<dl class="nav-x-9">
+				<dt><a href="">生鲜食品</a></dt>
+				<dd>
+					<div class="nav-two">
+						<h5>肉蛋水产</h5>
+						<ul>
+							<li><a href="">猪肉</a></li>
+							<li><a href="">牛/羊肉</a></li>
+							<li><a href="">禽类</a></li>
+							<li><a href="">鱼/肉类制品</a></li>
+							<li><a href="">鲜蛋/蛋制品</a></li>
+							<li><a href="">香肠/火腿</a></li>
+							<li><a href="">鱼/贝</a></li>
+							<li><a href="">虾/蟹</a></li>
+							<li><a href="">海参</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+						</ul>
+					</div>
+				</dd>
+			</dl>
+			<dl class="nav-x-10">
+				<dt><a href="">生鲜食品</a></dt>
+				<dd>
+					<div class="nav-two">
+						<h5>肉蛋水产</h5>
+						<ul>
+							<li><a href="">猪肉</a></li>
+							<li><a href="">牛/羊肉</a></li>
+							<li><a href="">禽类</a></li>
+							<li><a href="">鱼/肉类制品</a></li>
+							<li><a href="">鲜蛋/蛋制品</a></li>
+							<li><a href="">香肠/火腿</a></li>
+							<li><a href="">鱼/贝</a></li>
+							<li><a href="">虾/蟹</a></li>
+							<li><a href="">海参</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+						</ul>
+					</div>
+				</dd>
+			</dl>
+			<dl class="nav-x-11">
+				<dt><a href="">生鲜食品</a></dt>
+				<dd>
+					<div class="nav-two">
+						<h5>肉蛋水产</h5>
+						<ul>
+							<li><a href="">猪肉</a></li>
+							<li><a href="">牛/羊肉</a></li>
+							<li><a href="">禽类</a></li>
+							<li><a href="">鱼/肉类制品</a></li>
+							<li><a href="">鲜蛋/蛋制品</a></li>
+							<li><a href="">香肠/火腿</a></li>
+							<li><a href="">鱼/贝</a></li>
+							<li><a href="">虾/蟹</a></li>
+							<li><a href="">海参</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+							<li><a href="">橙/柑/橘/柚</a></li>
+							<li><a href="">桃/李/杏/枣</a></li>
+							<li><a href="">奇异果</a></li>
+							<li><a href="">提子/葡萄类</a></li>
+							<li><a href="">莓类</a></li>
+							<li><a href="">瓜类</a></li>
+							<li><a href="">车厘子</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+						</ul>
+					</div>
+					<div class="nav-two">
+						<h5>新鲜水果</h5>
+						<ul>
+							<li><a href="">苹果/梨类</a></li>
+							<li><a href="">热带水果</a></li>
+						</ul>
+					</div>
+				</dd>
+			</dl>
+		</div>
+	</div>
+</header>
+<!-- 头部结束 -->
+>>>>>>> a018ffe3c0a906c4023cdc8336a64a01ea53e05a
 <section class="container-fulid banner">
 	<div class="container">
 		<div class="container banner-in banner-active" name="rgb(241, 241, 241)">

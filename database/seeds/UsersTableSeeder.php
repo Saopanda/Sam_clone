@@ -12,7 +12,8 @@ class UsersTableSeeder extends Seeder
     {
     	$a = [];
         for($i=0;$i<20;$i++){
-        	$data['name']=str_random(10);
+            $data['name']=str_random(10);
+        	$data['sta']=str_random(18);
         	$data['pwd']=Hash::make('passwd');
             $data['ztid']='1';
             $data['email']=str_random(5).'@gmail.com';
