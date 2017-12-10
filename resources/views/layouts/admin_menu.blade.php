@@ -63,7 +63,7 @@
         </li>
       </ul>
     </li>
-<<<<<<< HEAD
+
      <!-- 分类管理 -->
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>分类管理<b class="fa fa-plus dropdown-plus"></b></a>
@@ -82,7 +82,7 @@
         </li>
       </ul>
     </li>
-=======
+
     <!-- 商品管理 -->
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>商品管理<b class="fa fa-plus dropdown-plus"></b></a>
@@ -103,6 +103,6 @@
     </li>
 
 
->>>>>>> a018ffe3c0a906c4023cdc8336a64a01ea53e05a
+
   </ul>
 </li>
