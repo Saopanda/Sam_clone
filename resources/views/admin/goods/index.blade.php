@@ -34,6 +34,7 @@
 					<th class="text-center">商品介绍</th>
 					<th class="text-center">商品价格</th>
 					<th class="text-center">商品库存</th>
+					<th class="text-center">商品状态</th>
 					<th class="text-center" style="width: 140px;">操作</th>
 				</tr>
 			</thead>
@@ -45,6 +46,11 @@
 				<th class="text-center">{{$val->content}}</th>
 				<th class="text-center">{{$val->price}}</th>
 				<th class="text-center">{{$val->num}}</th>
+				<th class="text-center">
+				@if($val->ztid == 1)上架
+				@elseif($val->ztid == 2)下架
+				@endif
+				</th>
 				<th class="text-center" style="width: 140px;">
 					<a href="/admin/goods/{{$val->id}}/edit">修改</a>
 						&nbsp;
@@ -67,4 +73,10 @@
 </div>
 <!-- /tile footer -->
 </section>
+
+
+<div class="text-right sm-center pull-right">
+	{{$goods->links()}}
+</div>
 @stop
+

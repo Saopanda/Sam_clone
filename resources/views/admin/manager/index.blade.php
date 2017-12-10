@@ -41,7 +41,11 @@
 				<tr>					
 					<td class="text-center">{{$val->id}}</td>
 					<td class="text-center">{{$val->name}}</td>
-					<td class="text-center">{{$val->status}}</td>
+					<td class="text-center">
+					@if($val->status == 1)正常
+					@elseif($val->status == 2)冻结
+					@endif
+					</td>
 					<td class="text-center" >
 						<a href="/admin/manager/{{$val->id}}/edit">修改</a>
 						&nbsp;

@@ -19,6 +19,14 @@
 		color: #FF9999;
 	}
 	
+  select[name="flid"]{
+  background-color: rgba(0, 0, 0, 0.3);
+    border: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    line-height: 20px;
+  }
 </style>
 
 
@@ -43,6 +51,15 @@
         </div>
       </div>
 
+      <div class="form-group">
+        <label for="fullname" class="col-sm-4 control-label">商品分类</label>
+        <div class="col-sm-8">
+          <select name="flid" class="form-control parsley-validated">
+            <option value="0">顶级分类</option>
+          </select>
+        </div>
+      </div>
+      
       <div class="form-group">
         <label for="fullname" class="col-sm-4 control-label">库存</label>
         <div class="col-sm-8">
@@ -84,7 +101,7 @@
       <div class="form-group">
         <label for="fullname" class="col-sm-4 control-label">商品图片</label>
         <div class="col-sm-8">
-          <input name="imgs[]" type="file" class="form-control parsley-validated" id="fullname" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1" multiple="5">
+          <input name="imgs[]" type="file" class="form-control parsley-validated" id="fullname" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1" multiple="" accept="image/png,image/jpeg">
           <label></label>
         </div>
       </div>

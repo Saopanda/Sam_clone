@@ -65,7 +65,7 @@
     </li>
     <!-- 商品管理 -->
     <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>商品管理列表<b class="fa fa-plus dropdown-plus"></b></a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>商品管理<b class="fa fa-plus dropdown-plus"></b></a>
       <ul class="dropdown-menu">
           <li>
             <a href="/admin/goods">
@@ -81,5 +81,7 @@
           </li>
       </ul>
     </li>
+
+
   </ul>
 </li>
