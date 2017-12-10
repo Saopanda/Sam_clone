@@ -64,23 +64,19 @@ header{
 /*bd start*/
 .biaodan{
 	width: 100%;
-	height: 543px;
-	/*background: red;*/
+	padding: 27px 0;
 	border-top:1px solid #eee;
 }
 .biaodan .bd{
 	width: 442px;
-	height: inherit;
 	margin: auto;
 	font-size: 16px;
 }
 .biaodan .bd p{
-	height: 32px;
-	line-height: 32px;
 	width: 442px;
 	text-indent: 4px;
 	color: #aaa;
-	/*background: black;*/	
+	margin-top: 6px;
 }
 .biaodan .bd .bq{
 	width: 438px;

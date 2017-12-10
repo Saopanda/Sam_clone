@@ -27,7 +27,7 @@
 			<div class="pull-left">
 				<span>下午好，山姆欢迎您！</span>
 				<a href="">登陆 </a>|
-				<a href=""> 注册</a>
+				<a href="/signup"> 注册</a>
 			</div>
 			<div class="pull-right">
 				<dl>

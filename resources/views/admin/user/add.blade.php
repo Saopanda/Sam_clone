@@ -81,13 +81,6 @@
 @section('js')
 <script>
 
-function errors(a,b){
-	a.siblings('label').addClass('has-error').html(b)
-}
-function oks(a) {
-	a.siblings('label').removeClass('has-error').html('')
-}
-
 	$(function(){
 		var name = $('input[name=name]')
 		var pwd = $('input[name=pwd]')
