@@ -88,7 +88,7 @@
                 </a>
                 <ul class="dropdown-menu arrow settings">
                   <li>
-                    <a href="#"><i class="fa fa-power-off"></i> 退出登陆</a>
+                    <a href="/admin/logout"><i class="fa fa-power-off"></i> 退出登陆</a>
                   </li>
                 </ul>
               </li>
