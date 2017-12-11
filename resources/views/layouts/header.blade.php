@@ -3,17 +3,23 @@
 	<div class="container-fulid header-top">
 		<div class="container">
 			<div class="pull-left">
+				@if(session('user_name'))
+				<a href="/home"> {{session('user_name')}} </a>
+				<span> 下午好,欢迎光临山姆会员店！ </span>
+				<a href="/logout">[退出]</a>
+				@else
 				<span>下午好，山姆欢迎您！</span>
 				<a href="/login">登陆 </a>|
 				<a href="/signup"> 注册</a>
+				@endif
 			</div>
 			<div class="pull-right">
 				<dl>
-					<dt><a href="">我的山姆</a><i class="glyphicon glyphicon-menu-down"></i></dt>
+					<dt><a href="/home">我的山姆</a><i class="glyphicon glyphicon-menu-down"></i></dt>
 					<dd class="xiala-my">
 						<ul>
-							<li><a href="">个人资料</a></li>
-							<li><a href="">我的订单</a></li>
+							<li><a href="/home/">个人资料</a></li>
+							<li><a href="/home/order">我的订单</a></li>
 							<li><a href="">我的优惠券</a></li>
 							<li><a href="">服务中心</a></li>
 							<li><a href="">商品点评</a></li>

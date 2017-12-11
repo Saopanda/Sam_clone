@@ -56,9 +56,15 @@
 }
 .form-wrap .form_box .cols{
 	font-size: 12px;
+	overflow: hidden;
 }
 .form-wrap .form_box .col{
 	color: #666;
+}
+.info_kuang{
+	margin-top: -20px;
+	height: 20px;
+	color: #a94442;
 }
 .form_box .sub{
 	height: 50px;
@@ -66,5 +72,5 @@
 	font-weight: bold;
 	background: #006aaf;
 	color: #fff;
-	margin-top: 14px;
+	margin-top: 6px;
 }
