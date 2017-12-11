@@ -38,16 +38,7 @@ class indexController extends Controller
     //登陆
     public function login()
     {
-         // 分类开始
-        $data=DB::table('class')->where('pid','0')->get();
-        foreach ($data as $k => &$v) {
-           $v->two =DB::table('class')->where('pid',$v->id)->get();
-            foreach ($v->two as $ka => &$va) {
-                $va->there =DB::table('class')->where('pid',$va->id)->get();
-            }
-        }
-        // 分类结束
-    	return view('login',['data'=>$data]);
+       
     }
    
 }
