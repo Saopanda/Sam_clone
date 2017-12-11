@@ -70,23 +70,21 @@
       <div class="form-group">
         <label for="fullname" class="col-sm-4 control-label">描述</label>
         <div class="col-sm-8">
-          <input name="content" type="text" class="form-control parsley-validated" id="fullname" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1" value="{{$goods->content}}">
+          <script id="editor" type="text/plain" name="content">{!!$goods->content!!}</script>
           <label></label>
         </div>
       </div>
+      
 
-      <div class="form-group">
-        <label for="fullname" class="col-sm-4 control-label">商品分类</label>
-        <div class="col-sm-8">
-          <select name="flid" class="form-control parsley-validated">
-            <option value="{{$goods->flid}}">顶级分类</option>
-          </select>
-        </div>
+
+      <div class="form-group">        
+          <input type="hidden" name="flid" value="{{$goods->flid}}">          
       </div>
       
       <div class="form-group">
-         <label for="fullname" class="col-sm-4 control-label">商品图片</label>
-         <div class="col-sm-8 pull-right" style="margin-bottom: 10px;">  @foreach($goodspic as $k => $v)           
+         <label for="fullname" class="col-sm-4 control-label" style="margin-top: 15px;">商品图片</label>
+         <div class="col-sm-8 pull-right" style="margin-bottom: 10px;">  
+          @foreach($goodspic as $k => $v)           
           <img src="{{$v->imgs}}" width="40" height="40" style="margin-left: 4px;">     
          @endforeach 
          </div>
@@ -131,6 +129,20 @@
   </div>
   <!-- /tile body -->
 </section>
+@stop
+
+@section('js')
+<script type="text/javascript" charset="utf-8" src="/plugins/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/plugins/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="/plugins/ueditor/lang/zh-cn/zh-cn.js"></script> 
+<script>
+    var ue = UE.getEditor('editor',{
+        // toolbars: [
+        //     ['fullscreen', 'source', 'undo', 'redo', 'bold']
+        // ]
+    });
+</script>
+
 @stop
 
 

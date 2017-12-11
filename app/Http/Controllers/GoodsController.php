@@ -25,7 +25,9 @@ class GoodsController extends Controller
      */
     public function create()
     {
-        return view('admin.goods.create');
+        $data=DB::table('class')->where('pid','0')->get(); 
+
+        return view('admin.goods.create',['fenl'=>$data]);
     }
 
     /**
@@ -35,7 +37,7 @@ class GoodsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
         $data = $request->only(['title','price','content','num','ztid','flid']);
         if ($data['price'] > 0 && $data['num'] >= 0) {
             //补时间
@@ -108,8 +110,8 @@ class GoodsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        $data = $request->only(['title','price','content','num','ztid','flid']); 
+    {   
+        $data = $request->only(['title','price','content','num','ztid','flid']);  
         if ($data['price'] > 0 && $data['num'] >= 0 || $request->hasFile('imgs')){
             //将数据插入到商品表中
             $res = DB::table('goods')->where('id',$id)->update($data);
@@ -177,5 +179,23 @@ class GoodsController extends Controller
         }else{
            return back()->with(['msg'=>'oh! 删除失败!','msg_info'=>'alert-danger']);
         }
+    }
+
+    public function getwo(Request $request){
+        
+        $pid = $request->oneid;
+        // echo $pid;
+        $twoid = DB::table('class')->where('pid',$pid)->get();
+        return $twoid;
+
+    }
+
+    public function gettwo(Request $request){
+        
+        $tid = $request->tid;
+        // echo $tid;
+        $thereid = DB::table('class')->where('pid',$tid)->get();
+        return $thereid;
+
     }
 }

@@ -33,6 +33,7 @@
 					<th class="text-center">商品标题</th>
 					<th class="text-center">商品介绍</th>
 					<th class="text-center">商品价格</th>
+					<th class="text-center">商品分类</th>					
 					<th class="text-center">商品库存</th>
 					<th class="text-center">商品状态</th>
 					<th class="text-center" style="width: 140px;">操作</th>
@@ -44,7 +45,8 @@
 				<th class="text-center">{{$val->id}}</th>
 				<th class="text-center">{{$val->title}}</th>
 				<th class="text-center">{{$val->content}}</th>
-				<th class="text-center">{{$val->price}}</th>
+				<th class="text-center">{{$val->price}}</th>				
+				<th class="text-center">{{$val->flid}}</th>
 				<th class="text-center">{{$val->num}}</th>
 				<th class="text-center">
 				@if($val->ztid == 1)上架

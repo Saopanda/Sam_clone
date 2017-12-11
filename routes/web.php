@@ -62,6 +62,9 @@ Route::get('/admin/login','adminController@login');
 
 Route::get('/getwomenu','ClassController@getwomenu');
 
+Route::get('/getwo','GoodsController@getwo');
+Route::get('/gettwo','GoodsController@gettwo');
+
 // 后台已登陆界面
 Route::group([],function(){
 	// 后台首页
