@@ -16,10 +16,7 @@ Route::get('/','indexController@index');
 Route::get('/list','indexController@list');
 // 商品详情
 Route::get('/{id}.html','GoodsController@show');
-//订单展示
-Route::get('/order','indexController@order');
-//个人中心
-Route::get('/geren','indexController@geren');
+
 
 
 ################### 注册 ########################

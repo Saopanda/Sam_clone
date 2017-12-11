@@ -35,6 +35,24 @@ section .top_a .tou_img{
     border: 2px solid #4c9bf9;
     border-radius: 50%;
 }
+section .top_a .tou_img .heard_img{
+    opacity: 0;
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 105px;
+    height: 92px;
+    z-index: 3;
+    cursor: pointer;
+}
+#portrait{
+    position: absolute;
+    left: -3px;
+    top: -3px;
+    z-index: 2;
+    border-radius: 100%;
+}
 section .top_a .gp-tip{
 	float: left;
     margin-left: 30px;
@@ -62,6 +80,9 @@ section .content{
     border: 1px solid #e1e1e1;
     border-radius: 2px;
     background-color: #fff;
+}
+section .content input{
+    text-align: left;
 }
 section .content ul li
 {
@@ -142,4 +163,17 @@ section .there .label_box .la-check .check-input{
     outline: 0;
     cursor: pointer;
     border-radius: 1px;
+}
+section .right .form-sumbit-btn{
+    float: left;
+    display: block;
+    width: 140px;
+    height: 40px;
+    margin: 20px 0 20px 115px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #0069aa;
+    border-radius: 2px;
 }
