@@ -1,7 +1,7 @@
 @extends('layouts.my_center')
 
 @section('style')
-<link rel="stylesheet" type="text/css" href="./css/zhongxin.css">
+<link rel="stylesheet" type="text/css" href="/css/zhongxin.css">
 @stop
 @section('right')
 	<section class="right">
@@ -22,7 +22,7 @@
 				<li class="clear">
 					<span class="labels">用&nbsp;&nbsp;户&nbsp;&nbsp;名：</span>
 					<div class="item-box">
-						<input type="text" class="btn btn-default" />
+						<p>asdsasda</p>
 					</div>
 				</li>
 				<li class="clear">

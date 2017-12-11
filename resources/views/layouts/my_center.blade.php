@@ -4,22 +4,22 @@
 	<title></title>
 	<meta charset="utf-8">
 	<!--引入核心css文件-->
-	<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
 	<!--引入jQuery文件-->
-	<script src="./bootstrap/js/jquery.js"></script>
+	<script src="/bootstrap/js/jquery.js"></script>
 	<!--最后引入bootstrap文件-->
-	<script src="./bootstrap/js/bootstrap.js"></script>
+	<script src="/bootstrap/js/bootstrap.js"></script>
 	<!-- 引入字体 -->
-	<link href="./bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">	
+	<link href="/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">	
 	<!-- 主页css -->
 	<!-- 引入留言css -->
-	<link rel="stylesheet" href="css/indexb.css">
+	<link rel="stylesheet" href="/css/indexb.css">
 
-	<link rel="stylesheet" href="css/css.css">
+	<link rel="stylesheet" href="/css/css.css">
 	<!-- 引入holder.js -->
-	<script type="text/javascript" src="./bootstrap/js/holder.min.js"></script>
+	<script type="text/javascript" src="/bootstrap/js/holder.min.js"></script>
 	<!-- 引入个人中心样式 -->
-	<link rel="stylesheet" type="text/css" href="./css/geren.css">
+	<link rel="stylesheet" type="text/css" href="/css/geren.css">
 	@section('style')
 	@show
 </head>
@@ -38,10 +38,10 @@
 				<div class="gp-user-infors">
                    <div class="sam_vip">
 						<div class="sam_logo">
-							<img src="./file/img/geren/user-img.png" alt="">
+							<img src="/file/img/geren/user-img.png" alt="">
 						</div>
 						<div class="sam_quan">
-							<img src="./file/img/index/quan.png" alt="">
+							<img src="/file/img/index/quan.png" alt="">
 						</div>
 					</div>
 				</div>
@@ -91,6 +91,8 @@
 
 <!-- 尾部 -->
 @include('layouts.footer')
-
+@section('js')
+				
+@show
 </body>
 </html>

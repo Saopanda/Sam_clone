@@ -14,28 +14,34 @@ class indexController extends Controller
     {
         $data=DB::table('class')->where('pid','0')->get();
         foreach ($data as $k => &$v) {
-            //dd($v->pid.'_'.$v->id);
            $v->two =DB::table('class')->where('pid',$v->id)->get();
-
-           //$v->there = DB::table('class')->where('path',$v->pid.'_'.$v->id)->get();
             foreach ($v->two as $ka => &$va) {
                 $va->there =DB::table('class')->where('pid',$va->id)->get();
+
             }
         }
-        //dd($data);
+        // 分类结束
     	return view('index',['data'=>$data]);
     }
     // 列表页
     public function list()
-    {
-    	return view('list');
+    {   // 分类开始
+        $data=DB::table('class')->where('pid','0')->get();
+        foreach ($data as $k => &$v) {
+           $v->two =DB::table('class')->where('pid',$v->id)->get();
+            foreach ($v->two as $ka => &$va) {
+                $va->there =DB::table('class')->where('pid',$va->id)->get();
+            }
+        }
+         // 分类结束
+    	return view('list',['data'=>$data]);
     }
     //登陆
     public function login()
     {
         if(session('user_name')){
             return redirect('/');
-        }{
+        }else{
             return view('login');
         }
     }
