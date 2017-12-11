@@ -18,6 +18,7 @@ Route::get('/list','indexController@list');
 Route::get('/{id}.html','GoodsController@show');
 
 
+
 ################### 注册 ########################
 Route::get('/signup','signupController@signup');
 
@@ -37,15 +38,17 @@ Route::get('/signup/yz/{id}','signupController@yz');
 ################### 注册 ########################
 
 
-
-
 Route::get('/test','testController@test');
+
+
 // 前台登陆
 Route::get('/login','indexController@login');
-
-
+	//登陆验证
+Route::post('/login','indexController@dologin');
+	//注销登陆
+Route::get('/logout','indexController@logout');
 // 前台已登陆界面
-Route::group([],function(){
+Route::group(['middleware'=>'Login'],function(){
 
 	//个人中心
 	Route::get('/home','HomeController@index');
@@ -59,16 +62,18 @@ Route::group([],function(){
 
 // 后台登陆
 Route::get('/admin/login','adminController@login');
-
-Route::get('/getwomenu','ClassController@getwomenu');
+Route::post('/admin/login','adminController@dologin');
 
 Route::get('/getwo','GoodsController@getwo');
 Route::get('/gettwo','GoodsController@gettwo');
 
 // 后台已登陆界面
-Route::group([],function(){
+Route::group(['middleware'=>'Admin_Login'],function(){
+
 	// 后台首页
 	Route::get('/admin','adminController@index');
+	//后台注销
+	Route::get('/admin/logout','adminController@logout');
 	//用户管理
 	Route::resource('/admin/user','UserController');
 		//用户激活提醒
@@ -77,6 +82,8 @@ Route::group([],function(){
 	Route::resource('/admin/goods','GoodsController');
 	//分类管理
 	Route::resource('/admin/class','ClassController');
+		//分类联动
+	Route::get('/getwomenu','ClassController@getwomenu');
 	//广告管理
 	Route::resource('/admin/ad','AdController');
 	//订单管理

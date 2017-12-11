@@ -1,0 +1,179 @@
+.right{
+    width: 980px;
+    float: right;
+}
+.gec-bread-title{
+	height: 34px;
+    line-height: 28px;
+    font-size: 16px;
+    color: #0069aa;
+    font-weight: normal;
+}
+section .top_a{
+	padding: 30px 25px;
+    margin: 10px auto 0;
+    border: 1px solid #e1e1e1;
+    border-radius: 2px;
+    background-color: #fff;
+    height: 156px;
+}
+section .top_a .tupian_tit{
+	display: block;
+    float: left;
+    width: 70px;
+    padding-right: 6px;
+    height: 92px;
+    line-height: 92px;
+    text-align: right;
+    overflow: hidden;
+}
+section .top_a .tou_img{
+	position: relative;
+    float: left;
+    width: 88px;
+    height: 88px;
+    border: 2px solid #4c9bf9;
+    border-radius: 50%;
+}
+section .top_a .tou_img .heard_img{
+    opacity: 0;
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 105px;
+    height: 92px;
+    z-index: 3;
+    cursor: pointer;
+}
+#portrait{
+    position: absolute;
+    left: -3px;
+    top: -3px;
+    z-index: 2;
+    border-radius: 100%;
+}
+section .top_a .gp-tip{
+	float: left;
+    margin-left: 30px;
+    height: 92px;
+    line-height: 92px;
+    color: #aaa;
+}
+section .top_a .user-destroy{
+	display: inline-block;
+    float: right;
+    height: 28px;
+    padding: 0 15px;
+    line-height: 28px;
+    text-align: center;
+    margin-right: 15px;
+    margin-top: 30px;
+    border-radius: 2px;
+    border: 1px solid #e0e0e0;
+    color: #333;
+    background-color: #fff;
+}
+section .content{
+	padding: 30px 25px;
+    margin: 10px auto 0;
+    border: 1px solid #e1e1e1;
+    border-radius: 2px;
+    background-color: #fff;
+}
+section .content input{
+    text-align: left;
+}
+section .content ul li
+{
+	height: 34px;
+    line-height: 34px;
+    color: #666;
+    margin-bottom: 10px;
+}
+section .content .clear .labels{
+	float: left;
+    display: inline-block;
+    width: 85px;
+    text-align: right;
+    padding-right: 5px;
+}
+section .content .item-box{
+	float: left;
+}
+section .there .label_tit{
+    float: left;
+    width: 100px;
+    text-align: right;
+    padding-right: 5px;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    font-weight: normal;
+}
+section .there ul li.nnn{
+height: 60px;
+}
+section .there .label_tit em{
+    color: #f66;
+    margin-right: 2px;
+}
+section .there .label_box{
+    float: left;
+    width: 80%;
+}
+section .there .label_box .an{
+    float: left;
+    width: 50%;
+    text-align: left;
+}
+section .there .label_box .labox-btn{
+    float: left;
+    display: block;
+    width: 23%;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    background-color: #f7f7f7;
+    border: 1px solid #eee;
+    border-radius: 2px;
+    margin-left:10px;
+}
+section .there .label_box .babox-normal-tip{
+    float: left;
+    height: 40px;
+    margin-left: 10px;
+    line-height: 40px;
+    overflow: hidden;
+    color: #aaa;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 800;
+}
+section .there .label_box .la-check{
+    height: 26px;
+    line-height: 30px;
+}
+section .there .label_box .la-check .check-input{
+    position: relative;
+    width: 14px;
+    height: 14px;
+    margin-left: 10px;
+    background-color: #0069aa;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 1px;
+}
+section .right .form-sumbit-btn{
+    float: left;
+    display: block;
+    width: 140px;
+    height: 40px;
+    margin: 20px 0 20px 115px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #0069aa;
+    border-radius: 2px;
+}

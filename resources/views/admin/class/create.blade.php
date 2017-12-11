@@ -170,6 +170,7 @@ function oks(a) {
       }
     }
 function gitone(id){
+  
   $.ajax({
     type:'get',
     url:'/getwomenu',

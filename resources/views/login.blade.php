@@ -13,7 +13,7 @@
 	<div class="big">
 		<div class="big_1">
 			<div class="big_2">
-				<a href="index.html"><img src="/file/img/logo-3.png"></a>
+				<a href="/"><img src="/file/img/logo-3.png"></a>
 			</div>
 			<h3 class="hb"><span>登录</span></h3>
 		</div>
@@ -21,18 +21,19 @@
 	<div class="form-wrap">
 		<h4>已开通山姆网购账户，请登录</h4>
 		<div class="form_box">
-			<form>
+			<form action="/login" method="post">
+				{{csrf_field()}}
 			  <div class="form-group">
-			    <input type="text" class="form-control buts" id="exampleInputEmail1" placeholder="用户名/邮箱/17位卡号" name="">
+			    <input type="text" class="form-control buts" id="exampleInputEmail1" placeholder="用户名" name="name">
 			  </div>
 			  <div class="form-group">
-			    <input type="password" class="form-control buts" id="exampleInputPassword1" placeholder="密码" name="">
+			    <input type="password" class="form-control buts" id="exampleInputPassword1" placeholder="密码" name="pwd">
 			  </div>
 			  <div class="form-group cols">
 			  	  <a href="#" class="pull-left col">忘记密码</a>
 			  	  <a href="#" class="pull-right">注册</a>
 			  </div>
-			  <div class="clearfix"></div>
+			  <div class="clearfix info_kuang">@if(session('msg')){{session('msg')}}@endif</div>
   			  <button type="submit" class="btn btn-default col-md-12 input-lg sub" id="tijiao">登录</button>
             </form>
 		</div>
