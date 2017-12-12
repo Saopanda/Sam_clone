@@ -21,7 +21,7 @@
 		<ol class="lis">
 		  <li><a href="#">首页</a><span class="iconfont">></span></li>
 		  <li><a href="#">生鲜食品</a><span class="iconfont">></span></li>
-		  <li class=""><a href="#">新鲜水果</a></li>
+		  <li class=""><a href="#">肉蛋水产</a></li>
 		</ol>
 	</div>
 <section class="container content">
@@ -655,24 +655,25 @@
 						</div>
 						<div class="proBorder"></div>
 					</div>
-			    </div>
+			    </div>			    
 			    <div role="tabpanel" class="tab-pane" id="settings">
+			    @foreach($goods as $key => $val)	
 			    <div class="goods_1">
 						<div class="proImg">
 							<a href="" target="_blank">
-							<img src="/file/img/liebiao/jidan1.jpg" alt="" />
+							<img src="{{$val->pic}}" alt="" />
 							</a>
 							<div class="tagBox">
 							<img src="/file/img/liebiao/yuanyu1.gif" />
 							</div>
 						</div>
 						<p class="proName">
-						<a href="/" target="_blank">MM鲜鸡蛋30枚 1.5kg</a>
+						<a href="/" target="_blank">{{$val->title}}</a>
 						</p>
 						<p class="proName2">
-						单个鸡蛋大于50克 不添加抗生素 精心培育</p>
+						{!! $val->content !!}</p>
 						<p class="proPrice">
-							<em><b class="b1">¥ </b>29.8</em>
+							<em><b class="b1">¥ </b>{{$val->price}}</em>
 						</p>
 						<div class="shoppingAct">
 							<ul class="num">
@@ -686,7 +687,9 @@
 							</a>
 						</div>
 						<div class="proBorder"></div>
-					</div>
+				</div>
+			    @endforeach
+
 			    </div>
 			  </div>
 		</div>

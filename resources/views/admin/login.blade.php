@@ -14,16 +14,16 @@
       button.btn.btn-default{
           width: 160px;
       }
+      body #content.full-page {
+        position: fixed;
+        width: 100%;
+        top: -45px;
+      }
     </style>
   </head>
   <body class="bg-1">
-
-    <!-- Wrap all page content here -->
-    <div id="wrap">
-      <!-- Make page fluid -->
-      <div class="row">
         <!-- Page content -->
-        <div id="content" class="col-md-12 full-page login">
+        <div id="content" class="container full-page login" style="overflow: hidden;">
 
 
           <div class="inside-block">
@@ -55,9 +55,6 @@
           </div>
         </div>
         <!-- /Page content -->  
-      </div>
-    </div>
-    <!-- Wrap all page content end -->
   </body>
 </html>
       

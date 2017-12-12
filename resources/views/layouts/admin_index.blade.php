@@ -57,7 +57,7 @@
         <div class="navbar navbar-default navbar-fixed-top navbar-transparent-black mm-fixed-top" role="navigation" id="navbar">
           <!-- Branding -->
           <div class="navbar-header col-md-2">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="/admin">
               <strong>Sam</strong>商城后台
             </a>
             <div class="sidebar-collapse">
@@ -166,7 +166,22 @@
 
     <script src="/js/minimal.min.js"></script>
   </body>
+<script>
+  $(function(){
+    var path = location.pathname;
+
+    $('a').each(function() {
+      if(path != '/admin'){
+        if($(this).attr('href') == path){
+          $(this).parent('li').addClass('active').parent().parent('li').addClass('active open')
+        }
+      }
+    });
+    //parents('dropdown-in').addClass('active').parents('dropdown').addClass('active open')
+  })
+</script>
   @section('js')
+
 
   @show
 </html>

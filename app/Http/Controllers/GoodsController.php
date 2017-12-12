@@ -25,7 +25,9 @@ class GoodsController extends Controller
      */
     public function create()
     {
-        return view('admin.goods.create');
+        $data=DB::table('class')->where('pid','0')->get(); 
+
+        return view('admin.goods.create',['fenl'=>$data]);
     }
 
     /**
@@ -35,8 +37,9 @@ class GoodsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $data = $request->only(['title','price','content','num','ztid','flid']);
+    {   
+        $data = $request->only(['title','price','content','num','ztid','flid','huodong']);
+        // dd($data);
         if ($data['price'] > 0 && $data['num'] >= 0) {
             //补时间
             $data['addtime'] = date('Y-m-d H:i:s');
@@ -45,10 +48,10 @@ class GoodsController extends Controller
             //如果插入成功
             if($res > 0) {
                 //处理图片
-                if($request->hasFile('imgs')){
-                    $images = [];
+                if($request->hasFile('imgsxq')){
+                    $imagesxq = [];
                     //遍历文件上传的数组
-                    foreach($request->file('imgs') as $k=>$v) {
+                    foreach($request->file('imgsxq') as $k=>$v) {
                         $tmp = [];
                         //获取文件的后缀名
                         $suffix = $v->extension();
@@ -61,12 +64,64 @@ class GoodsController extends Controller
                         //获取文件的路径
                         $tmp['imgname'] = $name;
                         $tmp['goodsid'] = $res;
+                        $tmp['img_lx'] = 1;
                         $tmp['imgs'] = trim($dir.'/'.$name,'.');
-                        $images[] = $tmp;
+                        $imagesxq[] = $tmp;
                     }
                     //将图片信息插入到商品图片表中
-                    DB::table('goods_pic')->insert($images);
+                    DB::table('goods_pic')->insert($imagesxq);
                 }
+
+                if($request->hasFile('imgsxt')){
+                    $imagesxt = [];
+                    //遍历文件上传的数组
+                    foreach($request->file('imgsxt') as $k=>$v) {
+                        $xt = [];
+                        //获取文件的后缀名
+                        $suffix = $v->extension();
+                        //创建一个新的随机名称
+                        $name = uniqid('img_').'.'.$suffix;
+                        //文件夹路径
+                        $dir = './uploads/'.date('Y-m-d');
+                        //移动文件
+                        $v->move($dir, $name);
+                        //获取文件的路径
+                        $xt['imgname'] = $name;
+                        $xt['goodsid'] = $res;
+                        $xt['img_lx'] = 0;
+                        $xt['imgs'] = trim($dir.'/'.$name,'.');
+                        $imagesxt[] = $xt;
+                    }
+                    //将图片信息插入到商品图片表中
+                    DB::table('goods_pic')->insert($imagesxt);
+                }
+
+
+                if($request->hasFile('imgsdt')){
+                    $imagesxt = [];
+                    //遍历文件上传的数组
+                    foreach($request->file('imgsdt') as $k=>$v) {
+                        $dt = [];
+                        //获取文件的后缀名
+                        $suffix = $v->extension();
+                        //创建一个新的随机名称
+                        $name = uniqid('img_').'.'.$suffix;
+                        //文件夹路径
+                        $dir = './uploads/'.date('Y-m-d');
+                        //移动文件
+                        $v->move($dir, $name);
+                        //获取文件的路径
+                        $dt['imgname'] = $name;
+                        $dt['goodsid'] = $res;
+                        $dt['img_lx'] = 2;
+                        $dt['imgs'] = trim($dir.'/'.$name,'.');
+                        $imagesdt[] = $dt;
+                    }
+                    //将图片信息插入到商品图片表中
+                    DB::table('goods_pic')->insert($imagesdt);
+                }
+
+
                     return redirect('/admin/goods')->with(['msg'=>'ok~ 添加成功!','msg_info'=>'alert-success']);
             }else{
                 return redirect('/admin/goods/create')->with(['msg'=>'oh! 添加失败!','msg_info'=>'alert-danger']);
@@ -108,26 +163,67 @@ class GoodsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        $data = $request->only(['title','price','content','num','ztid','flid']); 
-        if ($data['price'] > 0 && $data['num'] >= 0 || $request->hasFile('imgs')){
+    {   
+        $data = $request->only(['title','price','content','num','ztid','flid','huodong']);
+        if ($data['price'] > 0 && $data['num'] >= 0 || $request->hasFile('imgsxq') || $request->hasFile('imgsxt') || $request->hasFile('imgsdt')){
             //将数据插入到商品表中
-            $res = DB::table('goods')->where('id',$id)->update($data);
+            $res = DB::table('goods')->where('id',$id)->update($data);            
             $pic = DB::table('goods_pic')->where('goodsid',$id)->get();
-            if ($request->hasFile('imgs')) {
+            
+            // 0  表示小图   1 表示  详情图  2 表示  大图
+            if ($request->hasFile('imgsxq')) {
                foreach ($pic as $key => $val) {
                    $url = $val->imgs;
-                   DB::table('goods_pic')->where('id',  $val->id)->delete();
+                   DB::table('goods_pic')->where('img_lx', 1)->where('goodsid',$id)->delete();
+                   unlink('.'.$url);
+                } 
+            }            
+            if ($request->hasFile('imgsxt')) {
+               foreach ($pic as $key => $val) {
+                   $url = $val->imgs;
+                   DB::table('goods_pic')->where('img_lx', 0)->delete();
                    unlink('.'.$url);
                 } 
             }
-             
+            if ($request->hasFile('imgsdt')) {
+               foreach ($pic as $key => $val) {
+                   $url = $val->imgs;
+                   DB::table('goods_pic')->where('img_lx', 2)->delete();
+                   unlink('.'.$url);
+                } 
+            }
+             // dd($pic);
                 //处理图片
-                if($request->hasFile('imgs')){
-                    $images = [];
+                if($request->hasFile('imgsxq')){
+                    $imagesxq = [];
                     //遍历文件上传的数组
-                    foreach($request->file('imgs') as $k=>$v) {
+                    foreach($request->file('imgsxq') as $k=>$v) {
                         $tmp = [];
+                        //获取文件的后缀名
+                        $suffix = $v->extension();
+                        //创建一个新的随机名称
+                        $name = uniqid('img_').'.'.$suffix;
+                        //文件夹路径
+                        $dir = './uploads/'.date('Y-m-d');
+                        //移动文件
+                        dd($v->move($dir, $name));
+                        //获取文件的路径
+                        $tmp['imgname'] = $name;
+                        $tmp['goodsid'] = $id;
+                        $tmp['img_lx'] = 1;
+                        $tmp['imgs'] = trim($dir.'/'.$name,'.');
+                        $imagesxq[] = $tmp;
+                    }
+
+                    //将图片信息插入到商品图片表中
+                    dd(DB::table('goods_pic')->insert($imagesxq));
+                }
+
+                if($request->hasFile('imgsxt')){
+                    $imagesxt = [];
+                    //遍历文件上传的数组
+                    foreach($request->file('imgsxt') as $k=>$v) {
+                        $xt = [];
                         //获取文件的后缀名
                         $suffix = $v->extension();
                         //创建一个新的随机名称
@@ -137,16 +233,41 @@ class GoodsController extends Controller
                         //移动文件
                         $v->move($dir, $name);
                         //获取文件的路径
-                        $tmp['imgname'] = $name;
-                        $tmp['goodsid'] = $res;
-                        $tmp['imgs'] = trim($dir.'/'.$name,'.');
-                        $images[] = $tmp;
-                        $images[$k]['goodsid'] = $id;
+                        $xt['imgname'] = $name;
+                        $xt['goodsid'] = $id;
+                        $xt['img_lx'] = 0;
+                        $xt['imgs'] = trim($dir.'/'.$name,'.');
+                        $imagesxt[] = $xt;
                     }
-
                     //将图片信息插入到商品图片表中
-                    DB::table('goods_pic')->insert($images);
+                    DB::table('goods_pic')->insert($imagesxt);
                 }
+
+
+                if($request->hasFile('imgsdt')){
+                    $imagesxt = [];
+                    //遍历文件上传的数组
+                    foreach($request->file('imgsdt') as $k=>$v) {
+                        $dt = [];
+                        //获取文件的后缀名
+                        $suffix = $v->extension();
+                        //创建一个新的随机名称
+                        $name = uniqid('img_').'.'.$suffix;
+                        //文件夹路径
+                        $dir = './uploads/'.date('Y-m-d');
+                        //移动文件
+                        $v->move($dir, $name);
+                        //获取文件的路径
+                        $dt['imgname'] = $name;
+                        $dt['goodsid'] = $id;
+                        $dt['img_lx'] = 2;
+                        $dt['imgs'] = trim($dir.'/'.$name,'.');
+                        $imagesdt[] = $dt;
+                    }
+                    //将图片信息插入到商品图片表中
+                    DB::table('goods_pic')->insert($imagesdt);
+                }
+            
             return redirect('/admin/goods')->with(['msg'=>'ok~ 修改成功!','msg_info'=>'alert-success']);
             
         }else{
@@ -168,6 +289,7 @@ class GoodsController extends Controller
         $goods_pic = DB::table('goods_pic')->where('goodsid',$id);
         if ($goods && $goods_pic) {
             $pic = DB::table('goods_pic')->where('goodsid',$id)->get();
+            // dd($pic);
             foreach ($pic as $key => $val) {
                    $url = $val->imgs;
                    DB::table('goods_pic')->where('id',  $val->id)->delete();
@@ -177,5 +299,23 @@ class GoodsController extends Controller
         }else{
            return back()->with(['msg'=>'oh! 删除失败!','msg_info'=>'alert-danger']);
         }
+    }
+
+    public function getwo(Request $request){
+        
+        $pid = $request->oneid;
+        // echo $pid;
+        $twoid = DB::table('class')->where('pid',$pid)->get();
+        return $twoid;
+
+    }
+
+    public function gettwo(Request $request){
+        
+        $tid = $request->tid;
+        // echo $tid;
+        $thereid = DB::table('class')->where('pid',$tid)->get();
+        return $thereid;
+
     }
 }

@@ -88,14 +88,11 @@ section{
 	max-width: 1200px;
 	min-width: 1140px;
 	min-height: 450px;
-	position: absolute;
 	background: red;
 	margin:auto;
 	border:1px solid #e3e3e3;
-	background: #fafafa url(../image/kong-img.png) no-repeat center 70px;
+	background: #fafafa url(../file/img/index/kong-img.png) no-repeat center 70px;
 	text-align: center;
-	/*隐藏*/
-	display: none;
 }
 .shopcar .car_D .car_D_wz{
 	font-size: 18px;

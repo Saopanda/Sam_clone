@@ -29,11 +29,14 @@ class adminController extends Controller
             }else{
                 return back()->with(['msg'=>'登录失败','msg_info'=>'alert-danger']);
             }
+        }else{
+            return back()->with(['msg'=>'登录失败','msg_info'=>'alert-danger']);
         }
     }
     // 后台首页
     public function index()
     {
+        
         return view('admin.index');
     }
     //注销登陆
