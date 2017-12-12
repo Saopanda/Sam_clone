@@ -68,9 +68,11 @@
 	</div>
 	<div class="container-fulid header-middle">
 		<div class="container">
-			<div class="pull-left logo">
-				<img src="/file/img/logo.png" alt="">
-			</div>
+			<a href="/">
+				<div class="pull-left logo">
+					<img src="/file/img/logo.png" alt="">
+				</div>
+			</a>
 			<a href="">
 			<div class="location pull-left">
 				<i class="fa fa-location-arrow"></i>
@@ -85,13 +87,24 @@
 					<input class="form-control" type="text" name="">
 					<button><i class="glyphicon glyphicon-search"></i></button>
 				</form>
-				<div class="cart">
-					<span>0</span><i class="fa fa-shopping-cart"></i>
-				</div>
+				<a href="/cart">
+					<div class="cart">
+						<span>0</span><i class="fa fa-shopping-cart"></i>
+					</div>
+				</a>
 			</div>
 		</div>
 	</div>
 	<div class="container-fulid nav">
+		<?php 
+			$data=DB::table('class')->where('pid','0')->get();
+	        foreach ($data as $k => &$v) {
+	           $v->two =DB::table('class')->where('pid',$v->id)->get();
+	            foreach ($v->two as $ka => &$va) {
+	                $va->there =DB::table('class')->where('pid',$va->id)->get();
+	            }
+	        }
+		 ?>
 		<div class="container">
 		@foreach($data as $key => $v)
 			<dl class="nav-x-1">

@@ -2,21 +2,19 @@
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| 		SAM system route rules
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
+
+#################  前台展示    ################
 // 前台展示
 Route::get('/','indexController@index');
 // 列表页
 Route::get('/list','indexController@list');
 // 商品详情
 Route::get('/{id}.html','GoodsController@show');
-
+//购物车
+Route::get('/cart','CartController@index');
 
 
 ################### 注册 ########################
@@ -35,37 +33,40 @@ Route::get('/signup/send/{id}','signupController@send');
 	//激活邮件验证
 Route::get('/signup/yz/{id}','signupController@yz');
 
-################### 注册 ########################
 
 
 Route::get('/test','testController@test');
 
 
+################### 登陆 ########################
+
 // 前台登陆
 Route::get('/login','indexController@login');
 	//登陆验证
 Route::post('/login','indexController@dologin');
-	//注销登陆
-Route::get('/logout','indexController@logout');
+
+
 // 前台已登陆界面
 Route::group(['middleware'=>'Login'],function(){
 
+	//注销登陆
+	Route::get('/logout','indexController@logout');
 	//个人中心
 	Route::get('/home','HomeController@index');
 	//订单管理
 	Route::get('/home/order','HomeController@order');
-
+	//购物车
+	Route::resource('/home/cart','CartController');
 
 });
 
 
+###################  后台登陆   #####################
 
-// 后台登陆
+//登陆
 Route::get('/admin/login','adminController@login');
+	//登陆验证
 Route::post('/admin/login','adminController@dologin');
-
-Route::get('/getwo','GoodsController@getwo');
-Route::get('/gettwo','GoodsController@gettwo');
 
 // 后台已登陆界面
 Route::group(['middleware'=>'Admin_Login'],function(){
@@ -84,6 +85,8 @@ Route::group(['middleware'=>'Admin_Login'],function(){
 	Route::resource('/admin/class','ClassController');
 		//分类联动
 	Route::get('/getwomenu','ClassController@getwomenu');
+	Route::get('/getwo','GoodsController@getwo');
+	Route::get('/gettwo','GoodsController@gettwo');
 	//广告管理
 	Route::resource('/admin/ad','AdController');
 	//订单管理

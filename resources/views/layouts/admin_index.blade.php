@@ -166,7 +166,20 @@
 
     <script src="/js/minimal.min.js"></script>
   </body>
+<script>
+  $(function(){
+    var path = location.pathname;
+
+    $('a').each(function() {
+      if($(this).attr('href') == path){
+        $(this).parent('li').addClass('active').parent().parent('li').addClass('active open')
+      }
+    });
+    //parents('dropdown-in').addClass('active').parents('dropdown').addClass('active open')
+  })
+</script>
   @section('js')
+
 
   @show
 </html>

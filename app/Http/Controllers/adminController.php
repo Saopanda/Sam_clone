@@ -19,7 +19,6 @@ class adminController extends Controller
     //后台登陆验证
     public function dologin(Request $request)
     {
-
         $data = $request->except('_token');
         $rs = DB::table('manager')->where('name',$data['name'])->first();
         if($rs){
@@ -37,6 +36,7 @@ class adminController extends Controller
     // 后台首页
     public function index()
     {
+        
         return view('admin.index');
     }
     //注销登陆
