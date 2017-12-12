@@ -19,8 +19,13 @@ class indexController extends Controller
     // 列表页
     public function list()
     {   
-         // 分类结束
-    	return view('list');
+
+        $goods = DB::table('goods')->select('id','title','price','content')->get();
+        foreach ($goods as $key => &$value) {
+            $value->pic = DB::table('goods_pic')->where('goodsid',$value->id)->where('img_lx',2)->value('imgs');
+        }
+
+    	return view('list',['goods'=>$goods]);
     }
     //登陆
     public function login()

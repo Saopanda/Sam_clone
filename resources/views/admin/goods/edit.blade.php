@@ -74,23 +74,44 @@
           <label></label>
         </div>
       </div>
-      
+      <div class="form-group">
+        <label for="fullname" class="col-sm-4 control-label">活动</label>
+        <div class="col-sm-8">
+          <select name="huodong" class="form-control parsley-validated jb">
+            <option value="0" @if($goods->huodong == 0) selected @endif>默认</option>
+            <option value="1" @if($goods->huodong == 1) selected @endif>销量</option>
+            <option value="2" @if($goods->huodong == 2) selected @endif>最新</option>
+            <option value="3" @if($goods->huodong == 3) selected @endif>优惠</option> 
+          </select>
+          <label></label>
+        </div>
+      </div>
 
 
       <div class="form-group">        
           <input type="hidden" name="flid" value="{{$goods->flid}}">          
       </div>
       
+       <div class="form-group">
+        <label for="fullname" class="col-sm-4 control-label">商品详情图</label>
+        <div class="col-sm-8">
+          <input name="imgsxq[]" type="file" class="form-control parsley-validated" id="fullname" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1" multiple="" accept="image/png,image/jpeg">
+          <label></label>
+        </div>
+      </div>
       <div class="form-group">
-         <label for="fullname" class="col-sm-4 control-label" style="margin-top: 15px;">商品图片</label>
-         <div class="col-sm-8 pull-right" style="margin-bottom: 10px;">  
-          @foreach($goodspic as $k => $v)           
-          <img src="{{$v->imgs}}" width="40" height="40" style="margin-left: 4px;">     
-         @endforeach 
-         </div>
-         <div class="col-sm-8 pull-right" style="margin-bottom: 10px;">
-            <input type="file" name="imgs[]" class="pull-left" style="margin-top: 8px;margin-left: 8px;" multiple="">       
-          </div>     
+        <label for="fullname" class="col-sm-4 control-label">商品小图</label>
+        <div class="col-sm-8">
+          <input name="imgsxt[]" type="file" class="form-control parsley-validated" id="fullname" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1" multiple="" accept="image/png,image/jpeg">
+          <label></label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="fullname" class="col-sm-4 control-label">商品大图</label>
+        <div class="col-sm-8">
+          <input name="imgsdt[]" type="file" class="form-control parsley-validated" id="fullname" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1" multiple="" accept="image/png,image/jpeg">
+          <label></label>
+        </div>
       </div>
       
       <div class="form-group">

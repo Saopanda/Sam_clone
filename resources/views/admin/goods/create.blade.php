@@ -108,7 +108,18 @@
         </div>
       </div>
      
-
+      <div class="form-group">
+        <label for="fullname" class="col-sm-4 control-label">活动</label>
+        <div class="col-sm-8">
+          <select name="huodong" class="form-control parsley-validated jb">
+            <option value="0">默认</option>
+            <option value="1">销量</option>
+            <option value="2">最新</option>
+            <option value="3">优惠</option> 
+          </select>
+          <label></label>
+        </div>
+      </div>
 
 
 
@@ -127,13 +138,26 @@
         </div>
 
       <div class="form-group">
-        <label for="fullname" class="col-sm-4 control-label">商品图片</label>
+        <label for="fullname" class="col-sm-4 control-label">商品详情图</label>
         <div class="col-sm-8">
-          <input name="imgs[]" type="file" class="form-control parsley-validated" id="fullname" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1" multiple="" accept="image/png,image/jpeg">
+          <input name="imgsxq[]" type="file" class="form-control parsley-validated" id="fullname" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1" multiple="" accept="image/png,image/jpeg">
           <label></label>
         </div>
       </div>
-
+      <div class="form-group">
+        <label for="fullname" class="col-sm-4 control-label">商品小图</label>
+        <div class="col-sm-8">
+          <input name="imgsxt[]" type="file" class="form-control parsley-validated" id="fullname" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1" multiple="" accept="image/png,image/jpeg">
+          <label></label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="fullname" class="col-sm-4 control-label">商品大图</label>
+        <div class="col-sm-8">
+          <input name="imgsdt[]" type="file" class="form-control parsley-validated" id="fullname" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1" multiple="" accept="image/png,image/jpeg">
+          <label></label>
+        </div>
+      </div>
       <div class="form-group form-footer">
         <div class="col-sm-offset-4 col-sm-8">
           <button type="submit" class="btn btn-default">添加</button>
