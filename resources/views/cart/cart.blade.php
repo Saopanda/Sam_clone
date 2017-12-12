@@ -18,6 +18,21 @@
 	<link rel="stylesheet" href="/css/main.css">
 	<!-- 引入holder.js -->
 	<script type="text/javascript" src="/bootstrap/js/holder.min.js"></script>
+	<style>
+		body{
+			background: #fff;
+		}
+		.table{
+			margin-bottom: 0px;
+		}
+		.table > tbody > tr > td{
+			padding: 0;
+			line-height: 50px;
+		}
+		p {
+		    line-height: 24px;
+		}
+	</style>
 </head>
 <body id="body">
 	<!-- 头部 -->
@@ -45,10 +60,11 @@
 				<div></div>
 			</div>
 			
-			@if(isset($rs))	
+			@if(isset($rs))
+			@if(count($rs) > 0)
 			<div class="car_D1">
 
-				<form action="" method="">					
+				<form action="" method="" style="background: #f8f8f8">					
 					<div class="bg_Top">
 						<span class="glyphicon glyphicon-apple ys" aria-hidden="true"></span>
 				     	<span class="bg_T_wz">普通商品</span>
@@ -61,54 +77,55 @@
 				     	</span>
 					</div>
 					<div id="hidden_a">
-						<table class="table text-center">						
-							<tr>
-								<td style="width: 50px;height: 50px;">
+						<table class="table text-center" style="background: #fff">						
+							<tr style="height: 50px;line-height: 50px">
+								<td style="width: 50px">
 									<input type="checkbox" name="box[]" id="box">
 								</td>
-								<td style="line-height: 50px;">商品信息</td>
-								<td style="width: 160px;line-height: 50px;">单价(元)</td>
-								<td style="width: 160px;line-height: 50px;">数量</td>
-								<td style="width: 160px;line-height: 50px;">小计(元)</td>
-								<td style="width: 160px;line-height: 50px;">操作</td>								
+								<td>商品信息</td>
+								<td style="width: 160px;">单价(元)</td>
+								<td style="width: 160px;">数量</td>
+								<td style="width: 160px;">小计(元)</td>
+								<td style="width: 160px;">操作</td>								
 							</tr>
 								<!-- 商品开始循环 -->
-							
-
+								@foreach($rs as $k=>$v)
 								<tr>
 									<td>
 										<input type="checkbox" name="box[]" id="">
 									</td>
+
 									<td>
-										<div class="car_shop">
-											<a href="#"><img src="holder.js/90x90" alt="" style="float: left;"></a>
-											<p><a href="#">安耐特 吉普18英寸少年车吉普181A-1</a></p>
-											<p><a href="#">Item#:501834</a></p>
-											<p style="margin-top: 25px;">
-				                    			<span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
-		                    				</p>
+										<div class="car_shop pull-left">
+											<a href="#"><img src="{{$v->goods_pic->imgs}}" alt="" style="float: left;"></a>
+	                    				</div>
+	                    				<div class="goods_title pull-left">
+	                    					<p><a href="#">{{$v->goods->title}}</a><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span></p>
+	                    					<p>{!!$v->goods->content!!}</p>
 	                    				</div>
 									</td>
-									<td style="line-height: 107px;">899</td>
+
+									<td style="line-height: 107px;">{{$v->goods->price}}</td>
+
 									<td>
 										<div class="num">
-											<a id="jian" class="a a_block" style="font-size: 20px;line-height: 30px;font-weight: bolder;">-</a>
+											<a id="jian" class="a a_block" style="font-size: 20px;font-weight: bolder;">-</a>
 
-											<input type="text" name="" id="num" value="1">
+											<input type="text" name="" id="num" value="{{$v->num}}">
 
 											<a id="jia" class="a a_block1" style="font-size: 20px;font-weight: bolder;">+</a>
 										</div>
 									</td>
-									<td style="line-height: 107px;color: #0069aa;font-weight: bold;">¥3596.00</td>
+
+									<td style="line-height: 107px;color: #0069aa;font-weight: bold;">
+									¥3596.00
+									</td>
+
 									<td style="line-height: 107px;">
 										<a class="btn btn-default"><i class="glyphicon glyphicon-trash"></i> 删除</a>
 									</td>
 								</tr>
-
-
-
-
-
+								@endforeach
 								<!-- 商品开始循环 -->
 						</table>
 						<div class="bg_Down">
@@ -131,6 +148,12 @@
 					</div>
 				</form>
 			</div>
+			@else
+			<div class="car_D">
+				<p class="car_D_wz">购物车还是空的哦~</p>
+				<p class="anniu"><a href="/" style="font-size: 20px">去逛逛</a></p>
+			</div>
+			@endif
 			@else
 			<div class="car_D">
 				<p class="car_D_wz">登录后才可以看到购物车哦~</p>

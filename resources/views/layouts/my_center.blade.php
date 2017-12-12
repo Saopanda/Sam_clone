@@ -35,16 +35,20 @@
 			<!-- 个人中心左导航 -->
 			<div class="g-person-nav">
 				<!-- 头像 -->
+				
 				<div class="gp-user-infors">
                    <div class="sam_vip">
 						<div class="sam_logo">
+						@section('touimg')						
 							<img src="/file/img/geren/user-img.png" alt="">
+						@show
 						</div>
-						<div class="sam_quan">
+						<div class="sam_quan">						
 							<img src="/file/img/index/quan.png" alt="">
 						</div>
 					</div>
 				</div>
+				
 				<!-- 头像 -->
 				<div class="gp-user-menu">
 					<dl>

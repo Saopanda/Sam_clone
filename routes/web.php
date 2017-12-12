@@ -53,6 +53,8 @@ Route::group(['middleware'=>'Login'],function(){
 	Route::get('/logout','indexController@logout');
 	//个人中心
 	Route::get('/home','HomeController@index');
+	//修改个人中心的数据提交到数据库
+	Route::post('/home/bianji','HomeController@bianji');
 	//订单管理
 	Route::get('/home/order','HomeController@order');
 	//购物车

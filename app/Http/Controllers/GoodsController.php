@@ -139,7 +139,14 @@ class GoodsController extends Controller
      */
     public function show($id)
     {
-        return view('goods');
+        $rs = DB::table('goods')->where('id',$id)->first();
+        if($rs){
+            $rs->goods_pic = DB::table('goods_pic')->where('goodsid',$rs->id)->get();
+            return view('goods',['rs'=>$rs]);
+        }else{
+            abort(404);
+        }
+        
     }
 
     /**

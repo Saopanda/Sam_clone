@@ -52,8 +52,11 @@ class CartController extends Controller
     public function show($id)
     {
         //个人购物车 显示商品
-        $rs = DB::table('carts')->where('username',session('user_name'))->get();
-
+        $rs = DB::table('carts')->where('username',session('user_name'))->select('goodsid','num')->get();
+        foreach($rs as $k=>$v){
+            $v->goods = DB::table('goods')->where('id',$v->goodsid)->select('title','price','content')->first();
+            $v->goods_pic = DB::table('goods_pic')->where(['goodsid'=>$v->goodsid,'img_lx'=>2])->select('imgs')->first();
+        }
         return view('cart.cart',['rs'=>$rs]);
     }
 

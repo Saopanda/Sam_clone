@@ -159,9 +159,9 @@ section{
 	margin-top: -2px;
 	display: none;
 }
-
-
-
+#body .goods_title {
+	padding: 26px 0 0 51px;
+}
 
 .shopcar .car_D1 .bg_Top .bg_T_sq{
 	user-select: none;
@@ -172,12 +172,14 @@ section{
 	margin-right: 30px;
 }
 .car_shop{
-	width: 325px;
-	height: 90px;
-	text-align: left;
-	text-indent: 6px;
-	font-size: 12px;
-	/*background: blue;*/
+	width: 90px;
+    height: 90px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+.car_shop img{
+	width: 100%;
+	height: 100%;
 }
 .car_shop a{
 	color: #666;
@@ -204,12 +206,11 @@ section{
 }
 .a_block{
 	display: block;
-	width: 24px;
-	height: 30px;
-	/*background: red;*/
-	text-align:center;
-	float: left;
-	margin-top: 5px;
+    width: 24px;
+    height: 40px;
+    line-height: 37px;
+    text-align: center;
+    float: left;
 }
 #num{
 	 width: 40px;
@@ -224,12 +225,11 @@ section{
 }
 .a_block1{
 	display: block;
-	width: 24px;
-	height: 30px;
-	text-align:center;
-	float: right;
-	/*background: red;*/
-	margin-top: 5px;	
+    width: 24px;
+    height: 40px;
+    text-align: center;
+    float: right;
+    line-height: 40px;
 }
 
 
