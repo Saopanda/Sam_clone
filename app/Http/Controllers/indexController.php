@@ -33,8 +33,16 @@ class indexController extends Controller
                 $va->there =DB::table('class')->where('pid',$va->id)->get();
             }
         }
+        $goods = DB::table('goods')->select('id','title','price','content')->get();
+        // dd($goods);
+        foreach ($goods as $key => &$value) {
+            $value->pic = DB::table('goods_pic')->where('goodsid',$value->id)->where('img_lx',2)->value('imgs');
+        }
          // 分类结束
-    	return view('list',['data'=>$data]);
+
+
+
+    	return view('list',['data'=>$data,'goods'=>$goods]);
     }
     //登陆
     public function login()
