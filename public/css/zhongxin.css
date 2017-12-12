@@ -112,7 +112,7 @@ section .there .label_tit{
     font-weight: normal;
 }
 section .there ul li.nnn{
-height: 60px;
+height: 80px;
 }
 section .there .label_tit em{
     color: #f66;
@@ -120,11 +120,11 @@ section .there .label_tit em{
 }
 section .there .label_box{
     float: left;
-    width: 80%;
+    width: 85%;
 }
 section .there .label_box .an{
     float: left;
-    width: 50%;
+    width: 45%;
     text-align: left;
 }
 section .there .label_box .labox-btn{
