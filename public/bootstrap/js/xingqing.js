@@ -1,8 +1,7 @@
 $(function(){
-	//alert($);
 	$.fn.magnifying = function(){
 		var that = $(this),
-		 $imgCon = that.find('.con-fangDaIMg'),//正常图片容器
+		 $imgCon = that.find('.big_img'),//正常图片容器
 		 	$Img = $imgCon.find('img'),//正常图片，还有放大图片集合
 		   $Drag = that.find('.magnifyingBegin'),//拖动滑动容器
 		   $show = that.find('.big_imgshow'),//放大镜显示区域
@@ -40,10 +39,10 @@ $(function(){
 			$show.css('display','none');
 		});
 
-		$ImgList.mousemove(function(){
+		$ImgList.click(function(){
 			var NowSrc = $(this).data('bigimg');
 			$Img.attr('src',NowSrc);
-			$(this).parent().parent().addClass('active').siblings().removeClass('active');
+			$(this).parent().addClass('active').siblings().removeClass('active');
 		});	
 	}
 

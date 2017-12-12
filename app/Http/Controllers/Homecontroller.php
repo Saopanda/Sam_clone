@@ -13,7 +13,6 @@ class Homecontroller extends Controller
         $sioninfo=DB::table('user')->where('name',$sion)->select('id','name','email','phone','ztid')->first();
         $sioninfo->phone = substr_replace($sioninfo->phone, '****', 3,4);
         $info=DB::table('userinfo')->where('id',$sioninfo->id)->first();
-        //dd($sioninfo);
          // 分类结束
         return view('home.index',['sioninfo'=>$sioninfo,'info'=>$info]);
     }
