@@ -17,15 +17,39 @@ class indexController extends Controller
     	return view('index');
     }
     // 列表页
-    public function list()
-    {   
-
-        $goods = DB::table('goods')->select('id','title','price','content')->get();
+    public function list($id)
+    {           
+        // 分类
+        $a['yi']=DB::table('class')->where('id',$id)->first();
+        $a['yi']->er = DB::table('class')->where('pid',$a['yi']->id)->get();
+        foreach($a['yi']->er as $k=>$v){
+           $v->san =  DB::table('class')->where('pid',$v->id)->get();
+        }
+        // 分类结束
+        // 商品分类
+        $shop=[];
+        foreach ($a as $key => $value) {
+            foreach ($value->er as $ke => $val) {
+                foreach ($val->san as $k => $v) {
+                    $shop[]=$v->id;
+                }
+            }
+        }
+        // 商品分类结束
+        // var_dump($shop);
+        // 商品
+        $goods = DB::table('goods')->select('id','title','price','content','huodong','flid')->get();
         foreach ($goods as $key => &$value) {
             $value->pic = DB::table('goods_pic')->where('goodsid',$value->id)->where('img_lx',2)->value('imgs');
-        }
-
-    	return view('list',['goods'=>$goods]);
+        }        
+        // 商品结束
+        // $abc = [];
+        // foreach ($goods as $key => $value) {
+        //     $abc[] = in_array($value->flid,$shop);
+        // }
+        // var_dump($abc);
+        // dd(1);
+    	return view('list',['goods'=>$goods,'a'=>$a,'shop'=>$shop]);
     }
     //登陆
     public function login()

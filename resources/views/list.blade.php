@@ -19,91 +19,51 @@
 <!-- 头部结束 -->
 	<div class="mianbaox container">
 		<ol class="lis">
-		  <li><a href="#">首页</a><span class="iconfont">></span></li>
-		  <li><a href="#">生鲜食品</a><span class="iconfont">></span></li>
-		  <li class=""><a href="#">肉蛋水产</a></li>
+		  <li><a href="/">首页</a><span class="iconfont">></span></li>
+		  @foreach($a as $key => $v)
+		  <li><a href="#">{{$v->flname}}</a><span class="iconfont"></span></li>
+		  @endforeach
 		</ol>
 	</div>
 <section class="container content">
 		<nav class="">
-			<h2 class="title"><span>生鲜食品</span></h2>
-			
-	<div class="panel-group gao_a" id="accordion" role="tablist" aria-multiselectable="true">
-		<div class="panel panel-default gao">
-		    <div class="panel-heading" role="tab" id="headingOne">
-		      <h4 class="panel-title clear">
-		        <span class=" glyphicon glyphicon-triangle-bottom d1"></span>
-		        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseTwo">
-		         <span class="">肉蛋水产</span>
-				 <span class="a2">152</span>
-		        </a>
-		      </h4>
-		    </div>
-		    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-		      <div class="panel-body">
-		       <dl class="dl_a">
-						<dd class="list_a">
-							<ul class="a_hover">
-								<li>
-									<span class="a1">猪肉</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">牛/羊肉</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">禽类</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">鱼/肉类制品</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">猪肉</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">猪肉</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">猪肉</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">猪肉</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">猪肉</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-
-						</dd>
-			   </dl>
-		      </div>
-		    </div>
-		</div>
-		<div class="panel panel-default gao">
+			@foreach($a as $key => $v)
+			<h2 class="title"><span>{{$v->flname}}</span></h2>
+			@endforeach
+		<div class="panel-group gao_a" id="accordion" role="tablist" aria-multiselectable="true">
+		@foreach($a as $s => $one)
+			@foreach($one->er as $t =>$two)		
+				<div class="panel panel-default gao">
+				    <div class="panel-heading" role="tab" id="headingTwo{{$t}}">
+				        <h4 class="panel-title clear">
+				        	<span class=" glyphicon glyphicon-triangle-bottom d1"></span>
+				       		<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo{{$t}}" aria-expanded="false" aria-controls="collapseTwo{{$t}}">
+				         	<span class="">{{$two->flname}}</span>
+						 	<span class="a2">{{$two->id}}</span>
+				        	</a>
+				      	</h4>
+				    </div>
+				    <div id="collapseTwo{{$t}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo{{$t}}">
+				        <div class="panel-body">
+				            <dl class="dl_a">
+								<dd class="list_a">
+								@foreach($two->san as $sa => $there)
+								<ul class="a_hover">
+									<li>
+										<span class="a1">{{$there->flname}}</span>
+										<span class="a2">{{$there->id}}</span>
+									</li>
+								</ul>
+								@endforeach
+								</dd>
+					  		</dl>
+				      </div>
+				    </div>
+				</div>
+			@endforeach
+		@endforeach
+		<!-- 分类 -->
+		<!-- <div class="panel panel-default gao">
 		    <div class="panel-heading" role="tab" id="headingTwo">
 		      <h4 class="panel-title clear">
 		        <span class=" glyphicon glyphicon-triangle-bottom d1"></span>
@@ -251,7 +211,8 @@
 		      </div>
 		    </div>
 		</div>
-	</div>
+		</div> -->
+		<!-- 分类 -->
 		</nav>
 		<div class="list_right">
 			<div class="fl_1">
@@ -345,320 +306,125 @@
 			    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">销量</a></li>
 			    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">最新</a></li>
 			    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">优惠</a></li>
-			    <li class="pull-right you">共找到151项结果</li>
+			    <!-- <li class="pull-right you">共找到151项结果</li> -->
 			  </ul>
 
   <!-- Tab panes -->
 			  <div class="tab-content">
 			    <div role="tabpanel" class="tab-pane active" id="home">
-					<div class="goods_1">
-						<div class="proImg">
-							<a href="" target="_blank">
-							<img src="/file/img/liebiao/jidan1.jpg" alt="" />
-							</a>
-							<div class="tagBox">
-							<img src="/file/img/liebiao/yuanyu1.gif" />
+					@foreach($goods as $key => $val)
+					@if(in_array($val->flid,$shop))
+				    <div class="goods_1">
+							<div class="proImg">
+								<a href="" target="_blank">
+								<img src="{{$val->pic}}" alt="" />
+								</a>
+								<div class="tagBox">
+								<img src="/file/img/liebiao/yuanyu1.gif" />
+								</div>
 							</div>
-						</div>
-						<p class="proName">
-						<a href="/" target="_blank">MM鲜鸡蛋30枚 1.5kg</a>
-						</p>
-						<p class="proName2">
-						单个鸡蛋大于50克 不添加抗生素 精心培育</p>
-						<p class="proPrice">
-							<em><b class="b1">¥ </b>29.8</em>
-						</p>
-						<div class="shoppingAct">
-							<ul class="num">
-								<li class="no" buynumflag="minus">–</li>
-								<li class="m"><input pattern="[0-9]" value="1" maxperorder="999" minperorder="500" maxlength="3" type="text"></li>
-								<li buynumflag="add" class="add">+</li>
-							</ul>
-							<!--查看详情 -->
-							<a href="/" class="shopCar" showprice="29.8" shoppingcount="0" limitnumberperuser="">
-							<i class="glyphicon glyphicon-shopping-cart"></i><span>加入购物车</span>
-							</a>
-						</div>
-						<div class="proBorder"></div>
-					</div>
-					<div class="goods_1">
-						<div class="proImg">
-							<a href="" target="_blank">
-							<img src="/file/img/liebiao/jidan1.jpg" alt="" />
-							</a>
-							<div class="tagBox">
-							<img src="/file/img/liebiao/yuanyu1.gif" />
+							<p class="proName">
+							<a href="/" target="_blank">{{$val->title}}</a>
+							</p>
+							<p class="proName2">
+							{!! $val->content !!}</p>
+							<p class="proPrice">
+								<em><b class="b1">¥ </b>{{$val->price}}</em>
+							</p>
+							<div class="shoppingAct">
+								<ul class="num">
+									<li class="no" buynumflag="minus">–</li>
+									<li class="m"><input pattern="[0-9]" value="1" maxperorder="999" minperorder="500" maxlength="3" type="text"></li>
+									<li buynumflag="add" class="add">+</li>
+								</ul>
+								<!--查看详情 -->
+								<a href="/" class="shopCar" showprice="29.8" shoppingcount="0" limitnumberperuser="">
+								<i class="glyphicon glyphicon-shopping-cart"></i><span>加入购物车</span>
+								</a>
 							</div>
-						</div>
-						<p class="proName">
-						<a href="/" target="_blank">MM鲜鸡蛋30枚 1.5kg</a>
-						</p>
-						<p class="proName2">
-						单个鸡蛋大于50克 不添加抗生素 精心培育</p>
-						<p class="proPrice">
-							<em><b class="b1">¥ </b>29.8</em>
-						</p>
-						<div class="shoppingAct">
-							<ul class="num">
-								<li class="no" buynumflag="minus">–</li>
-								<li class="m"><input pattern="[0-9]" value="1" maxperorder="999" minperorder="500" maxlength="3" type="text"></li>
-								<li buynumflag="add" class="add">+</li>
-							</ul>
-							<!--查看详情 -->
-							<a href="/" class="shopCar" showprice="29.8" shoppingcount="0" limitnumberperuser="">
-							<i class="glyphicon glyphicon-shopping-cart"></i><span>加入购物车</span>
-							</a>
-						</div>
-						<div class="proBorder"></div>
+							<div class="proBorder"></div>
 					</div>
-					<div class="goods_1">
-						<div class="proImg">
-							<a href="" target="_blank">
-							<img src="/file/img/liebiao/jidan1.jpg" alt="" />
-							</a>
-							<div class="tagBox">
-							<img src="/file/img/liebiao/yuanyu1.gif" />
-							</div>
-						</div>
-						<p class="proName">
-						<a href="/" target="_blank">MM鲜鸡蛋30枚 1.5kg</a>
-						</p>
-						<p class="proName2">
-						单个鸡蛋大于50克 不添加抗生素 精心培育</p>
-						<p class="proPrice">
-							<em><b class="b1">¥ </b>29.8</em>
-						</p>
-						<div class="shoppingAct">
-							<ul class="num">
-								<li class="no" buynumflag="minus">–</li>
-								<li class="m"><input pattern="[0-9]" value="1" maxperorder="999" minperorder="500" maxlength="3" type="text"></li>
-								<li buynumflag="add" class="add">+</li>
-							</ul>
-							<!--查看详情 -->
-							<a href="/" class="shopCar" showprice="29.8" shoppingcount="0" limitnumberperuser="">
-							<i class="glyphicon glyphicon-shopping-cart"></i><span>加入购物车</span>
-							</a>
-						</div>
-						<div class="proBorder"></div>
-					</div>
-					<div class="goods_1">
-						<div class="proImg">
-							<a href="" target="_blank">
-							<img src="/file/img/liebiao/jidan1.jpg" alt="" />
-							</a>
-							<div class="tagBox">
-							<img src="/file/img/liebiao/yuanyu1.gif" />
-							</div>
-						</div>
-						<p class="proName">
-						<a href="/" target="_blank">MM鲜鸡蛋30枚 1.5kg</a>
-						</p>
-						<p class="proName2">
-						单个鸡蛋大于50克 不添加抗生素 精心培育</p>
-						<p class="proPrice">
-							<em><b class="b1">¥ </b>29.8</em>
-						</p>
-						<div class="shoppingAct">
-							<ul class="num">
-								<li class="no" buynumflag="minus">–</li>
-								<li class="m"><input pattern="[0-9]" value="1" maxperorder="999" minperorder="500" maxlength="3" type="text"></li>
-								<li buynumflag="add" class="add">+</li>
-							</ul>
-							<!--查看详情 -->
-							<a href="/" class="shopCar" showprice="29.8" shoppingcount="0" limitnumberperuser="">
-							<i class="glyphicon glyphicon-shopping-cart"></i><span>加入购物车</span>
-							</a>
-						</div>
-						<div class="proBorder"></div>
-					</div>
-					<div class="goods_1">
-						<div class="proImg">
-							<a href="" target="_blank">
-							<img src="/file/img/liebiao/jidan1.jpg" alt="" />
-							</a>
-							<div class="tagBox">
-							<img src="/file/img/liebiao/yuanyu1.gif" />
-							</div>
-						</div>
-						<p class="proName">
-						<a href="/" target="_blank">MM鲜鸡蛋30枚 1.5kg</a>
-						</p>
-						<p class="proName2">
-						单个鸡蛋大于50克 不添加抗生素 精心培育</p>
-						<p class="proPrice">
-							<em><b class="b1">¥ </b>29.8</em>
-						</p>
-						<div class="shoppingAct">
-							<ul class="num">
-								<li class="no" buynumflag="minus">–</li>
-								<li class="m"><input pattern="[0-9]" value="1" maxperorder="999" minperorder="500" maxlength="3" type="text"></li>
-								<li buynumflag="add" class="add">+</li>
-							</ul>
-							<!--查看详情 -->
-							<a href="/" class="shopCar" showprice="29.8" shoppingcount="0" limitnumberperuser="">
-							<i class="glyphicon glyphicon-shopping-cart"></i><span>加入购物车</span>
-							</a>
-						</div>
-						<div class="proBorder"></div>
-					</div>
-					<div class="goods_1">
-						<div class="proImg">
-							<a href="" target="_blank">
-							<img src="/file/img/liebiao/jidan1.jpg" alt="" />
-							</a>
-							<div class="tagBox">
-							<img src="/file/img/liebiao/yuanyu1.gif" />
-							</div>
-						</div>
-						<p class="proName">
-						<a href="/" target="_blank">MM鲜鸡蛋30枚 1.5kg</a>
-						</p>
-						<p class="proName2">
-						单个鸡蛋大于50克 不添加抗生素 精心培育</p>
-						<p class="proPrice">
-							<em><b class="b1">¥ </b>29.8</em>
-						</p>
-						<div class="shoppingAct">
-							<ul class="num">
-								<li class="no" buynumflag="minus">–</li>
-								<li class="m"><input pattern="[0-9]" value="1" maxperorder="999" minperorder="500" maxlength="3" type="text"></li>
-								<li buynumflag="add" class="add">+</li>
-							</ul>
-							<!--查看详情 -->
-							<a href="/" class="shopCar" showprice="29.8" shoppingcount="0" limitnumberperuser="">
-							<i class="glyphicon glyphicon-shopping-cart"></i><span>加入购物车</span>
-							</a>
-						</div>
-						<div class="proBorder"></div>
-					</div>
-					<div class="goods_1">
-						<div class="proImg">
-							<a href="" target="_blank">
-							<img src="/file/img/liebiao/jidan1.jpg" alt="" />
-							</a>
-							<div class="tagBox">
-							<img src="/file/img/liebiao/yuanyu1.gif" />
-							</div>
-						</div>
-						<p class="proName">
-						<a href="/" target="_blank">MM鲜鸡蛋30枚 1.5kg</a>
-						</p>
-						<p class="proName2">
-						单个鸡蛋大于50克 不添加抗生素 精心培育</p>
-						<p class="proPrice">
-							<em><b class="b1">¥ </b>29.8</em>
-						</p>
-						<div class="shoppingAct">
-							<ul class="num">
-								<li class="no" buynumflag="minus">–</li>
-								<li class="m"><input pattern="[0-9]" value="1" maxperorder="999" minperorder="500" maxlength="3" type="text"></li>
-								<li buynumflag="add" class="add">+</li>
-							</ul>
-							<!--查看详情 -->
-							<a href="/" class="shopCar" showprice="29.8" shoppingcount="0" limitnumberperuser="">
-							<i class="glyphicon glyphicon-shopping-cart"></i><span>加入购物车</span>
-							</a>
-						</div>
-						<div class="proBorder"></div>
-					</div>
-					<div class="goods_1">
-						<div class="proImg">
-							<a href="" target="_blank">
-							<img src="/file/img/liebiao/jidan1.jpg" alt="" />
-							</a>
-							<div class="tagBox">
-							<img src="/file/img/liebiao/yuanyu1.gif" />
-							</div>
-						</div>
-						<p class="proName">
-						<a href="/" target="_blank">MM鲜鸡蛋30枚 1.5kg</a>
-						</p>
-						<p class="proName2">
-						单个鸡蛋大于50克 不添加抗生素 精心培育</p>
-						<p class="proPrice">
-							<em><b class="b1">¥ </b>29.8</em>
-						</p>
-						<div class="shoppingAct">
-							<ul class="num">
-								<li class="no" buynumflag="minus">–</li>
-								<li class="m"><input pattern="[0-9]" value="1" maxperorder="999" minperorder="500" maxlength="3" type="text"></li>
-								<li buynumflag="add" class="add">+</li>
-							</ul>
-							<!--查看详情 -->
-							<a href="/" class="shopCar" showprice="29.8" shoppingcount="0" limitnumberperuser="">
-							<i class="glyphicon glyphicon-shopping-cart"></i><span>加入购物车</span>
-							</a>
-						</div>
-						<div class="proBorder"></div>
-					</div>
+					@endif
+				    @endforeach
 			    </div>
 			    <div role="tabpanel" class="tab-pane" id="profile">
-					<div class="goods_1">
-						<div class="proImg">
-							<a href="" target="_blank">
-							<img src="/file/img/liebiao/jidan1.jpg" alt="" />
-							</a>
-							<div class="tagBox">
-							<img src="/file/img/liebiao/yuanyu1.gif" />
+					@foreach($goods as $key => $val)
+					@if($val->huodong == 1 && in_array($val->flid,$shop))
+
+
+				    <div class="goods_1">
+							<div class="proImg">
+								<a href="" target="_blank">
+								<img src="{{$val->pic}}" alt="" />
+								</a>
+								<div class="tagBox">
+								<img src="/file/img/liebiao/yuanyu1.gif" />
+								</div>
 							</div>
-						</div>
-						<p class="proName">
-						<a href="/" target="_blank">MM鲜鸡蛋30枚 1.5kg</a>
-						</p>
-						<p class="proName2">
-						单个鸡蛋大于50克 不添加抗生素 精心培育</p>
-						<p class="proPrice">
-							<em><b class="b1">¥ </b>29.8</em>
-						</p>
-						<div class="shoppingAct">
-							<ul class="num">
-								<li class="no" buynumflag="minus">–</li>
-								<li class="m"><input pattern="[0-9]" value="1" maxperorder="999" minperorder="500" maxlength="3" type="text"></li>
-								<li buynumflag="add" class="add">+</li>
-							</ul>
-							<!--查看详情 -->
-							<a href="/" class="shopCar" showprice="29.8" shoppingcount="0" limitnumberperuser="">
-							<i class="glyphicon glyphicon-shopping-cart"></i><span>加入购物车</span>
-							</a>
-						</div>
-						<div class="proBorder"></div>
+							<p class="proName">
+							<a href="/" target="_blank">{{$val->title}}</a>
+							</p>
+							<p class="proName2">
+							{!! $val->content !!}</p>
+							<p class="proPrice">
+								<em><b class="b1">¥ </b>{{$val->price}}</em>
+							</p>
+							<div class="shoppingAct">
+								<ul class="num">
+									<li class="no" buynumflag="minus">–</li>
+									<li class="m"><input pattern="[0-9]" value="1" maxperorder="999" minperorder="500" maxlength="3" type="text"></li>
+									<li buynumflag="add" class="add">+</li>
+								</ul>
+								<!--查看详情 -->
+								<a href="/" class="shopCar" showprice="29.8" shoppingcount="0" limitnumberperuser="">
+								<i class="glyphicon glyphicon-shopping-cart"></i><span>加入购物车</span>
+								</a>
+							</div>
+							<div class="proBorder"></div>
 					</div>
+					@endif
+				    @endforeach
 			    </div>
 			    <div role="tabpanel" class="tab-pane" id="messages">
-			    	<div class="goods_1">
-						<div class="proImg">
-							<a href="" target="_blank">
-							<img src="/file/img/liebiao/jidan1.jpg" alt="" />
-							</a>
-							<div class="tagBox">
-							<img src="/file/img/liebiao/yuanyu1.gif" />
+			    	@foreach($goods as $key => $val)
+			    	@if($val->huodong == 2)	
+				    <div class="goods_1">
+							<div class="proImg">
+								<a href="" target="_blank">
+								<img src="{{$val->pic}}" alt="" />
+								</a>
+								<div class="tagBox">
+								<img src="/file/img/liebiao/yuanyu1.gif" />
+								</div>
 							</div>
-						</div>
-						<p class="proName">
-						<a href="/" target="_blank">MM鲜鸡蛋30枚 1.5kg</a>
-						</p>
-						<p class="proName2">
-						单个鸡蛋大于50克 不添加抗生素 精心培育</p>
-						<p class="proPrice">
-							<em><b class="b1">¥ </b>29.8</em>
-						</p>
-						<div class="shoppingAct">
-							<ul class="num">
-								<li class="no" buynumflag="minus">–</li>
-								<li class="m"><input pattern="[0-9]" value="1" maxperorder="999" minperorder="500" maxlength="3" type="text"></li>
-								<li buynumflag="add" class="add">+</li>
-							</ul>
-							<!--查看详情 -->
-							<a href="/" class="shopCar" showprice="29.8" shoppingcount="0" limitnumberperuser="">
-							<i class="glyphicon glyphicon-shopping-cart"></i><span>加入购物车</span>
-							</a>
-						</div>
-						<div class="proBorder"></div>
+							<p class="proName">
+							<a href="/" target="_blank">{{$val->title}}</a>
+							</p>
+							<p class="proName2">
+							{!! $val->content !!}</p>
+							<p class="proPrice">
+								<em><b class="b1">¥ </b>{{$val->price}}</em>
+							</p>
+							<div class="shoppingAct">
+								<ul class="num">
+									<li class="no" buynumflag="minus">–</li>
+									<li class="m"><input pattern="[0-9]" value="1" maxperorder="999" minperorder="500" maxlength="3" type="text"></li>
+									<li buynumflag="add" class="add">+</li>
+								</ul>
+								<!--查看详情 -->
+								<a href="/" class="shopCar" showprice="29.8" shoppingcount="0" limitnumberperuser="">
+								<i class="glyphicon glyphicon-shopping-cart"></i><span>加入购物车</span>
+								</a>
+							</div>
+							<div class="proBorder"></div>
 					</div>
+					@endif
+				    @endforeach
 			    </div>			    
 			    <div role="tabpanel" class="tab-pane" id="settings">
-			    @foreach($goods as $key => $val)	
-			    <div class="goods_1">
+				    @foreach($goods as $key => $val)
+			    	@if($val->huodong == 3)	
+			    	<div class="goods_1">
 						<div class="proImg">
 							<a href="" target="_blank">
 							<img src="{{$val->pic}}" alt="" />
@@ -687,8 +453,9 @@
 							</a>
 						</div>
 						<div class="proBorder"></div>
-				</div>
-			    @endforeach
+					</div>
+					@endif
+				    @endforeach
 
 			    </div>
 			  </div>

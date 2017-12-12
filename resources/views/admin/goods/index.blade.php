@@ -31,7 +31,7 @@
 				<tr>					
 					<th class="text-center">ID</th>
 					<th class="text-center">商品标题</th>
-					<th class="text-center">商品介绍</th>
+					<th class="text-center">商品活动</th>
 					<th class="text-center">商品价格</th>
 					<th class="text-center">商品分类</th>					
 					<th class="text-center">商品库存</th>
@@ -44,7 +44,12 @@
 			<tr>					
 				<th class="text-center">{{$val->id}}</th>
 				<th class="text-center">{{$val->title}}</th>
-				<th class="text-center">{{$val->content}}</th>
+				<th class="text-center">
+				@if($val->huodong == 0)  默认 @endif
+				@if($val->huodong == 1)  销量 @endif
+				@if($val->huodong == 2)  最新 @endif
+				@if($val->huodong == 3)  优惠 @endif
+				</th>
 				<th class="text-center">{{$val->price}}</th>				
 				<th class="text-center">{{$val->flid}}</th>
 				<th class="text-center">{{$val->num}}</th>
