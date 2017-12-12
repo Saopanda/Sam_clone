@@ -18,7 +18,16 @@
 	.has-error{
 		color: #FF9999;
 	}
-	
+	input[type=file] {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 0;
+  }
+  div#edui1 {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 0;
+  }
+
   select[name="flid"],.jb{
   background-color: rgba(0, 0, 0, 0.3);
     border: 0;
@@ -179,9 +188,10 @@
 <script type="text/javascript" charset="utf-8" src="/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
 <script>
 var ue = UE.getEditor('editor',{
-          
+        toolbars: [
+            ['fullscreen', 'source', 'undo', 'redo', 'bold']
+        ]
     });
-
 function getone(id){
   $.ajax({
     type:'get',

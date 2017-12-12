@@ -69,65 +69,53 @@
 								<td style="line-height: 50px;">商品信息</td>
 								<td style="width: 160px;line-height: 50px;">单价(元)</td>
 								<td style="width: 160px;line-height: 50px;">数量</td>
-								<td style="width: 160px;line-height: 50px;">重量(含包装)</td>
 								<td style="width: 160px;line-height: 50px;">小计(元)</td>
 								<td style="width: 160px;line-height: 50px;">操作</td>								
 							</tr>
-							<tr>
-								<td>
-									<input type="checkbox" name="box[]" id="">
-								</td>
-								<td>
-									<div class="car_shop">
-										<a href="#"><img src="holder.js/90x90" alt="" style="float: left;"></a>
-										<p><a href="#">安耐特 吉普18英寸少年车吉普181A-1</a></p>
-										<p><a href="#">Item#:501834</a></p>
-										<p style="margin-top: 25px;">
-			                    			<span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
-		                    				<span>支持7天无理由退货 </span>               				
-	                    				</p>
-                    				</div>
-								</td>
-								<td style="line-height: 107px;">899</td>
-								<td>
-									<div class="num">
-										<a id="jian" class="a a_block" style="font-size: 20px;line-height: 30px;font-weight: bolder;">-</a>
+								<!-- 商品开始循环 -->
+							
 
-										<input type="text" name="" id="num" value="1">
+								<tr>
+									<td>
+										<input type="checkbox" name="box[]" id="">
+									</td>
+									<td>
+										<div class="car_shop">
+											<a href="#"><img src="holder.js/90x90" alt="" style="float: left;"></a>
+											<p><a href="#">安耐特 吉普18英寸少年车吉普181A-1</a></p>
+											<p><a href="#">Item#:501834</a></p>
+											<p style="margin-top: 25px;">
+				                    			<span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+		                    				</p>
+	                    				</div>
+									</td>
+									<td style="line-height: 107px;">899</td>
+									<td>
+										<div class="num">
+											<a id="jian" class="a a_block" style="font-size: 20px;line-height: 30px;font-weight: bolder;">-</a>
 
-										<a id="jia" class="a a_block1" style="font-size: 20px;font-weight: bolder;">+</a>
-									</div>
-								</td>
-								<td style="line-height: 107px;">56Kg</td>
-								<td style="line-height: 107px;color: #0069aa;font-weight: bold;">¥3596.00</td>
-								<td style="line-height: 107px;"><a href="#" class="glyphicon glyphicon-trash a" aria-hidden="true"></a></td>											
-							</tr>												
+											<input type="text" name="" id="num" value="1">
+
+											<a id="jia" class="a a_block1" style="font-size: 20px;font-weight: bolder;">+</a>
+										</div>
+									</td>
+									<td style="line-height: 107px;color: #0069aa;font-weight: bold;">¥3596.00</td>
+									<td style="line-height: 107px;">
+										<a class="btn btn-default"><i class="glyphicon glyphicon-trash"></i> 删除</a>
+									</td>
+								</tr>
+
+
+
+
+
+								<!-- 商品开始循环 -->
 						</table>
 						<div class="bg_Down">
 							<table class="d_table">							
 								<tr>
 									<td style="width:50px;height: 40px;line-height: 40px;"></td>
 									<td><a href="#">批量删除</a></td>
-									<td>
-										<span>合计重量</span>
-										<br>
-										<span>0.01kg</span>									
-									</td>
-									<td>
-										<span>预估运费</span>
-										<br>
-										<span>¥40.00</span>									
-									</td>
-									<td>
-										<span>商品金额</span>
-										<br>
-										<span>¥ 39.80</span>									
-									</td>
-									<td>
-										<span>优惠金额</span>
-										<br>
-										<span>-¥ 0.00</span>									
-									</td>							
 								</tr>
 								<div class="jiesuan">
 									<p style="padding: 10px;width: 115px;float: left;">
