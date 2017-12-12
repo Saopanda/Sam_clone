@@ -213,8 +213,6 @@ header{
 }
 .nav dd{
 	display: none;
-	width: 664px;
-	height: 340px;
 	padding: 0 0 20px 20px;
     border: 2px solid #004b8d;
     border-top: 0px;
@@ -222,10 +220,12 @@ header{
 	position: absolute;
 	top:40px;
 	z-index: 100;
+	column-count: 4;
 }
 .nav-two{
 	float: left;
 	margin-right:13px;
+	break-inside: avoid;
 }
 .nav-two h5{
 	font-weight: bold;
@@ -235,7 +235,7 @@ header{
 	border-bottom:1px solid ;
 }
 .nav-two ul li{
-	line-height: 25px;
+	line-height: 30px;
 	font-size: 12px;
 }
 /*下拉*/
