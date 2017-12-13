@@ -62,157 +62,7 @@
 				</div>
 			@endforeach
 		@endforeach
-		<!-- 分类 -->
-		<!-- <div class="panel panel-default gao">
-		    <div class="panel-heading" role="tab" id="headingTwo">
-		      <h4 class="panel-title clear">
-		        <span class=" glyphicon glyphicon-triangle-bottom d1"></span>
-		        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-		         <span class="">肉蛋水产</span>
-				 <span class="a2">152</span>
-		        </a>
-		      </h4>
-		    </div>
-		    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-		      <div class="panel-body">
-		      <dl class="dl_a">
-						<dd class="list_a">
-							<ul class="a_hover">
-								<li>
-									<span class="a1">猪肉</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">牛/羊肉</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">禽类</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">鱼/肉类制品</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">猪肉</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">猪肉</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">猪肉</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">猪肉</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">猪肉</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-
-						</dd>
-			  </dl>
-		      </div>
-		    </div>
-		</div>
-		<div class="panel panel-default gao">
-		    <div class="panel-heading" role="tab" id="headingThree">
-		      <h4 class="panel-title clear">
-		        <span class=" glyphicon glyphicon-triangle-bottom d1"></span>
-		        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-		         <span class="">肉蛋水产</span>
-				 <span class="a2">152</span>
-		        </a>
-		      </h4>
-		    </div>
-		    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-		      <div class="panel-body">
-		        <dl class="dl_a">
-						<dd class="list_a">
-							<ul class="a_hover">
-								<li>
-									<span class="a1">猪肉</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">牛/羊肉</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">禽类</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">鱼/肉类制品</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">猪肉</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">猪肉</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">猪肉</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">猪肉</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-							<ul class="a_hover">
-								<li>
-									<span class="a1">猪肉</span>
-									<span class="a2">12</span>
-								</li>
-							</ul>
-
-						</dd>
-			    </dl>
-		      </div>
-		    </div>
-		</div>
-		</div> -->
-		<!-- 分类 -->
+		
 		</nav>
 		<div class="list_right">
 			<div class="fl_1">
@@ -306,14 +156,14 @@
 			    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">销量</a></li>
 			    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">最新</a></li>
 			    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">优惠</a></li>
-			    <!-- <li class="pull-right you">共找到151项结果</li> -->
+			    <li class="pull-right you">共找到151项结果</li>
 			  </ul>
 
   <!-- Tab panes -->
 			  <div class="tab-content">
 			    <div role="tabpanel" class="tab-pane active" id="home">
 					@foreach($goods as $key => $val)
-					@if(in_array($val->flid,$shop))
+					@if(in_array($val->flid,$shop) && $val->ztid == 1)
 				    <div class="goods_1">
 							<div class="proImg">
 								<a href="" target="_blank">
@@ -349,9 +199,7 @@
 			    </div>
 			    <div role="tabpanel" class="tab-pane" id="profile">
 					@foreach($goods as $key => $val)
-					@if($val->huodong == 1 && in_array($val->flid,$shop))
-
-
+					@if($val->huodong == 1 && in_array($val->flid,$shop) && $val->ztid == 1)
 				    <div class="goods_1">
 							<div class="proImg">
 								<a href="" target="_blank">
@@ -365,7 +213,8 @@
 							<a href="/" target="_blank">{{$val->title}}</a>
 							</p>
 							<p class="proName2">
-							{!! $val->content !!}</p>
+							{!! $val->content !!}
+							</p>
 							<p class="proPrice">
 								<em><b class="b1">¥ </b>{{$val->price}}</em>
 							</p>
@@ -387,7 +236,7 @@
 			    </div>
 			    <div role="tabpanel" class="tab-pane" id="messages">
 			    	@foreach($goods as $key => $val)
-			    	@if($val->huodong == 2)	
+			    	@if($val->huodong == 2 && in_array($val->flid,$shop) && $val->ztid == 1)	
 				    <div class="goods_1">
 							<div class="proImg">
 								<a href="" target="_blank">
@@ -423,7 +272,7 @@
 			    </div>			    
 			    <div role="tabpanel" class="tab-pane" id="settings">
 				    @foreach($goods as $key => $val)
-			    	@if($val->huodong == 3)	
+			    	@if($val->huodong == 3 && in_array($val->flid,$shop) && $val->ztid == 1)	
 			    	<div class="goods_1">
 						<div class="proImg">
 							<a href="" target="_blank">

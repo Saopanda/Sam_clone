@@ -27,6 +27,7 @@ class indexController extends Controller
         }
         // 分类结束
         // 商品分类
+        dd($a);
         $shop=[];
         foreach ($a as $key => $value) {
             foreach ($value->er as $ke => $val) {
@@ -38,17 +39,12 @@ class indexController extends Controller
         // 商品分类结束
         // var_dump($shop);
         // 商品
-        $goods = DB::table('goods')->select('id','title','price','content','huodong','flid')->get();
+        $goods = DB::table('goods')->select('id','title','price','content','huodong','flid','ztid')->get();
         foreach ($goods as $key => &$value) {
             $value->pic = DB::table('goods_pic')->where('goodsid',$value->id)->where('img_lx',2)->value('imgs');
         }        
         // 商品结束
-        // $abc = [];
-        // foreach ($goods as $key => $value) {
-        //     $abc[] = in_array($value->flid,$shop);
-        // }
-        // var_dump($abc);
-        // dd(1);
+        // dd($goods); 
     	return view('list',['goods'=>$goods,'a'=>$a,'shop'=>$shop]);
     }
     //登陆
