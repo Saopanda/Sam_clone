@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class PinglunController extends Controller
 {
@@ -13,7 +14,8 @@ class PinglunController extends Controller
      */
     public function index()
     {
-        //
+        $pl = DB::table('pinglun')->paginate(10);
+        return view('admin.pinglun.index',['pl'=>$pl]);
     }
 
     /**
@@ -23,7 +25,8 @@ class PinglunController extends Controller
      */
     public function create()
     {
-        //
+        $pl = DB::table('pinglun')->where('shenghe',2)->paginate(10);
+        return view('admin.pinglun.create',['pl'=>$pl]);
     }
 
     /**
@@ -34,7 +37,7 @@ class PinglunController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -45,7 +48,7 @@ class PinglunController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -56,7 +59,8 @@ class PinglunController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        return view('admin.pinglun.edit',['pl'=>$pl]);
     }
 
     /**
@@ -68,7 +72,13 @@ class PinglunController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $shenghe['shenghe']=1;
+        $res = DB::table('pinglun')->where('id',$id)->update($shenghe);
+        if($res == 1){
+            return redirect('/admin/pinglun')->with(['msg'=>'ok~ 审核成功!','msg_info'=>'alert-success']);
+        }else{
+            return back()->with(['msg'=>'oh! 审核失败!','msg_info'=>'alert-danger']);
+        }
     }
 
     /**

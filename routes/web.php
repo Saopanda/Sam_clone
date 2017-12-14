@@ -76,19 +76,21 @@ Route::group(['middleware'=>'Admin_Login'],function(){
 	// 后台首页
 	Route::get('/admin','adminController@index');
 	//后台注销
-	Route::get('/admin/logout','adminController@logout');
+	Route::get('/admin/logout','adminController@logout');	
 	//用户管理
 	Route::resource('/admin/user','UserController');
-		//用户激活提醒
+	//用户激活提醒
 	Route::get('/admin/user/{id}/tx','UserController@tx');
 	//商品管理
 	Route::resource('/admin/goods','GoodsController');
 	//分类管理
 	Route::resource('/admin/class','ClassController');
-		//分类联动
+	//分类联动
 	Route::get('/getwomenu','ClassController@getwomenu');
-	Route::get('/getwo','GoodsController@getwo');
+	Route::get('/getwo','GoodsController@getwo');	
 	Route::get('/gettwo','GoodsController@gettwo');
+	//站点设置
+	Route::resource('/admin/samsite','samController');
 	//广告管理
 	Route::resource('/admin/ad','AdController');
 	//订单管理

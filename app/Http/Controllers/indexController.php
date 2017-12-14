@@ -27,7 +27,7 @@ class indexController extends Controller
         }
         // 分类结束
         // 商品分类
-        dd($a);
+        // dd($a);
         $shop=[];
         foreach ($a as $key => $value) {
             foreach ($value->er as $ke => $val) {

@@ -1,11 +1,11 @@
 @extends('layouts.admin_index')
 
+
 @section('nr_title')
 <div class="pageheader">
-    <h2><i class="fa fa-check-square" style="line-height: 48px;padding-left: 1px;"></i> 管理员列表<span> Sam 管理员列表页</span></h2>   
+    <h2><i class="fa fa-check-square" style="line-height: 48px;padding-left: 1px;"></i> Sam站点列表<span> Sam 站点列表</span></h2>   
 </div>
 @stop
-
 
 @section('nr')
 <style type="text/css">
@@ -21,7 +21,7 @@
 <!-- tile header -->
 	<div class="tile-header">
 		<!-- 标题 -->
-		<h1><strong>管理员</strong> 列表</h1>
+		<h1><strong>站点</strong> 列表</h1>
 	</div>
 <!-- /tile header -->
 
@@ -31,30 +31,33 @@
 			<thead>
 				<tr>					
 					<th class="text-center">ID</th>
-					<th class="text-center">管理员帐号</th>
-					<th class="text-center">状态</th>
+					<th class="text-center">网站名称</th>
+					<th class="text-center">版权</th>
+					<th class="text-center">在网时间</th>
+					<th class="text-center">备案号</th>
+					<th class="text-center">公网备案号</th>
+					<th class="text-center">页面类型</th>					
 					<th class="text-center" style="width: 140px;">操作</th>
 				</tr>
 			</thead>
-			@foreach($data as $key => $val)
+			@foreach($site as $key =>$val)
 			<tbody> 
-				<tr>					
+				<tr>								
 					<td class="text-center">{{$val->id}}</td>
-					<td class="text-center">{{$val->name}}</td>
-					<td class="text-center">
-					@if($val->status == 1)正常
-					@elseif($val->status == 2)冻结
-					@endif
-					</td>
+					<td class="text-center">{{$val->webname}}</td>
+					<td class="text-center">{{$val->copyright}}</td>
+					<td class="text-center">{{$val->time}}</td>
+					<td class="text-center">{{$val->beianhao}}</td>
+					<td class="text-center">{{$val->gongwangbeian}}</td>
+					<td class="text-center">{{$val->weizhi}}</td>					
 					<td class="text-center" >
-						<a href="/admin/manager/{{$val->id}}/edit">修改</a>
+						<a href="/admin/samsite/{{$val->id}}/edit">修改</a>
 						&nbsp;
-						<form method="post" action="/admin/manager/{{$val->id}}" style="display: inline-block;">
+						<form method="post" action="/admin/samsite/{{$val->id}}" style="display: inline-block;">
 							{{csrf_field()}}
 							{{method_field('DELETE')}}
 							<button class="btn-a">删除</button>							
-						</form>
-						
+						</form>				
 					</td>
 				</tr>				
 			</tbody>
@@ -63,14 +66,16 @@
 	</div>
 <!-- /tile body -->
 
-
-<!-- 分页 -->
-<div class="text-right sm-center pull-right">
-	{{$data->links()}}
-</div>
-<!-- /tile footer -->
 </section>
+
+
+<div class="text-right sm-center pull-right">
+	{{$site->links()}}
+</div>
 @stop
+
+
+
 
 @section('js')
 <script>

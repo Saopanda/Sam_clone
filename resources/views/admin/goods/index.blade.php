@@ -87,3 +87,18 @@
 </div>
 @stop
 
+@section('js')
+<script>
+	$(function() {
+		$('.btn-a').click(function() {
+			var rs = confirm('你确定要删除?')
+			if(rs){
+
+			}else{
+				return false;
+			}
+		});
+	})
+</script>
+@stop
+
