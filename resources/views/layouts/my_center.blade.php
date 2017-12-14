@@ -34,14 +34,18 @@
 		<div class="container">
 			<!-- 个人中心左导航 -->
 			<div class="g-person-nav">
+
 				<!-- 头像 -->
-				
+				<?php 
+				 $sion = session('user_name');
+		        $sioninfo=DB::table('user')->where('name',$sion)->select('id','name','email','phone','ztid')->first();
+		        $sioninfo->phone = substr_replace($sioninfo->phone, '****', 3,4);
+		        $info=DB::table('userinfo')->where('id',$sioninfo->id)->first();
+				?>
 				<div class="gp-user-infors">
                    <div class="sam_vip">
-						<div class="sam_logo">
-						@section('touimg')						
-							<img src="/file/img/geren/user-img.png" alt="">
-						@show
+						<div class="sam_logo">						
+							<img src="{{$info->touimg}}" alt="" width="100%" height="100%" style="border-radius: 100%;"/>
 						</div>
 						<div class="sam_quan">						
 							<img src="/file/img/index/quan.png" alt="">
@@ -59,10 +63,10 @@
 					<div style="width:164px;height: 1px;background: black;margin: auto;"></div>
 					<dl>
 						<dt><i></i>个人信息管理</dt>
-						<dd><a href="">编辑个人信息</a></dd>
+						<dd><a href="/home">编辑个人信息</a></dd>
 						<dd><a href="">会籍管理</a></dd>
 						<dd><a href="">修改密码</a></dd>
-						<dd><a href="">地址管理</a></dd>
+						<dd><a href="/home/address">地址管理</a></dd>
 					</dl>
 					<div style="width:164px;height: 1px;background: black;margin: auto;"></div>
 					<dl>

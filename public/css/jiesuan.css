@@ -1,0 +1,150 @@
+.hd{
+	float: left;
+    height: 16px;
+    line-height: 16px;
+    margin-top: 27px;
+    margin-left: 5px;
+    padding-left: 5px;
+    font-size: 16px;
+    border-left: 1px solid #53b114;
+    color: #fff;
+}
+section .add_address{
+	padding: 20px 5px 0;
+}
+section .add_address .address-title{
+    height: 36px;
+    line-height: 36px;
+}
+section .add_address .address-title .title{
+	float: left;
+    font-size: 14px;
+    color: #333;
+    font-weight: 800;
+}
+section .add_address .address-title .tips{
+    color: #999;
+}
+section .add_address .bd_a{
+	width: 700px;
+    color: #666;
+}
+section .add_address .bd_a .address{
+	height: 40px;
+    margin-bottom: 10px;
+}
+section .add_address .bd_a .address .title{
+	float: left;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+}
+section .add_address .bd_a .address .title i{
+	float: left;
+    color: #f66;
+}
+section .add_address .bd_a .address .content{
+    float: left;
+    width: 620px;
+    height: 40px;
+}
+section .add_address .bd_a .address .content .sheng{
+	float: left;
+    position: relative;
+    width: 180px;
+    height: 38px;
+    margin-right: 10px;
+    background: #fff;
+
+}
+section .add_address .bd_a .address .content .sheng .sheng_a{
+	position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 38px;
+    line-height: 38px;
+   
+}
+section .add_address .bd_a .baocun{
+	margin-bottom: 10px;
+    padding-left: 80px;
+}
+section .add_address .bd_a .baocun .tj{
+	border-color: #0069aa;
+    background: #0069aa;
+    color: #fff;
+    display: inline-block;
+    vertical-align: middle;
+    width: 130px;
+    height: 33px;
+    line-height: 33px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-align: center;
+}
+.kuang{
+	height: 20px;
+}
+section .add_address .heji{
+	padding: 35px 5px 0;
+}
+
+section .add_address .heji .bottom{
+    margin-top: 5px;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    margin-bottom: 80px;
+}
+section .add_address .heji .bottom .total-tips{
+    height: 45px;
+    width: 100%;
+    padding: 3px 15px;
+    line-height: 20px;
+    background: #e0efff;
+    color: #999;
+}
+section .add_address .heji .bottom .list{
+	height: 30px;
+    line-height: 30px;
+    text-align: right;
+    padding-right: 20px;
+
+}
+section .add_address .heji .bottom .sp-content{
+    float: right;
+    width: 90px;
+}
+section .add_address .heji .bottom .e-title{
+    float: right;
+    width: 80px;
+}
+section .add_address .heji .bottom .pp{
+    font-weight: 700;
+    font-size: 14px;
+}
+section .add_address .heji .bottom .cc{
+    color: #0069aa;
+    font-weight: 800;
+    font-size: 20px;
+}
+section .add_address .heji .bottom .total-btn{
+	margin-top: 20px;
+	overflow: hidden;
+	padding-bottom: 50px;
+}
+section .add_address .heji .bottom .total-btn .tjdd{
+	float: right;
+    width: 177px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    background: #53b114;
+    border-radius: 3px;
+    margin-right:20px;
+}

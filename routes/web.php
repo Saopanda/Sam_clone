@@ -60,6 +60,11 @@ Route::group(['middleware'=>'Login'],function(){
 	//购物车
 	Route::get('/home/cart/num','CartController@num');
 	Route::resource('/home/cart','CartController');
+	//去结算
+	Route::get('/home/jiesuan','HomeController@jiesuan');
+	//地址管理
+	Route::get('/home/address/getarea','AddressController@getarea');
+	Route::resource('/home/address','AddressController');
 
 });
 

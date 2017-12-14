@@ -3,9 +3,7 @@
 @section('style')
 <link rel="stylesheet" type="text/css" href="/css/zhongxin.css">
 @stop
-@section('touimg')
-	<img src="{{$info->touimg}}" alt="" width="100%" height="100%" style="border-radius: 100%;"/>
-@stop
+
 @section('right')
 	<section class="right">
 		<h4 class="gec-bread-title">编辑个人信息</h4>
