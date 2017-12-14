@@ -124,6 +124,7 @@
           </li>
       </ul>
     </li>
+<<<<<<< HEAD
     <!-- 评论管理 -->
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>评论管理<b class="fa fa-plus dropdown-plus"></b></a>
@@ -140,6 +141,18 @@
               未审核评论
             </a>
           </li>                   
+=======
+    <!-- 订单管理 -->
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>订单管理<b class="fa fa-plus dropdown-plus"></b></a>
+      <ul class="dropdown-menu">
+          <li>
+            <a href="/admin/order">
+              <i class="fa fa-caret-right"></i>
+              订单列表
+            </a>
+          </li>
+>>>>>>> f4bbf354dbe1e817deb6d95da97c575f562d5ad0
       </ul>
     </li>
 

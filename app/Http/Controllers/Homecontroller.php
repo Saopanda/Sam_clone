@@ -48,5 +48,16 @@ class Homecontroller extends Controller
     public function jiesuan(){
         return view('home.jiesuan');
     }
-    
+    //评论
+    public function pinglun(){
+        return view('home.pinglun');
+    }
+    //支付成功页
+    public function zfsuccess(){
+        return view('home.zfsuccess');
+    }
+    //支付方式
+    public function payment(){
+        return view('home.payment');
+    }
 }

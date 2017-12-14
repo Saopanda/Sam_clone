@@ -62,9 +62,16 @@ Route::group(['middleware'=>'Login'],function(){
 	Route::resource('/home/cart','CartController');
 	//去结算
 	Route::get('/home/jiesuan','HomeController@jiesuan');
+	//支付成功跳转页面
+	Route::get('/home/zfsuccess','HomeController@zfsuccess');
+	//选择支付方式
+	Route::get('/home/payment','HomeController@payment');
+
 	//地址管理
 	Route::get('/home/address/getarea','AddressController@getarea');
 	Route::resource('/home/address','AddressController');
+	//评论管理
+	Route::get('/pinglun','HomeController@pinglun');
 
 });
 
