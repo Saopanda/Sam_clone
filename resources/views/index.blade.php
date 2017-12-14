@@ -17,43 +17,35 @@
 	<link rel="stylesheet" href="/css/main.css">
 
 	<script type="text/javascript" src="/bootstrap/js/holder.min.js"></script>
-	<title>sam_index</title>
+	<title>{{$site->webname}}</title>
 </head>
 <body id="body">
  @include('layouts.header')
 <section class="container-fulid banner">
 	<div class="container">
-		<div class="container banner-in banner-active" name="rgb(241, 241, 241)">
+		@foreach($ad as $k => $v)
+		@if($v->show_order == 1 && $v->is_show == 1 && $k == 0)		
+		<div class="container banner-in banner-active" name="{{$v->bgcolor}}">
 			<a href="">
-				<img src="/file/img/index/lun1.jpg" alt="lun1">
+				<img src="{{$v->img_url}}">
 			</a>
 		</div>
-		<div class="container banner-in" name="rgb(230, 247, 239)">
+		@elseif($v->show_order == 1 && $v->is_show == 1)
+		<div class="container banner-in" name="{{$v->bgcolor}}">
 			<a href="">
-				<img src="/file/img/index/lun2.jpg" alt="lun2">
+				<img src="{{$v->img_url}}">
 			</a>
 		</div>
-		<div class="container banner-in" name="rgb(244, 237, 255)">
-			<a href="">
-				<img src="/file/img/index/lun3.jpg" alt="lun2">
-			</a>
-		</div>
-		<div class="container banner-in" name="rgb(213, 244, 229)">
-			<a href="">
-				<img src="/file/img/index/lun4.jpg" alt="lun2">
-			</a>
-		</div>
-		<div class="container banner-in" name="rgb(246, 238, 227)">
-			<a href="">
-				<img src="/file/img/index/lun5.jpg" alt="lun2">
-			</a>
-		</div>
+		@endif
+		@endforeach
 		<ul>
-			<li name="1" class="li-active">生鲜优选</li>
-			<li name="2">个护狂欢季</li>
-			<li name="3">达能奶粉大促</li>
-			<li name="4">圣诞礼 在山姆</li>
-			<li name="5">云南特色食品展</li>
+			@foreach($ad as $k => $v)
+			@if($v->show_order == 1 && $v->is_show == 1 && $k == 0)		
+			<li name="{{$k+1}}" class="li-active">{{$v->title}}</li>
+			@elseif($v->show_order == 1 && $v->is_show == 1)
+			<li name="{{$k+1}}">{{$v->title}}</li>
+			@endif
+			@endforeach
 		</ul>
 	</div>
 </section>
@@ -323,7 +315,11 @@
 		<div class="home-wrap container" style="background-color:">
 			<div class="booth global-center container " style="margin:0 auto;">
 				<a href="/" target="_blank">
-					<img class="img-agent lazyload" src="/file/img/index/guanggao.jpg">
+					@foreach($ad as $k => $v)
+					@if($v->show_order == 2 && $v->is_show == 1 && $v->title == '山姆真奇妙')
+					<img class="img-agent lazyload" src="{{$v->img_url}}">
+					@endif
+					@endforeach
 				</a>
 			</div>
 		</div>
@@ -615,7 +611,11 @@
 			<div class="show-pic">
 				<a href="/" target="_blank">
 					<div class="i-size-box">
-						<img class="img-agent lazyload" data-original="" src="/file/img/index/caipu.jpg">
+						@foreach($ad as $k => $v)
+						@if($v->is_show == 1 && $v->show_order == 2 && $v->title == '山姆家厨房')
+						<img class="img-agent lazyload" data-original="" src="{{$v->img_url}}">
+						@endif
+						@endforeach
 					</div>
 				</a>
 			</div>
@@ -626,8 +626,8 @@
 					<div class="menus">
 						<ul class="clear">
 							<li class="item" style="width: 223px;">
-								<div class="i-size-box">
-								<img class="img-agent lazyload" data-original="" src="/file/img/index/caipu2.jpg">
+								<div class="i-size-box">								
+								<img class="img-agent lazyload" data-original="" src="/file/img/index/caipu2.jpg">								
 								</div>
 								<p class="name">蚝油焖烧清远鸡</p>
 								<p class="text">肉质鲜美的清远鸡搭配清甜蔬菜和鲜香菌菇，色香味俱全的味蕾大满足！</p>
@@ -666,7 +666,13 @@
 	<div class="ljnr">
 		<div class="lj_Left pull-left">
 			<div class="L_Top">
-				<a href="#"><img src="/file/img/index/ljnr.jpg" alt=""></a>
+				<a href="#">
+					@foreach($ad as $k => $v)
+					@if($v->show_order == 3 && $v->title == '了解山姆' && $v->is_show == 1)
+					<img src="{{$v->img_url}}" alt="">
+					@endif
+					@endforeach
+				</a>
 			</div>
 			<div class="L_Bottom"> 
 				<ul>

@@ -131,7 +131,7 @@
           <li>
             <a href="/admin/pinglun">
               <i class="fa fa-caret-right"></i>
-              已审核评论
+              评论列表
             </a>
           </li> 
           <li>

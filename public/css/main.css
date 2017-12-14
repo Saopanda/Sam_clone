@@ -17,7 +17,7 @@
 .banner-in img{
 	margin-left: -12%;
 }
-.banner-active{
+.banner-active:first-child{
 	display: block;
 }
 .banner ul{

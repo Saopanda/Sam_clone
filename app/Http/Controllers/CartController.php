@@ -12,6 +12,10 @@ class CartController extends Controller
      */
     public function index()
     {
+        // 站点设置
+        $site = DB::table('samsite')->where('weizhi','index')->first();
+        $site->gwc = '购物车';
+        // 结束
         if(session('user_name')){
             $userid = DB::table('user')->where('name',session('user_name'))->value('id');
             $rs = DB::table('carts')->where('userid',$userid)->select('id','goodsid','num')->get();
@@ -19,9 +23,9 @@ class CartController extends Controller
                 $v->goods = DB::table('goods')->where('id',$v->goodsid)->select('title','price','content')->first();
                 $v->goods_pic = DB::table('goods_pic')->where(['goodsid'=>$v->goodsid,'img_lx'=>2])->select('imgs')->first();
             }
-            return view('cart.cart',['rs'=>$rs]);
+            return view('cart.cart',['rs'=>$rs,'site'=>$site]);
         }
-        return view('cart.cart');
+        return view('cart.cart',['site'=>$site]);
     }
 
     /**

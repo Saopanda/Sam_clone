@@ -51,7 +51,7 @@ class GoodsController extends Controller
                         //创建一个新的随机名称
                         $name = uniqid('img_').'.'.$suffix;
                         //文件夹路径
-                        $dir = './uploads/'.date('Y-m-d');
+                        $dir = './uploads/goodspic/'.date('Y-m-d');
                         //移动文件
                         $v->move($dir, $name);
                         //获取文件的路径
@@ -75,7 +75,7 @@ class GoodsController extends Controller
                         //创建一个新的随机名称
                         $name = uniqid('img_').'.'.$suffix;
                         //文件夹路径
-                        $dir = './uploads/'.date('Y-m-d');
+                        $dir = './uploads/goodspic/'.date('Y-m-d');
                         //移动文件
                         $v->move($dir, $name);
                         //获取文件的路径
@@ -100,7 +100,7 @@ class GoodsController extends Controller
                         //创建一个新的随机名称
                         $name = uniqid('img_').'.'.$suffix;
                         //文件夹路径
-                        $dir = './uploads/'.date('Y-m-d');
+                        $dir = './uploads/goodspic/'.date('Y-m-d');
                         //移动文件
                         $v->move($dir, $name);
                         //获取文件的路径
@@ -128,8 +128,12 @@ class GoodsController extends Controller
      * 商品前台展示
      */
     public function show($id)
-    {
+    {        
         $rs = DB::table('goods')->where(['id'=>$id,'ztid'=>1])->select('id','title','num','price','content','flid')->first();
+        // 站点设置
+        $site = DB::table('samsite')->where('weizhi','index')->first();
+        $site->xq = $rs->title;
+        // 结束
         if($rs){
             $rs->goods_zhong = DB::table('goods_pic')->where(['goodsid'=>$rs->id,'img_lx'=>2])->select('imgs','img_lx')->get();
             $rs->goods_xq = DB::table('goods_pic')->where(['goodsid'=>$rs->id,'img_lx'=>1])->select('imgs','img_lx')->get();
@@ -138,7 +142,7 @@ class GoodsController extends Controller
             $path = str_replace('_',',',$path);
             //根据 path 查找父级分类 
             $tb = DB::select('select id,flname from class where id in('.$path.')');
-            return view('goods',['rs'=>$rs,'tb'=>$tb]);
+            return view('goods',['rs'=>$rs,'tb'=>$tb,'site'=>$site]);
 
         }else{
             abort(404);
@@ -182,7 +186,7 @@ class GoodsController extends Controller
                         //创建一个新的随机名称
                         $name = uniqid('img_').'.'.$suffix;
                         //文件夹路径
-                        $dir = './uploads/'.date('Y-m-d');
+                        $dir = './uploads/goodspic/'.date('Y-m-d');
                         //移动文件
                         $v->move($dir, $name);
                         //获取文件的路径
@@ -207,7 +211,7 @@ class GoodsController extends Controller
                         //创建一个新的随机名称
                         $name = uniqid('img_').'.'.$suffix;
                         //文件夹路径
-                        $dir = './uploads/'.date('Y-m-d');
+                        $dir = './uploads/goodspic/'.date('Y-m-d');
                         //移动文件
                         $v->move($dir, $name);
                         //获取文件的路径
@@ -232,7 +236,7 @@ class GoodsController extends Controller
                         //创建一个新的随机名称
                         $name = uniqid('img_').'.'.$suffix;
                         //文件夹路径
-                        $dir = './uploads/'.date('Y-m-d');
+                        $dir = './uploads/goodspic/'.date('Y-m-d');
                         //移动文件
                         $v->move($dir, $name);
                         //获取文件的路径
