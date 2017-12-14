@@ -8,89 +8,58 @@ use DB;
 class CartController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     *  购物车列表
      */
     public function index()
     {
-        //购物车未登录 首页
         if(session('user_name')){
-            return redirect('/home/cart/my');
+            $userid = DB::table('user')->where('name',session('user_name'))->value('id');
+            $rs = DB::table('carts')->where('userid',$userid)->select('id','goodsid','num')->get();
+            foreach($rs as $k=>$v){
+                $v->goods = DB::table('goods')->where('id',$v->goodsid)->select('title','price','content')->first();
+                $v->goods_pic = DB::table('goods_pic')->where(['goodsid'=>$v->goodsid,'img_lx'=>2])->select('imgs')->first();
+            }
+            return view('cart.cart',['rs'=>$rs]);
+        }
+        return view('cart.cart');
+    }
+
+    /**
+     *      购物车添加
+     */
+    public function create(Request $request)
+    {
+        $data = $request->all();
+        $data['userid'] = DB::table('user')->where('name',session('user_name'))->value('id');
+        $count = DB::table('carts')->where('goodsid',$data['goodsid'])->count();
+        if($count > 0){
+            $num = DB::table('carts')->where('goodsid',$data['goodsid'])->value('num');
+            $data['num'] += $num;
+            $rs = DB::table('carts')->where('goodsid',$data['goodsid'])->update(['num'=>$data['num']]);
         }else{
-            return view('cart.cart');
+            $rs = DB::table('carts')->insert($data);
+        }
+        if($rs){
+            echo "ok";
+        }else{
+            echo "error";
         }
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //购物车添加
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //购物车添加操作
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //购物车删除
     public function show($id)
     {
-        //个人购物车 显示商品
-        $rs = DB::table('carts')->where('username',session('user_name'))->select('goodsid','num')->get();
-        foreach($rs as $k=>$v){
-            $v->goods = DB::table('goods')->where('id',$v->goodsid)->select('title','price','content')->first();
-            $v->goods_pic = DB::table('goods_pic')->where(['goodsid'=>$v->goodsid,'img_lx'=>2])->select('imgs')->first();
+        $rs = DB::table('carts')->where('id',$id)->delete();
+        if($rs){
+            echo "ok";
+        }else{
+            echo "error";
         }
-        return view('cart.cart',['rs'=>$rs]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    //  购物车数量操作
+    public function num(Request $request)
     {
-        //购物车编辑
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //购物车编辑
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //购物车商品删除
+        $data = $request->all();
+        $rs = DB::table('carts')->where('goodsid',$data['goodsid'])->update($data);
     }
 }

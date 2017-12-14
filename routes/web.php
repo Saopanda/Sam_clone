@@ -58,6 +58,7 @@ Route::group(['middleware'=>'Login'],function(){
 	//订单管理
 	Route::get('/home/order','HomeController@order');
 	//购物车
+	Route::get('/home/cart/num','CartController@num');
 	Route::resource('/home/cart','CartController');
 
 });
