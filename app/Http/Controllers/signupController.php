@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Mail;
+use Hash;
 class signupController extends Controller
 {
     
@@ -21,9 +22,10 @@ class signupController extends Controller
 		$phone = 'code_'.$request->input('phone');
 		$code = $request->input('yzm');
 		//验证
-		if (session($phone) == $code){
+		if (session()->pull($phone,'default') == $code){
 			$data = $request->except('_token','repwd','yzm');
 			$data['sta']=str_random(18);
+			$data['pwd']=Hash::make($data['pwd']);
 			$rs = DB::table('user')->insertGetid($data);
 			if($rs){
 				return redirect('/signup/send/'.$rs);

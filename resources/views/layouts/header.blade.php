@@ -89,7 +89,7 @@
 				</form>
 				<a href="/cart">
 					<div class="cart">
-						<span><?php if(session('user_name')){$num = DB::table('carts')->count();echo $num;}else{echo "0";} ?></span><i class="fa fa-shopping-cart"></i>
+						<span><?php if(session('user_name')){$num = DB::table('carts')->where('userid',session('user_id'))->count();echo $num;}else{echo "0";} ?></span><i class="fa fa-shopping-cart"></i>
 					</div>
 				</a>
 			</div>

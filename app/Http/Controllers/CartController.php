@@ -30,7 +30,7 @@ class CartController extends Controller
     public function create(Request $request)
     {
         $data = $request->all();
-        $data['userid'] = DB::table('user')->where('name',session('user_name'))->value('id');
+        $data['userid'] = session('user_id');
         $count = DB::table('carts')->where('goodsid',$data['goodsid'])->count();
         if($count > 0){
             $num = DB::table('carts')->where('goodsid',$data['goodsid'])->value('num');

@@ -64,7 +64,7 @@ class indexController extends Controller
         if($rs){
             $rss = Hash::check($request->pwd,$rs->pwd);
             if($rss){
-                session(['user_name'=>$rs->name]);
+                session(['user_name'=>$rs->name,'user_id'=>$rs->id]);
                 return back();
             }else{
                 return back()->with('msg','用户名密码错误!');

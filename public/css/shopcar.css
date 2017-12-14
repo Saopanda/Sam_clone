@@ -161,6 +161,7 @@ section{
 }
 #body .goods_title {
 	padding: 26px 0 0 51px;
+	text-align: left;
 }
 
 .shopcar .car_D1 .bg_Top .bg_T_sq{
@@ -212,7 +213,7 @@ section{
     text-align: center;
     float: left;
 }
-input[name="num"]{
+input.num{
 	 width: 40px;
 	 border:1px solid #cdcdcd;
 	 text-align: center;

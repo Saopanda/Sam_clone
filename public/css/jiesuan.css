@@ -46,13 +46,13 @@ section .add_address .bd_a .address .title i{
 }
 section .add_address .bd_a .address .content{
     float: left;
-    width: 620px;
+    width: 510px;
     height: 40px;
 }
 section .add_address .bd_a .address .content .sheng{
 	float: left;
     position: relative;
-    width: 180px;
+    width: 159px;
     height: 38px;
     margin-right: 10px;
     background: #fff;
@@ -133,7 +133,7 @@ section .add_address .heji .bottom .cc{
 section .add_address .heji .bottom .total-btn{
 	margin-top: 20px;
 	overflow: hidden;
-	padding-bottom: 50px;
+	padding-bottom: 24px;
 }
 section .add_address .heji .bottom .total-btn .tjdd{
 	float: right;
@@ -147,4 +147,6 @@ section .add_address .heji .bottom .total-btn .tjdd{
     background: #53b114;
     border-radius: 3px;
     margin-right:20px;
+    border: 0;
+    outline: none;
 }

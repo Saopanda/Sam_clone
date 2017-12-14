@@ -45,8 +45,53 @@ class Homecontroller extends Controller
         return view('home.order');
     }
     //结算
-    public function jiesuan(){
-        return view('home.jiesuan');
+    public function jiesuan(Request $request){
+        $datas = $request->input('data');
+        $zongji = 0;
+        foreach ($datas as $k => $v) {
+            $datas[$k]['goods'] = DB::table('goods')->where('id',$v['goodsid'])->select('title','price','content')->first();
+            $datas[$k]['goods_pic'] = DB::table('goods_pic')->where(['goodsid'=>$v['goodsid'],'img_lx'=>2])->select('imgs')->take(1)->first();
+            $datas[$k]['xiaoji'] = floatval(($datas[$k]['goods']->price))*intval($datas[$k]['num']);
+            $zongji += $datas[$k]['xiaoji'];
+        }
+
+        $addresses = DB::table('address')->where('userid',session('user_id'))->get();
+        $num=count($addresses);
+            //dd($num);
+        foreach ($addresses as $key => &$value) {
+            $value->pname = DB::table('dt_area')->where('id',$value->pro)->value('area_name');
+            $value->cname = DB::table('dt_area')->where('id',$value->city)->value('area_name');
+            $value->xname = DB::table('dt_area')->where('id',$value->county)->value('area_name');
+            }   
+        return view('home.jiesuan',compact('datas','zongji','addresses','num'));
+    }
+    public function zhifu(Request $request)
+    {
+        $data = $request->except('_token','goods');
+        $goods = $request->input('goods');
+        $zongjia = 0;
+        foreach($goods as $k=>$v){
+            //查找单价
+            $price = DB::table('goods')->where('id',$v['goodsid'])->value('price');
+            $goods[$k]['price'] = $price;
+            //计算总价
+            $zongjia += floatval($price)*$v['num'];
+        }
+        $data['orderid'] = '0471'.date('ymdhis').session('user_id').time();
+        $data['userid'] = session('user_id');
+        $data['sum_price'] = $zongjia;
+        $data['dd_status'] = 0;
+        $orderid = DB::table('order')->insertGetid($data);
+        foreach ($goods as $key => $value) {
+            $goods[$key]['order'] = $orderid;
+        }
+        $rs = DB::table('order_goods')->insert($goods);
+        if($rs){
+            return redirect('');
+        }else{
+            // 失败
+            return back();
+        }
     }
     
 }

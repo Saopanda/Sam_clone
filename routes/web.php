@@ -62,6 +62,7 @@ Route::group(['middleware'=>'Login'],function(){
 	Route::resource('/home/cart','CartController');
 	//去结算
 	Route::get('/home/jiesuan','HomeController@jiesuan');
+	Route::post('/zhifu','HomeController@zhifu');
 	//地址管理
 	Route::get('/home/address/getarea','AddressController@getarea');
 	Route::resource('/home/address','AddressController');

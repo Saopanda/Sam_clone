@@ -64,14 +64,14 @@
 			@if(count($rs) > 0)
 			<div class="car_D1">
 
-				<form action="" method="" style="background: #f8f8f8">					
+				<form action="/home/jiesuan" method="get" style="background: #f8f8f8">					{{csrf_field()}}
 					<div class="bg_Top">
 						<span class="glyphicon glyphicon-apple ys" aria-hidden="true"></span>
 				     	<span class="bg_T_wz">普通商品</span>
 				     	<span class="bg_T_sq"><span id="shouqi">收起</span>&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-menu-down jiantou"></i></span>
 				     	<span class="jiezhan_top">
 				     		<span>合计</span>&nbsp;&nbsp;
-				     		<span style="color: #0069aa;font-weight: bold;font-size: 18px;">¥3596.00</span>&nbsp;&nbsp;
+				     		<span id="zongjia2" style="color: #0069aa;font-weight: bold;font-size: 18px;"></span>&nbsp;&nbsp;
 				     		<span>(1件)</span>&nbsp;&nbsp;
 				     		<button class="btn btn-success">去结算</button>
 				     	</span>
@@ -92,8 +92,12 @@
 								<tr name="tr{{$v->id}}">
 									<td>
 									</td>
+									<!-- 商品id -->
+										<input type="hidden" name="data[{{$k}}][goodsid]" value="{{$v->goodsid}}">
+										<!-- test -->
 										<input type="hidden" name="goodsid{{$v->id}}" value="{{$v->goodsid}}">
 										<input type="hidden" name="ids" value="{{$v->id}}">
+										<!-- test -->
 									<td>
 										<div class="car_shop pull-left">
 											<a href="#"><img src="{{$v->goods_pic->imgs}}" alt="" style="float: left;"></a>
@@ -109,13 +113,13 @@
 									<td>
 										<div class="num" name="{{$v->id}}">
 											<a onclick="jian({{$v->id}})" class="a a_block" style="font-size: 20px;font-weight: bolder;">-</a>
-											<input type="text" name="num" id="num{{$v->id}}" value="{{$v->num}}">
+											<input type="text" class="num" name="data[{{$k}}][num]" id="num{{$v->id}}" value="{{$v->num}}">
 
 											<a onclick="jia({{$v->id}})" class="a a_block1" style="font-size: 20px;font-weight: bolder;">+</a>
 										</div>
 									</td>
 
-									<td id="xiaoji{{$v->id}}" name="xiaoji" style="line-height: 107px;color: #0069aa;font-weight: bold;">
+									<td id="xiaoji{{$v->id}}" name="xiaoji" style="line-height: 107px;color: #0069aa;font-weight: bold;"><span>￥ </span> <b></b>
 									</td>
 									<td style="line-height: 107px;">
 										<button type="button" class="btn btn-default" onclick="cartdelete({{$v->id}})"><i class="glyphicon glyphicon-trash"></i> 删除</botton>
@@ -175,16 +179,17 @@
 	})
 	function zongjias(){
 		var zj = 0;
-		$('td[name=xiaoji]').each(function(){
+		$('td[name=xiaoji]').find('b').each(function(){
 			zj += parseInt($(this).html())
 		})
 		$('#zongjia').html('￥'+zj)
+		$('#zongjia2').html('￥'+zj)
 	}
 	
 
 	function xiaojis(a) {
 		var xiaoji = parseInt($('#num'+a).val())*parseInt($('#danjia'+a).html())
-		$('#xiaoji'+a).html(xiaoji)
+		$('#xiaoji'+a).find('b').html(xiaoji)
 	}
 	function cartdelete(a) {
 		var rs = confirm('你确定要删除吗?')
@@ -195,7 +200,7 @@
 				data:{},
 				success:function (mes) {
 					if(mes == 'ok'){
-						$('tr[name=tr'+a+']').remove()
+						location.href = location
 					}
 				}
 			})

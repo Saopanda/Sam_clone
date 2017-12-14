@@ -14,9 +14,7 @@ class AddressController extends Controller
      */
     public function index()
     {
-        $name = session('user_name');
-        $n=DB::table('user')->where('name',$name)->value('id');
-        $addresses = DB::table('address')->where('userid',$n)->get();
+        $addresses = DB::table('address')->where('userid',session('user_id'))->get();
         $num=count($addresses);
             //dd($num);
         foreach ($addresses as $key => &$value) {
@@ -38,10 +36,7 @@ class AddressController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * 地址添加
      */
     public function store(Request $request)
     {
@@ -51,7 +46,7 @@ class AddressController extends Controller
          $n=DB::table('user')->where('name',$name)->value('id');
          $data['userid']=$n;
          if(DB::table('address')->insert($data)){
-             return redirect('home/address');
+             return back();
          }else{
             return '添加失败';
          }
