@@ -89,7 +89,7 @@
 				</form>
 				<a href="/cart">
 					<div class="cart">
-						<span>0</span><i class="fa fa-shopping-cart"></i>
+						<span><?php if(session('user_name')){$num = DB::table('carts')->count();echo $num;}else{echo "0";} ?></span><i class="fa fa-shopping-cart"></i>
 					</div>
 				</a>
 			</div>
@@ -108,7 +108,7 @@
 		<div class="container">
 		@foreach($data as $key => $v)
 			<dl class="nav-x-1">
-				<dt><a href="">{{$v->flname}}</a></dt>
+				<dt><a href="/list/{{$v->id}}.html">{{$v->flname}}</a></dt>
 				<dd @if($v->style == '1')
 			style = "right:0;" @endif>
 				@foreach($v->two as $va)

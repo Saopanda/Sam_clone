@@ -80,7 +80,6 @@
 						<table class="table text-center" style="background: #fff">						
 							<tr style="height: 50px;line-height: 50px">
 								<td style="width: 50px">
-									<input type="checkbox" name="box[]" id="box">
 								</td>
 								<td>商品信息</td>
 								<td style="width: 160px;">单价(元)</td>
@@ -90,11 +89,11 @@
 							</tr>
 								<!-- 商品开始循环 -->
 								@foreach($rs as $k=>$v)
-								<tr>
+								<tr name="tr{{$v->id}}">
 									<td>
-										<input type="checkbox" name="box[]" id="">
 									</td>
-
+										<input type="hidden" name="goodsid{{$v->id}}" value="{{$v->goodsid}}">
+										<input type="hidden" name="ids" value="{{$v->id}}">
 									<td>
 										<div class="car_shop pull-left">
 											<a href="#"><img src="{{$v->goods_pic->imgs}}" alt="" style="float: left;"></a>
@@ -105,24 +104,21 @@
 	                    				</div>
 									</td>
 
-									<td style="line-height: 107px;">{{$v->goods->price}}</td>
+									<td id="danjia{{$v->id}}" style="line-height: 107px;">{{$v->goods->price}}</td>
 
 									<td>
-										<div class="num">
-											<a id="jian" class="a a_block" style="font-size: 20px;font-weight: bolder;">-</a>
+										<div class="num" name="{{$v->id}}">
+											<a onclick="jian({{$v->id}})" class="a a_block" style="font-size: 20px;font-weight: bolder;">-</a>
+											<input type="text" name="num" id="num{{$v->id}}" value="{{$v->num}}">
 
-											<input type="text" name="" id="num" value="{{$v->num}}">
-
-											<a id="jia" class="a a_block1" style="font-size: 20px;font-weight: bolder;">+</a>
+											<a onclick="jia({{$v->id}})" class="a a_block1" style="font-size: 20px;font-weight: bolder;">+</a>
 										</div>
 									</td>
 
-									<td style="line-height: 107px;color: #0069aa;font-weight: bold;">
-									¥3596.00
+									<td id="xiaoji{{$v->id}}" name="xiaoji" style="line-height: 107px;color: #0069aa;font-weight: bold;">
 									</td>
-
 									<td style="line-height: 107px;">
-										<a class="btn btn-default"><i class="glyphicon glyphicon-trash"></i> 删除</a>
+										<button type="button" class="btn btn-default" onclick="cartdelete({{$v->id}})"><i class="glyphicon glyphicon-trash"></i> 删除</botton>
 									</td>
 								</tr>
 								@endforeach
@@ -138,8 +134,7 @@
 									<p style="padding: 10px;width: 115px;float: left;">
 										<span>合计</span>
 										<br>
-										<span style="color: #0069aa;font-size: 18px;font-weight: bold;"> ¥79.80 </span>
-										<span>(1件)</span>
+										<span id="zongjia" style="color: #0069aa;font-size: 18px;font-weight: bold;"> </span>
 									</p>
 									<button class="btn_a">去结算</button>
 								</div>
@@ -171,6 +166,43 @@
 </body>
 @if(isset($rs))
 <script type="text/javascript">
+	$(function(){
+		$('input[name=ids]').each(function() {
+			var id = $(this).val()
+			xiaojis(id);
+		});
+		zongjias()
+	})
+	function zongjias(){
+		var zj = 0;
+		$('td[name=xiaoji]').each(function(){
+			zj += parseInt($(this).html())
+		})
+		$('#zongjia').html('￥'+zj)
+	}
+	
+
+	function xiaojis(a) {
+		var xiaoji = parseInt($('#num'+a).val())*parseInt($('#danjia'+a).html())
+		$('#xiaoji'+a).html(xiaoji)
+	}
+	function cartdelete(a) {
+		var rs = confirm('你确定要删除吗?')
+		if(rs){
+			$.ajax({
+				type:'get',
+				url:'/home/cart/'+a,
+				data:{},
+				success:function (mes) {
+					if(mes == 'ok'){
+						$('tr[name=tr'+a+']').remove()
+					}
+				}
+			})
+		}else{
+			return false;
+		}
+	}
 	$('#shouqi').click(function(){
 		$('#hidden_a').slideToggle();
 		if($(this).html() == '收起'){
@@ -188,43 +220,43 @@
 	})
 
 	
-	$('#jia').click(function(){
+	function jia(a){
 		var num='';
-		num=$('#num').val();
-		var	a=parseInt(num);
-		a+=1;
-		$('#num').val(a);
-	})
-	$('#jian').click(function(){
-
-		var num='';
-		num=$('#num').val();
-		var	a=parseInt(num);
-		if (a>1) {
-			a-=1;
-			$('#num').val(a);
-		}
-		
-	})
-	window.onload=function(){
-		var a=document.getElementById('box');
-		var box=document.getElementsByName("box[]");
-		var len=box.length;
-		var flag=true;
-		a.onclick=function(){
-			if(flag){
-       	 	   flag=false;
-       	  	    for(var i=0;i<len;i++){
-               	box[i].checked=true;
-         		}
-			}else{
-	           	flag=true;
-	            for(var i=0;i<len;i++){
-	          		box[i].checked=false;
-          		}	
+		num=$('#num'+a).val();
+		var	b=parseInt(num);
+		b+=1;
+		$('#num'+a).val(b);
+		xiaojis(a)
+		zongjias()
+		var goodsid = $('input[name=goodsid'+a+']').val()
+		$.ajax({
+			type:'get',
+			url:'/home/cart/num',
+			data:{num:b,goodsid:goodsid},
+			success:function(mes){
 			}
-		}	
+		})
 	}
+	function jian(a){
+		var num='';
+		num=$('#num'+a).val();
+		var	b=parseInt(num);
+		if (b>1) {
+			b-=1;
+			$('#num'+a).val(b);
+		}
+		xiaojis(a)
+		zongjias()
+		var goodsid = $('input[name=goodsid'+a+']').val()
+		$.ajax({
+			type:'get',
+			url:'/home/cart/num',
+			data:{num:b,goodsid:goodsid},
+			success:function(mes){
+			}
+		})
+	}
+	
 </script>
 @endif
 

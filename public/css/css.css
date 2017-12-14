@@ -27,6 +27,24 @@ header{
 	height: 142px;
 	background: #0069aa;
 }
+.mianbaox{
+	height: 50px;
+	line-height: 50px;
+}
+.lis li{
+	float:left;
+	margin-right: 5px;
+	font-size: 12px;
+}
+.lis li a{
+	text-decoration: none;
+	color: #999;
+}
+.lis li .iconfont{
+	
+	color: #999;
+	margin: 0 4px;
+}
 /*最上部条*/
 .header-top{
 	border-bottom:1px solid #005c9d;

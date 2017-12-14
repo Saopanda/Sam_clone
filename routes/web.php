@@ -10,7 +10,7 @@
 // 前台展示
 Route::get('/','indexController@index');
 // 列表页
-Route::get('/list','indexController@list');
+Route::get('/list/{id}.html','indexController@list');
 // 商品详情
 Route::get('/{id}.html','GoodsController@show');
 //购物车
@@ -58,6 +58,7 @@ Route::group(['middleware'=>'Login'],function(){
 	//订单管理
 	Route::get('/home/order','HomeController@order');
 	//购物车
+	Route::get('/home/cart/num','CartController@num');
 	Route::resource('/home/cart','CartController');
 	//去结算
 	Route::get('/home/jiesuan','HomeController@jiesuan');
