@@ -25,6 +25,7 @@
 					<tr>					
 						<th class="text-center">ID</th>
 						<th class="text-center">标题</th>
+						<th class="text-center">背景颜色</th>
 						<th class="text-center">图片</th>
 						<th class="text-center">是否显示</th>
 						<th class="text-center">显示位置</th>
@@ -37,6 +38,7 @@
 					<tr>					
 						<td class="text-center">{{$v->id}}</td>
 						<td class="text-center">{{$v->title}}</td>
+						<th class="text-center">{{$v->bgcolor}}</th>
 						<td class="text-center"><img src="{{$v->img_url}}" width="50" height="50" /></td>
 						@if($v->is_show == 1)
 						<td class="text-center">是</td>

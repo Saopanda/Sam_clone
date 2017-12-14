@@ -263,6 +263,7 @@ font-size: 12px;
 	text-align: center;
 }
 .tab-content .goods_1 .shoppingAct .shopCar{
+	cursor: pointer;
 	width: 108px;
 	color: #0069aa;
 	line-height: 26px;
@@ -280,10 +281,12 @@ font-size: 12px;
 .tab-content .goods_1 .shoppingAct .shopCar i{
 font-size: 14px;
 margin-right: 8px;
+cursor: pointer;
 }
 .tab-content .goods_1 .shoppingAct .num .add:hover{
 	transition: all 0.3s;
 	border: 1px solid #0069aa;
+	cursor: pointer;
 }
 
 .tab-content .goods_1:hover .shopCar{

@@ -21,7 +21,7 @@
 <!-- 调试 -->
 	<link rel="stylesheet" href="/css/login.css">
 	<script type="text/javascript" src="/bootstrap/js/holder.min.js"></script>
-	<title>sam_index</title>
+	<title>{{$site->xq}}</title>
 	<style>
 		.smallimgbox-trig img{
 			width: 100%;

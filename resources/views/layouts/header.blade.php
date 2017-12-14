@@ -58,8 +58,8 @@
 					<dt><a href="">掌上山姆</a><i class="glyphicon glyphicon-menu-down"></i></dt>
 					<dd class="xiala-phone">
 						<ul>
-							<li><img src="" alt="山姆微信"><p>山姆微信服务</p></li>
-							<li><img src="" alt="客户端"><p>山姆手机客户端</p></li>
+							<li style="float: left;"><img src="/file/img/index/weixin.jpg" alt="山姆微信" width="85" height="85"><p>山姆微信服务</p></li>
+							<li style="float: left;"><img src="/file/img/index/app.jpg" alt="客户端"><p>山姆手机客户端</p></li>
 						</ul>
 					</dd>
 				</dl>

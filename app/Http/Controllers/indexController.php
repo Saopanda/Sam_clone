@@ -11,23 +11,36 @@ class indexController extends Controller
 {
 	// 首页展示
     public function index()
-    {
-        
-        // 分类结束
-    	return view('index');
+    {   
+        // 站点设置
+        $site = DB::table('samsite')->where('weizhi','index')->first();    	
+        // 广告设置
+        $ad = DB::table('ad')->get();
+        // 评论设置
+        $pl = DB::table('pinglun')->where(['shenghe' => 1,'ztid' => 1])->get();
+        foreach ($pl as $k => $v) {
+            $v->username = DB::table('user')->where('id',$v->userid)->value('name');
+            $v->plt[] = DB::table('pl_img')->where('userid',$v->userid)->value('img_url');
+            $v->tx = DB::table('userinfo')->where('id',$v->userid)->value('touimg');
+        }
+        // 输出视图
+        return view('index',compact('site','ad'));
     }
     // 列表页
     public function list($id)
-    {           
+    {   
+        // 站点设置
+        $site = DB::table('samsite')->where('weizhi','index')->first();
+        // 站点设置结束
         // 分类
         $a['yi']=DB::table('class')->where('id',$id)->first();
         $a['yi']->er = DB::table('class')->where('pid',$a['yi']->id)->get();
         foreach($a['yi']->er as $k=>$v){
            $v->san =  DB::table('class')->where('pid',$v->id)->get();
         }
-        // 分类结束
+        // 分类结束        
         // 商品分类
-        dd($a);
+        // dd($a);
         $shop=[];
         foreach ($a as $key => $value) {
             foreach ($value->er as $ke => $val) {
@@ -45,7 +58,7 @@ class indexController extends Controller
         }        
         // 商品结束
         // dd($goods); 
-    	return view('list',['goods'=>$goods,'a'=>$a,'shop'=>$shop]);
+    	return view('list',compact('goods','a','shop','site'));
     }
     //登陆
     public function login()

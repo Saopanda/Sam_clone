@@ -51,6 +51,14 @@
       </div>
 
       <div class="form-group">
+        <label for="fullname" class="col-sm-4 control-label">背景颜色</label>
+        <div class="col-sm-8">
+          <input name="bgcolor" type="text" class="form-control parsley-validated" id="fullname" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1">
+          <label></label>
+        </div>
+      </div>
+
+      <div class="form-group">
         <label for="img_url" class="col-sm-4 control-label ">上传图片</label>
         <div class="col-sm-8">
           <input name="img_url" type="file" class="form-control parsley-validated btn btn-default" id="email" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-type="email" parsley-validation-minlength="1">

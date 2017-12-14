@@ -101,7 +101,7 @@ class AdController extends Controller
             //创建一个新的随机名称
             $name = uniqid('img_').'.'.$suffix;
             //文件夹路径
-            $dir = './uploads/'.date('Y-m-d');
+            $dir = './uploads/adv/'.date('Y-m-d');
             //移动文件
             $request->file('img_url')->move($dir, $name);
             //获取文件的路径

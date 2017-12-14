@@ -63,9 +63,9 @@
 			<span>隐私政策</span>
 		</p>
 		<p>
-			<span>2010-2017 中国沃尔玛 版权所有</span>
-			<span>沪ICP备16000000号</span>
-			<span>浙公网备 3000000000号</span>
+			<span>{{$site->time}} {{$site->copyright}}</span>
+			<span>{{$site->beianhao}}</span>
+			<span>{{$site->gongwangbeian}}</span>
 		</p>
 	</div>
 </footer>

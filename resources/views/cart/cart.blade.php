@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>shopcar</title>
+	<title>{{$site->gwc}}</title>
 	<!-- 引入购物车css文件 -->
 	<link rel="stylesheet" href="/css/shopcar.css">
 	<!--引入核心css文件-->
