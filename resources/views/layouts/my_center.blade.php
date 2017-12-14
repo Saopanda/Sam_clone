@@ -57,7 +57,7 @@
 				<div class="gp-user-menu">
 					<dl>
 						<dt><i></i>订单管理</dt>
-						<dd class="cur gr-active"><a href="">我的购买记录</a></dd>
+						<dd class="cur gr-active"><a href="/home/order">我的购买记录</a></dd>
 						<dd><a href="">退换货</a></dd>
 					</dl>
 					<div style="width:164px;height: 1px;background: black;margin: auto;"></div>
@@ -73,7 +73,7 @@
 						<dt><i></i>我的专区</dt>
 						<dd><a href="">我的优惠券</a></dd>
 						<dd><a href="">常购清单</a></dd>
-						<dd><a href="">商品点评</a></dd>
+						<dd><a href="/pinglun">商品点评</a></dd>
 						<dd><a href="">购物咨询</a></dd>
 					</dl>
 					<div style="width:164px;height: 1px;background: black;margin: auto;"></div>
