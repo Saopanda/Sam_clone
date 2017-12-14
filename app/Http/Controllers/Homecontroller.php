@@ -44,4 +44,9 @@ class Homecontroller extends Controller
     public function order(){
         return view('home.order');
     }
+    //结算
+    public function jiesuan(){
+        return view('home.jiesuan');
+    }
+    
 }
