@@ -10,7 +10,7 @@
 // 前台展示
 Route::get('/','indexController@index');
 // 列表页
-Route::get('/list','indexController@list');
+Route::get('/list/{id}.html','indexController@list');
 // 商品详情
 Route::get('/{id}.html','GoodsController@show');
 //购物车

@@ -170,30 +170,7 @@ class GoodsController extends Controller
             //将数据插入到商品表中
             $res = DB::table('goods')->where('id',$id)->update($data);            
             $pic = DB::table('goods_pic')->where('goodsid',$id)->get();
-            
-            // 0  表示小图   1 表示  详情图  2 表示  大图
-            if ($request->hasFile('imgsxq')) {
-               foreach ($pic as $key => $val) {
-                   $url = $val->imgs;
-                   DB::table('goods_pic')->where('img_lx', 1)->where('goodsid',$id)->delete();
-                   unlink('.'.$url);
-                } 
-            }            
-            if ($request->hasFile('imgsxt')) {
-               foreach ($pic as $key => $val) {
-                   $url = $val->imgs;
-                   DB::table('goods_pic')->where('img_lx', 0)->delete();
-                   unlink('.'.$url);
-                } 
-            }
-            if ($request->hasFile('imgsdt')) {
-               foreach ($pic as $key => $val) {
-                   $url = $val->imgs;
-                   DB::table('goods_pic')->where('img_lx', 2)->delete();
-                   unlink('.'.$url);
-                } 
-            }
-             // dd($pic);
+            // 0  表示小图   1 表示  详情图  2 表示  大图            
                 //处理图片
                 if($request->hasFile('imgsxq')){
                     $imagesxq = [];
@@ -207,7 +184,7 @@ class GoodsController extends Controller
                         //文件夹路径
                         $dir = './uploads/'.date('Y-m-d');
                         //移动文件
-                        dd($v->move($dir, $name));
+                        $v->move($dir, $name);
                         //获取文件的路径
                         $tmp['imgname'] = $name;
                         $tmp['goodsid'] = $id;
@@ -217,7 +194,7 @@ class GoodsController extends Controller
                     }
 
                     //将图片信息插入到商品图片表中
-                    dd(DB::table('goods_pic')->insert($imagesxq));
+                    DB::table('goods_pic')->insert($imagesxq);
                 }
 
                 if($request->hasFile('imgsxt')){
