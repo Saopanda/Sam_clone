@@ -87,11 +87,19 @@ class Homecontroller extends Controller
         }
         $rs = DB::table('order_goods')->insert($goods);
         if($rs){
-            return redirect('');
+
+            return view('home.payment',['bm'=>$data['orderid']]);
         }else{
             // 失败
             return back();
         }
     }
-    
+    //评论
+    public function pinglun(){
+        return view('home.pinglun');
+    }
+    //支付成功页
+    public function zfsuccess(){
+        return view('home.zfsuccess');
+    }
 }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 class OrderController extends Controller
 {
     /**
@@ -11,9 +11,21 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $data = DB::table('order')->get();
+        foreach ($data as $key => &$v) {
+           $v->username = DB::table('user')->where('id',$v->userid)->value('name');
+           $v->goodsname = DB::table('goods')->where('id',$v->goodsid)->value('title');
+           $v->address = DB::table('address')->where('id',$v->addressid)->first();
+           //省 市 区 详细地址
+           $v->pro = DB::table('dt_area')->where('id',$v->address->pro)->value('area_name');
+           $v->city = DB::table('dt_area')->where('id',$v->address->city)->value('area_name');
+           $v->county = DB::table('dt_area')->where('id',$v->address->county)->value('area_name');
+           $v->content = DB::table('address')->where('id',$v->addressid)->value('content');
+        }
+        dd($data);
+        return view('admin.order.index',['data'=>$data]);
     }
 
     /**
@@ -79,6 +91,10 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(DB::table('order')->where('id', $id)->delete()) {
+            return back()->with(['msg'=>'ok~ 删除成功!','msg_info'=>'alert-success']);
+        }else{
+            return back()->with(['msg'=>'ok~ 删除失败!','msg_info'=>'alert-danger']);
+        }
     }
 }
