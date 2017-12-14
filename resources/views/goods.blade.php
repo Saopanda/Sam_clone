@@ -13,20 +13,40 @@
 
 <!-- 调试 -->
 	<link rel="stylesheet" href="/css/css.css">	
-	<link rel="stylesheet" type="text/css" href="/css/gong.css">
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
 	<link rel="stylesheet" type="text/css" href="/css/xiangqing1.css">
 	<link rel="stylesheet" href="/css/xiangqing.css">
 	<script type="text/javascript" src="/bootstrap/js/jquery-2.1.1.js"></script>
 	<script type="text/javascript" src="/bootstrap/js/xingqing.js"></script>
-
-	
-	
 <!-- 调试 -->
-
-
+	<link rel="stylesheet" href="/css/login.css">
 	<script type="text/javascript" src="/bootstrap/js/holder.min.js"></script>
 	<title>sam_index</title>
+	<style>
+		.smallimgbox-trig img{
+			width: 100%;
+			height: 100%;
+		}
+		button.btn{
+			height: 42px;
+		}
+		.form-group{
+			line-height: 33px;
+		}
+		#body .well{    
+			width: 270px;
+			height: 46px;
+		    line-height: 46px;
+		    text-align: center;
+		    padding: 0 25px;
+		    margin: 25px 90px;
+		    display: none;
+		    font-size: 15px;
+		}
+		.search{
+			margin-top: 16px;
+		}
+	</style>
 </head>
 <body id="body">
 <!-- 头部 -->
@@ -35,42 +55,42 @@
 
 <!-- 商品详情 -->
 <!-- 面包屑导航开始 -->
+
 	<div class="mianbaox container">
 		<ol class="lis">
 		  <li><a href="#">首页</a><span class="iconfont">></span></li>
-		  <li><a href="#">生鲜食品</a><span class="iconfont">></span></li>
-		  <li class=""><a href="#">新鲜水果</a><span class="iconfont">></span></li>
-		  <li><a href="#">橙子</a><span class="iconfont">></span></li>
-		  <li class=""><a href="#">JOYVIO佳沃</a><span class="iconfont">></span></li>
-		  <li class=""><a href="#">JOYVIO佳沃 澳洲脐橙2.7kg. Item#:981203</a></li>
+		  <!-- 循环父级 -->
+		  @foreach($tb as $k=>$v)
+		  <li><a href="/list/{{$v->id}}.html">{{$v->flname}}</a><span class="iconfont">></span></li>
+		  @endforeach
+		  <li class=""><a href="/{{$rs->id}}.html">{{$rs->title}}</a></li>
 		</ol>
 	</div>
 	<!-- 面包屑导航结束 -->
 	<!-- 主体详情(1)开始 -->
 	<section class="container">
 		<div class="detail-commodity-title" style="width: 636px;">
-			<h2 id="cnName" class="title">JOYVIO佳沃 澳洲脐橙2.7kg. Item#:981203 </h2>
-			<p class="subtitle">产自澳大利亚 单果重250g以上</p>
+			<h2 id="cnName" class="title">{{$rs->title}} </h2>
+			<p class="subtitle">{!!$rs->content!!}</p>
+			<input type="hidden" name="id" value="{{$rs->id}}">
 		</div>
 		<div class="tu" id="fangdajing">
 			<div class="big_img">
 				<div class="img_ul">
-					<img src="/file/img/xiangqing/orange.jpg">
+					<img src="{{$rs->goods_zhong[0]->imgs}}">
 				</div>
 				<div class="magnifyingBegin"></div>
 				<div class="big_imgshow">
-					<img id="J_prodImg" src="/file/img/xiangqing/big_orange.jpg" alt=""/>
+					<img id="J_prodImg" src="{{$rs->goods_zhong[0]->imgs}}" alt="">
 				</div>
 			</div>
 			<div class="sm_img">
 				<div class="smallimgbox">
 					<ul class="smallimgbox-trig">
-						<li class="active"><img src="/file/img/xiangqing/sm_orange.jpg" data-bigimg="./file/img/xiangqing/sm_orange.jpg" alt=""></li>
-						<li><img src="/file/img/xiangqing/sm_orange.jpg" data-bigimg="/file/img/xiangqing/sm_orange.jpg" alt=""></li>
-						<li><img src="/file/img/xiangqing/sm_orange.jpg" data-bigimg="/file/img/xiangqing/sm_orange.jpg" alt=""></li>
-						<li><img src="/file/img/xiangqing/sm_orange.jpg" data-bigimg="/file/img/xiangqing/sm_orange.jpg" alt=""></li>
-						<li><img src="/file/img/xiangqing/sm_orange.jpg"  data-bigimg="/file/img/xiangqing/sm_orange.jpg" alt=""></li>
-						<li><img src="/file/img/xiangqing/sm_orange.jpg" data-bigimg="/file/img/xiangqing/sm_orange.jpg" alt=""></li>
+
+						@foreach($rs->goods_zhong as $k=>$v)
+						<li @if($k == 0)class="active"@endif ><img src="{{$v->imgs}}" data-bigimg="{{$v->imgs}}"  alt=""></li>
+						@endforeach
 					</ul>
 				</div>
 			</div>
@@ -78,11 +98,10 @@
 		<div class=" content_ra">
 			<div class="content_r">
 				<div class="price">
-					<span class="pricenum"><sub>¥</sub><del id="mainprice">63.8</del>
+					<span class="pricenum"><sub>¥</sub><del id="mainprice">{{$rs->price}}</del>
 					<!-- 降价通知 -->
 					<em class="thePrice" id="sam_priceNotice">降价通知</em>
 					</span>
-					<span class="weight" id="mainweight">重量：0.01kg </span>
 				</div>
 			</div>
 			<div id="favorableRateDom" class="praise" style="">
@@ -104,11 +123,11 @@
 		    </div>
 		    <div class="gwc">
 			    <div class="numbers" id="numAddcart">
-					<div id="reduceBtn" class="glyphicon glyphicon-minus"></div>
+					<div id="jian" class="glyphicon glyphicon-minus"></div>
 					<div class="num">
-						<input id="buyNum" data-max="999999" data-min="1" data-step="1" type="text" value="1">
+						<input type="text" name="nums" id="num" value="1">
 					</div>
-					<div id="addBtn" class="glyphicon glyphicon-plus"></div>
+					<div id="jia" class="glyphicon glyphicon-plus"></div>
 				</div>
 				<div class="cartbox buy_btn1" id="addCart" style=""  data-trackersend="1">
 					<i class="glyphicon glyphicon-shopping-cart"></i>加入购物车
@@ -123,12 +142,48 @@
 						分享
 					</span>
 				</div>	
+				<div class="clearfix"></div>
+				<div class="well" id="cartok"></div>
 		    </div>
 		</div>
 	</section>
 	<!-- 主体详情(1)结束 -->
 
-
+	<!-- 弹出登陆框 -->
+<div class="theme-popover">
+     <div class="theme-poptit">
+          <a href="javascript:;" title="关闭" class="close btn btn-lg btn-info">×</a>
+          <h5>请先登陆哦~~</h5>
+     </div>
+     <div class="theme-popbod dform">
+          <div class="form-wrap">
+			<h4>已开通山姆网购账户，请登录</h4>
+			<br>
+			<br>
+			<div class="form_box">
+				<form action="/login" method="post">
+					{{csrf_field()}}
+				  <div class="form-group">
+				    <input type="text" class="form-control buts" id="exampleInputEmail1" placeholder="用户名" name="name">
+				  </div>
+				  <div class="form-group">
+				    <input type="password" class="form-control buts" id="exampleInputPassword1" placeholder="密码" name="pwd">
+				  </div>
+				  <div class="form-group cols">
+				  	  <a href="#" class="pull-left col">忘记密码</a>
+				  	  <a href="#" class="pull-right">注册</a>
+				  </div>
+				  <div class="clearfix info_kuang" style="color: red">@if(session('msg')){{session('msg')}}
+				  	<script>$('.theme-popover-mask').fadeIn(100);
+						$('.theme-popover').slideDown(200);</script>@endif</div>
+	  			  <button type="submit" class="btn btn-primary col-md-12 input-lg sub" id="tijiao">登录</button>
+	            </form>
+			</div>
+		</div> 
+     </div>
+</div>
+<div class="theme-popover-mask"></div>
+<!-- 弹出登录框结束结束 -->
 
 <!-- 商品详情 -->
 
@@ -154,105 +209,13 @@
     <div role="tabpanel" class="container tab-pane active" id="home">
     	<div class="tpxq">
 			<div class="shop_js">
-				<div class="shop_Tp">
-					<img src="/file/img/xiangqing/ChEi11dc2cyAarGKAAVP9wnUmXo36800.jpg">
-				</div>
-				<div class="shop_Tp">
-					<img src="/file/img/xiangqing/ChEi21dc2c6AKcvsAAAn7JcL7ac83700.jpg">
-				</div>
-				<div class="canshu">
-					<table border="0" cellpadding="0" cellspacing="0">
-						<tr>
-							<td class="canshu-wz">
-								品名：澳洲脐橙
-								<br>
-								规格：单果重>250g
-							</td>
-							<td>
-								原产地：澳大利亚 
-								<br> 
-								规格：单果重>250g
-							</td>
-						</tr>				
-					</table>
-				</div>
-				<div class="shop_Tp">
-					<img src="/file/img/xiangqing/ChEbuldc2c-ARP2EAAAmH-klyc033800.jpg">
-				</div>
-				<div class="liyou">
-					<ul>
-						<li>产自澳大利亚维多利亚州</li>
-						<li>墨累河水(澳洲母亲河)灌溉 地中海气候生长</li>
-						<li>选单果重>250g大果 皮薄籽小</li>
-						<li>含糖量>12% 畅享新鲜美味</li>
-					</ul>
-				</div>
-				<div class="shop_Tp">
-					<img src="/file/img/xiangqing/CgQIzVdc2dGAHyGZAAAmkLqjRI858700.jpg">
-				</div>				
-				<div>
-					<table border="0" cellpadding="0" cellspacing="0" width="100%">
-						<tbody>
-							<tr>
-								<td align="center" colspan="2">
-									<img alt=" " src="/file/img/xiangqing/CgQIz1dc2dKAEILgAAc7CpBMrWM67100.jpg" title=" "></td>
-							</tr>
-							<tr>
-								<td align="left" style=" vertical-align:top;">
-									<div style="max-width:460px; padding:10px 0 10px 0;">
-									<div style="font-family:'微软雅黑'; font-weight:bold; font-size:18px; color:#666666;">
-								优质产地</div>
-									<div style="font-family:'微软雅黑'; font-size:14px; color:#666666;">
-								澳洲柑橘产区气候属地中海气候类型，阳光充沛，昼夜温差较大，柑橘色泽鲜艳，品质上乘。</div>
-									</div>
-								</td>
-								<td align="left" style=" vertical-align:top;">
-									<div style="max-width:460px; padding:10px 0 10px 0;">
-									<div style="font-family:'微软雅黑'; font-weight:bold; font-size:18px; color:#666666;">
-								甘美甜蜜</div>
-									<div style="font-family:'微软雅黑'; font-size:14px; color:#666666;">
-								皮薄肉厚，多汁籽小，果肉脆嫩化渣，口感甜中带酸，细嫩柔滑，给你回味无穷的感受。</div>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td align="center" colspan="2">
-									<img alt=" " src="/file/img/xiangqing/ChEi1ldc2dWAH8-xAAXu4ZfRfF877700.jpg" title=" ">
-								</td>
-							</tr>
-							<tr>
-								<td align="left" style=" vertical-align:top;">
-									<div style="max-width:460px; padding:10px 0 10px 0;">
-										<div style="font-family:'微软雅黑'; font-weight:bold; font-size:18px; color:#666666;">
-										营养丰富</div>
-										<div style="font-family:'微软雅黑'; font-size:14px; color:#666666;">
-										橙子含有丰富的维生素C、胡萝卜素、柠檬酸等多种微量元素，营养价值高。</div>
-									</div>
-								</td>
-								<td align="left" style=" vertical-align:top;">
-									<div style="max-width:460px; padding:10px 0 10px 0;">
-										<div style="font-family:'微软雅黑'; font-weight:bold; font-size:18px; color:#666666;">
-										送礼佳品</div>
-										<div style="font-family:'微软雅黑'; font-size:14px; color:#666666;">
-										老少皆宜，天然新鲜，是大众喜爱的健康水果，是馈赠亲友，补充维C的好选择。</div>
-									</div>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="shop_Tp">
-					<img src="/file/img/xiangqing/ChEi3Fl-f3mAVz6kAAZNjJrcDvE93800.jpg">
-				</div>
-				<div class="shop_Tp">
-					<img src="/file/img/xiangqing/ChEwoFl-f3qAP9rYAATFsiMXPSI57900.jpg">
-				</div>
-				<div class="shop_Tp">
-					<img src="/file/img/xiangqing/ChEi2Fl-f3iAMDnDAAF7JP15ZvQ62400.jpg">
-				</div>
-			</div>
+					@foreach($rs->goods_xq as $k=>$v)
+					<img src="{{$v->imgs}}">
+					@endforeach
+    		</div>
 		</div>
-    </div>
+	</div>
+
     <div role="tabpanel" class="container tab-pane" id="profile">
     	<div class="ggcs">
 			<div class="h5show">
@@ -452,5 +415,80 @@
 
 <!-- 尾部 -->
 @include('layouts.footer')
+
 </body>
+<script>
+	$(function () {
+
+		$('.theme-poptit .close').click(function(){
+			$('.theme-popover-mask').fadeOut(100);
+			$('.theme-popover').slideUp(200);
+		})
+
+
+		$('#jia').click(function(){
+			var num='';
+			num=$('#num').val();
+			var	a=parseInt(num);
+			a+=1;
+			$('#num').val(a);
+		})
+		$('#jian').click(function(){
+
+			var num='';
+			num=$('#num').val();
+			var	a=parseInt(num);
+			if (a>1) {
+				a-=1;
+				$('#num').val(a);
+			}
+		})
+
+		$('#addCart').click(function() {
+			if($('#cartok').css('display') == 'none'){
+				var id = $('input[name=id]').val()
+				var num = $('input[name=nums]').val()
+				$.ajax({
+					type:'get',
+					url:'/home/cart/create',
+					data:{goodsid:id,num:num},
+					success:function(mes){
+						if(mes == 'ok'){
+							$('#cartok').html('<b>已成功加入购物车~!</b>').fadeIn().delay(2000).fadeOut();
+						}else{
+							$('.theme-popover-mask').fadeIn(100);
+							$('.theme-popover').slideDown(200);
+						}
+					}
+				})
+			}
+		})
+		var yhm = $('#exampleInputEmail1');
+		var mima = $('#exampleInputPassword1');
+		var box =$('.clearfix');
+		$('#tijiao').click(function(){
+			//alert(123);
+			if (yhm.val()=='') {
+				yhm.parent('div').addClass('has-error');
+				var e_n=box.html('请填写用户名');
+				return false;
+			}else{
+				yhm.parent('div').removeClass('has-error');
+				var e_n=box.html('');
+			}
+			if(mima.val() == ''){
+				mima.parent('div').addClass('has-error');
+				var e_p=box.html('请填写密码');
+				return false;
+			}else{
+				mima.parent('div').removeClass('has-error');
+				var e_p=box.html('');
+			}
+			if (e_n.html() == '' && e_p.html() == '') {
+			}else{
+				return false;
+			}
+		})
+	})
+</script>
 </html>
