@@ -14,6 +14,9 @@ class AddressController extends Controller
      */
     public function index()
     {
+        // 站点设置
+        $site = DB::table('samsite')->where('weizhi','index')->first();
+        // 结束
         $addresses = DB::table('address')->where('userid',session('user_id'))->get();
         $num=count($addresses);
             //dd($num);
@@ -22,7 +25,7 @@ class AddressController extends Controller
             $value->cname = DB::table('dt_area')->where('id',$value->city)->value('area_name');
             $value->xname = DB::table('dt_area')->where('id',$value->county)->value('area_name');
             }          
-        return view('address.index', compact('addresses','num'));
+        return view('address.index', compact('addresses','num','site'));
     }
 
     /**

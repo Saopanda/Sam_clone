@@ -7,18 +7,23 @@ use DB;
 
 class Homecontroller extends Controller
 {
+    
     //个人中心
-    public function index(){    	
+    public function index(){  
+        // 站点设置
+        $site = DB::table('samsite')->where('weizhi','index')->first();
+        // 结束 	
         $sion = session('user_name');
         $sioninfo=DB::table('user')->where('name',$sion)->select('id','name','email','phone','ztid')->first();
         $sioninfo->phone = substr_replace($sioninfo->phone, '****', 3,4);
         $info=DB::table('userinfo')->where('id',$sioninfo->id)->first();
          // 分类结束
-        return view('home.index',['sioninfo'=>$sioninfo,'info'=>$info]);
+        return view('home.index',['sioninfo'=>$sioninfo,'info'=>$info,'site'=>$site]);
     }
 
     //编辑个人中心数据
     public function bianji(Request $request){
+        
         $data=$request->only('phone','email','id');
         $datas=[];
         if($request->hasFile('touimg')) {
@@ -42,7 +47,10 @@ class Homecontroller extends Controller
 
      //订单
     public function order(){
-        return view('home.order');
+        // 站点设置
+        $site = DB::table('samsite')->where('weizhi','index')->first();
+        // 结束
+        return view('home.order',['site'=>$site]);
     }
     //结算
     public function jiesuan(Request $request){
@@ -63,10 +71,16 @@ class Homecontroller extends Controller
             $value->cname = DB::table('dt_area')->where('id',$value->city)->value('area_name');
             $value->xname = DB::table('dt_area')->where('id',$value->county)->value('area_name');
             }   
-        return view('home.jiesuan',compact('datas','zongji','addresses','num'));
+        // 站点设置
+        $site = DB::table('samsite')->where('weizhi','index')->first();
+        // 结束    
+        return view('home.jiesuan',compact('datas','zongji','addresses','num','site'));
     }
     public function zhifu(Request $request)
     {
+        // 站点设置
+        $site = DB::table('samsite')->where('weizhi','index')->first();
+        // 结束
         $data = $request->except('_token','goods');
         $goods = $request->input('goods');
         $zongjia = 0;
@@ -88,7 +102,7 @@ class Homecontroller extends Controller
         $rs = DB::table('order_goods')->insert($goods);
         if($rs){
 
-            return view('home.payment',['bm'=>$data['orderid']]);
+            return view('home.payment',['bm'=>$data['orderid'],'site'=>$site]);
         }else{
             // 失败
             return back();
@@ -96,10 +110,14 @@ class Homecontroller extends Controller
     }
     //评论
     public function pinglun(){
-        return view('home.pinglun');
+        // 站点设置
+        $site = DB::table('samsite')->where('weizhi','index')->first();
+        // 结束 
+        return view('home.pinglun',['site'=>$site]);
     }
     //支付成功页
     public function zfsuccess(){
+        
         return view('home.zfsuccess');
     }
 }

@@ -25,7 +25,10 @@ class OrderController extends Controller
            $v->content = DB::table('address')->where('id',$v->addressid)->value('content');
         }
         dd($data);
-        return view('admin.order.index',['data'=>$data]);
+        // 站点设置
+        $site = DB::table('samsite')->where('weizhi','index')->first();
+        // 结束
+        return view('admin.order.index',['data'=>$data,'site'=>$site]);
     }
 
     /**
