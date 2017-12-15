@@ -77,41 +77,7 @@ class Homecontroller extends Controller
         return view('home.jiesuan',compact('datas','zongji','addresses','num','site'));
     }
 
-    // 订单创建成功,选择支付方式
-    public function zhifu(Request $request)
-    {
-        // 站点设置
-        $site = DB::table('samsite')->where('weizhi','index')->first();
-        // 结束
-        $data = $request->except('_token','goods');
-        $goods = $request->input('goods');
-        $zongjia = 0;
-        foreach($goods as $k=>$v){
-            //查找单价
-            $price = DB::table('goods')->where('id',$v['goodsid'])->value('price');
-            $goods[$k]['price'] = $price;
-            //计算总价
-            $zongjia += floatval($price)*$v['num'];
-        }
-        $data['orderid'] = '0471'.date('ymdhis').session('user_id').time();
-        $data['userid'] = session('user_id');
-        $data['sum_price'] = $zongjia;
-        $data['dd_status'] = 0;
-        $data['date'] = date('y-m-d h:i:s');
-        $orderid = DB::table('order')->insertGetid($data);
-        foreach ($goods as $key => $value) {
-            $goods[$key]['order'] = $orderid;
-        }
-        $rs = DB::table('order_goods')->insert($goods);
-        if($rs){
-            // 订单创建成功
-
-            return view('home.payment',['bm'=>$data['orderid'],'site'=>$site]);
-        }else{
-            // 失败
-            return back();
-        }
-    }
+    
     //评论
     public function pinglun(){
         // 站点设置

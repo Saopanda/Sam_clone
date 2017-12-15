@@ -62,13 +62,13 @@ Route::group(['middleware'=>'Login'],function(){
 	Route::resource('/home/cart','CartController');
 	//去结算
 	Route::get('/home/jiesuan','HomeController@jiesuan');
-	Route::post('/zhifu','HomeController@zhifu');
-
+	Route::post('/zhifu','PayController@zhifu');
 	// 支付接口
 	Route::get('/pay/zhifubao/{id}','payController@create');
 
-	//支付成功跳转页面
-	Route::get('/home/zfsuccess','PayController@zfsuccess');
+	//支付返回页面
+	Route::get('/pay/info','PayController@info');
+	Route::get('/pay/info2','PayController@info2');
 
 	//地址管理
 	Route::get('/home/address/getarea','AddressController@getarea');

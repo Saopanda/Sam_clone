@@ -38,6 +38,7 @@
 	<!-- 注册表单 -->
 	<section class="container text-center">
 		<div style="height: 40px"></div>
+		@if($zt == 1)
 		<div class="er-codePic">
 	        <a href="javascript:;">
 	            <img src="/images/dui.jpg" alt="" width="130" height="130">
@@ -45,7 +46,17 @@
 	    </div>
 		<br>
 	    <h4>恭喜您支付成功</h4>
-	    <small><a href="">点击跳转到订单中心</a></small>
+	    <small><a href="/home/order">点击跳转到订单中心</a></small>
+	    @elseif($zt == 0)
+	    <div class="er-codePic">
+	        <a href="javascript:;">
+	            <img src="/images/cuo.jpg" alt="" width="130" height="130">
+	        </a>
+	    </div>
+		<br>
+	    <h4>支付遇到了一点问题</h4>
+	    <p>可能是网络延迟,您可以先去<a href="/home/order">订单中心</a>看看,或者<a href="">联系客服</a></p>
+	    @endif
 	    <div style="height: 20px"></div>
 	    <a href="/" class="btn btn-lg btn-hehe">进入首页</a>
 	</section>

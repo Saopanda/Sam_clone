@@ -34,8 +34,26 @@
 		<br>
 	    <h4>您可以选择以下支付方式进行支付</h4>
 	    <div style="height: 20px"></div>
+	    <input type="hidden" name="orderid" value="{{$bm}}">
 	    <a href="/pay/weixin/{{$bm}}" ><img src="/file/img/wx.jpg" alt=""></a>
 	    <a href="/pay/zhifubao/{{$bm}}" ><img src="/file/img/zfb.jpg" alt=""></a>
 	</section>
 	</body>
+
+
+	<script>
+		$('.kuai').click(function() {
+			var id = $('input[name=orderid]').val()
+			$.ajax({
+				type:'get',
+				url:'/pay/info2',
+				data:{orderid:id},
+				success:function (mes) {
+					if(mes == 'success'){
+						alert('已模拟支付宝异步数据,订单编号为：{{$bm}}')
+					}
+				}
+			})
+		});
+	</script>
 </html>

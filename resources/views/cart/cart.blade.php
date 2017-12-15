@@ -180,7 +180,7 @@
 	function zongjias(){
 		var zj = 0;
 		$('td[name=xiaoji]').find('b').each(function(){
-			zj += parseInt($(this).html())
+			zj += parseFloat($(this).html())
 		})
 		$('#zongjia').html('￥'+zj)
 		$('#zongjia2').html('￥'+zj)
@@ -188,7 +188,7 @@
 	
 
 	function xiaojis(a) {
-		var xiaoji = parseInt($('#num'+a).val())*parseInt($('#danjia'+a).html())
+		var xiaoji = parseInt($('#num'+a).val())*parseFloat($('#danjia'+a).html())
 		$('#xiaoji'+a).find('b').html(xiaoji)
 	}
 	function cartdelete(a) {
