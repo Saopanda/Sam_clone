@@ -8,7 +8,13 @@ class payController extends Controller
 {
 
 	// 密钥
-	protected $config;
+	protected $config = [
+		'alipay' => [
+			'app_id' => '',
+			'ali_public_key' => '',
+			'private_key' => '',
+		],
+	]
 
 
     public function create($id)

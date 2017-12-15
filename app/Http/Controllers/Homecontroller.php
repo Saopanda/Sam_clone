@@ -76,7 +76,7 @@ class Homecontroller extends Controller
         // 结束    
         return view('home.jiesuan',compact('datas','zongji','addresses','num','site'));
     }
-    
+
     // 订单创建成功,选择支付方式
     public function zhifu(Request $request)
     {
@@ -97,12 +97,14 @@ class Homecontroller extends Controller
         $data['userid'] = session('user_id');
         $data['sum_price'] = $zongjia;
         $data['dd_status'] = 0;
+        $data['date'] = date('y-m-d h:i:s');
         $orderid = DB::table('order')->insertGetid($data);
         foreach ($goods as $key => $value) {
             $goods[$key]['order'] = $orderid;
         }
         $rs = DB::table('order_goods')->insert($goods);
         if($rs){
+            // 订单创建成功
 
             return view('home.payment',['bm'=>$data['orderid'],'site'=>$site]);
         }else{
@@ -117,9 +119,5 @@ class Homecontroller extends Controller
         // 结束 
         return view('home.pinglun',['site'=>$site]);
     }
-    //支付成功页
-    public function zfsuccess(){
-        
-        return view('home.zfsuccess');
-    }
+    
 }
