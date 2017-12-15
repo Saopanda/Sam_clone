@@ -76,6 +76,8 @@ class Homecontroller extends Controller
         // 结束    
         return view('home.jiesuan',compact('datas','zongji','addresses','num','site'));
     }
+    
+    // 订单创建成功,选择支付方式
     public function zhifu(Request $request)
     {
         // 站点设置
