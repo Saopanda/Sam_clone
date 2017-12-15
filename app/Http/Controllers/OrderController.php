@@ -25,7 +25,6 @@ class OrderController extends Controller
            $v->county = DB::table('dt_area')->where('id',$v->address->county)->value('area_name');
            $v->content = DB::table('address')->where('id',$v->addressid)->value('content');
         }
-        dd($data);
         // 站点设置
         $site = DB::table('samsite')->where('weizhi','index')->first();
         // 结束

@@ -6,6 +6,17 @@ use Illuminate\Http\Request;
 use DB;
 class payController extends Controller
 {
+
+	// 密钥
+	protected $config = [
+		'alipay' => [
+			'app_id' => '',
+			'ali_public_key' => '',
+			'private_key' => '',
+		],
+	]
+
+
     public function create($id)
     {
     	//订单 id
@@ -23,5 +34,13 @@ class payController extends Controller
             'total_amount' => $zongjia,
             'subject'      => $goodsname,
         ];
+
+    }
+
+
+    //支付成功页
+    public function zfsuccess(){
+        
+        return view('home.zfsuccess');
     }
 }
