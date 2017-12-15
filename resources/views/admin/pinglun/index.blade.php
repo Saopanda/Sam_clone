@@ -2,7 +2,7 @@
 
 @section('nr_title')
 <div class="pageheader">
-    <h2><i class="fa fa-check-square" style="line-height: 48px;padding-left: 1px;"></i> Sam站点列表<span> Sam 站点列表</span></h2>   
+    <h2><i class="fa fa-check-square" style="line-height: 48px;padding-left: 1px;"></i> Sam评论列表<span> Sam 评论列表</span></h2>   
 </div>
 @stop
 
@@ -14,13 +14,21 @@
 	a:hover{
 		text-decoration: none;
 	}
+	.jb{
+  background-color: rgba(0, 0, 0, 0.3);
+    border: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    line-height: 20px;
+  }
 </style>
 
 <section class="tile color transparent-black">
 <!-- tile header -->
 	<div class="tile-header">
 		<!-- 标题 -->
-		<h1><strong>评论</strong> 列表</h1>
+		<h1><strong>评论</strong> 列表</h1>   		
 	</div>
 <!-- /tile header -->
 
@@ -33,7 +41,7 @@
 					<th class="text-center">用户id</th>
 					<th class="text-center">用户名</th>
 					<th class="text-center">商品id</th>
-					<th class="text-center">评论信息</th>
+					<th class="text-center" style="width: 500px;">评论信息</th>
 					<th class="text-center">状态</th>
 					<th class="text-center">评论时间</th>
 					<th class="text-center">是否审核</th>
@@ -44,7 +52,7 @@
 				<tr>								
 					<td class="text-center">{{$val->id}}</td>
 					<td class="text-center">{{$val->userid}}</td>
-					<td class="text-center">111</td>
+					<td class="text-center">{{$val->name}}</td>
 					<td class="text-center">{{$val->goodsid}}</td>
 					<td class="text-center">{{$val->content}}</td>
 					<td class="text-center">

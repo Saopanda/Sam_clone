@@ -13,7 +13,8 @@ class GoodsController extends Controller
     public function index(Request $request)
     {
         $goods = DB::table('goods')->paginate(10);
-        return view('admin.goods.index',['goods'=>$goods]);
+        $fl = DB::table('class')->get();
+        return view('admin.goods.index',['goods'=>$goods,'fl'=>$fl]);
     }
 
     /**

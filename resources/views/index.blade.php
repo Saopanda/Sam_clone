@@ -73,42 +73,19 @@
 				</div>
 			</div>
 			<div class="col-md-9 nr-goods">
+				@foreach($goods as $key =>$val)
+				@if($key < 4 )
 				<div class="col-md-3">
 					<a href="">
 						<div class="nr-1-img">
-							<img src="/file/img/index/good1.jpg" alt="">
+							<img src="{{$val->pic}}" width="220" height="230" alt="">
 						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
+						<p>{{$val->title}}</p>
+						<span>￥<b>{{$val->price}}</b></span>
 					</a>
 				</div>
-				<div class="col-md-3">
-					<a href="">
-						<div class="nr-1-img">
-							<img src="/file/img/index/good1.jpg" alt="">
-						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
-					</a>
-				</div>
-				<div class="col-md-3">
-					<a href="">
-						<div class="nr-1-img">
-							<img src="/file/img/index/good1.jpg" alt="">
-						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
-					</a>
-				</div>
-				<div class="col-md-3">
-					<a href="">
-						<div class="nr-1-img">
-							<img src="/file/img/index/good1.jpg" alt="">
-						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
-					</a>
-				</div>
+				@endif
+				@endforeach
 			</div>
 		</div>
 	</div>
@@ -121,13 +98,15 @@
 	</div>
 	<div class="container">
 		<div class="one_1 container">
+			@foreach($goods as $k => $v)
+			@if($k < 10)
 			<div class="item">
-				<a href="//item.samsclub.cn/63618484" title="果园采摘 先进的技术栽培" target="_blank">
+				<a href="//item.samsclub.cn/63618484" title="{{$v->title}}" target="_blank">
 					<div class="i-size-box">
-					<img class="img-agent lazyload" id="lunbo_1" alt="仙佳果园红心猕猴桃18个" data-original="" src="/file/img/index/mihout.jpg">
+					<img class="img-agent lazyload" id="lunbo_1" alt="{{$v->title}}" data-original="" src="{{$v->pic}}">
 					</div>
-					<p>仙佳果园红心猕猴桃18个</p>
-					<span data-pmid="63618484" data-productid=""><em>¥</em> 79.8</span>
+					<p>{{$v->title}}</p>
+					<span data-pmid="63618484" data-productid=""><em>¥</em> {{$v->price}}</span>
 				</a>
 				<div class="marking save">
 					<div class="box">
@@ -136,181 +115,11 @@
 					</div>
 				</div>
 				<div class="outline">
-					<p class="item-info">果园采摘 先进的技术栽培</p>
-					<p class="item-info">口感香甜清爽 细致多汁</p>
+					<p class="item-info">{!!$v->content!!}</p>
 				</div>
 			</div>
-			<div class="item">
-				<a href="//item.samsclub.cn/63618484" title="果园采摘 先进的技术栽培" target="_blank">
-					<div class="i-size-box">
-					<img class="img-agent lazyload" id="lunbo_1" alt="仙佳果园红心猕猴桃18个" data-original="" src="/file/img/index/mihout.jpg">
-					</div>
-					<p>仙佳果园红心猕猴桃18个</p>
-					<span data-pmid="63618484" data-productid=""><em>¥</em> 79.8</span>
-				</a>
-				<div class="marking save">
-					<div class="box">
-						<p>已省</p>
-						<p><em>¥</em>9.2</p>
-					</div>
-				</div>
-				<div class="outline">
-					<p class="item-info">果园采摘 先进的技术栽培</p>
-					<p class="item-info">口感香甜清爽 细致多汁</p>
-				</div>
-			</div>
-			<div class="item">
-				<a href="//item.samsclub.cn/63618484" title="果园采摘 先进的技术栽培" target="_blank">
-					<div class="i-size-box">
-					<img class="img-agent lazyload" id="lunbo_1" alt="仙佳果园红心猕猴桃18个" data-original="" src="/file/img/index/mihout.jpg">
-					</div>
-					<p>仙佳果园红心猕猴桃18个</p>
-					<span data-pmid="63618484" data-productid=""><em>¥</em> 79.8</span>
-				</a>
-				<div class="marking save">
-					<div class="box">
-						<p>已省</p>
-						<p><em>¥</em>9.2</p>
-					</div>
-				</div>
-				<div class="outline">
-					<p class="item-info">果园采摘 先进的技术栽培</p>
-					<p class="item-info">口感香甜清爽 细致多汁</p>
-				</div>
-			</div>
-			<div class="item">
-				<a href="//item.samsclub.cn/63618484" title="果园采摘 先进的技术栽培" target="_blank">
-					<div class="i-size-box">
-					<img class="img-agent lazyload" id="lunbo_1" alt="仙佳果园红心猕猴桃18个" data-original="" src="/file/img/index/mihout.jpg">
-					</div>
-					<p>仙佳果园红心猕猴桃18个</p>
-					<span data-pmid="63618484" data-productid=""><em>¥</em> 79.8</span>
-				</a>
-				<div class="marking save">
-					<div class="box">
-						<p>已省</p>
-						<p><em>¥</em>9.2</p>
-					</div>
-				</div>
-				<div class="outline">
-					<p class="item-info">果园采摘 先进的技术栽培</p>
-					<p class="item-info">口感香甜清爽 细致多汁</p>
-				</div>
-			</div>
-			<div class="item">
-				<a href="//item.samsclub.cn/63618484" title="果园采摘 先进的技术栽培" target="_blank">
-					<div class="i-size-box">
-					<img class="img-agent lazyload" id="lunbo_1" alt="仙佳果园红心猕猴桃18个" data-original="" src="/file/img/index/mihout.jpg">
-					</div>
-					<p>仙佳果园红心猕猴桃18个</p>
-					<span data-pmid="63618484" data-productid=""><em>¥</em> 79.8</span>
-				</a>
-				<div class="marking save">
-					<div class="box">
-						<p>已省</p>
-						<p><em>¥</em>9.2</p>
-					</div>
-				</div>
-				<div class="outline">
-					<p class="item-info">果园采摘 先进的技术栽培</p>
-					<p class="item-info">口感香甜清爽 细致多汁</p>
-				</div>
-			</div>
-			<div class="item">
-				<a href="//item.samsclub.cn/63618484" title="果园采摘 先进的技术栽培" target="_blank">
-					<div class="i-size-box">
-					<img class="img-agent lazyload" id="lunbo_1" alt="仙佳果园红心猕猴桃18个" data-original="" src="/file/img/index/mihout.jpg">
-					</div>
-					<p>仙佳果园红心猕猴桃18个</p>
-					<span data-pmid="63618484" data-productid=""><em>¥</em> 79.8</span>
-				</a>
-				<div class="marking save">
-					<div class="box">
-						<p>已省</p>
-						<p><em>¥</em>9.2</p>
-					</div>
-				</div>
-				<div class="outline">
-					<p class="item-info">果园采摘 先进的技术栽培</p>
-					<p class="item-info">口感香甜清爽 细致多汁</p>
-				</div>
-			</div>
-			<div class="item">
-				<a href="//item.samsclub.cn/63618484" title="果园采摘 先进的技术栽培" target="_blank">
-					<div class="i-size-box">
-					<img class="img-agent lazyload" id="lunbo_1" alt="仙佳果园红心猕猴桃18个" data-original="" src="/file/img/index/mihout.jpg">
-					</div>
-					<p>仙佳果园红心猕猴桃18个</p>
-					<span data-pmid="63618484" data-productid=""><em>¥</em> 79.8</span>
-				</a>
-				<div class="marking save">
-					<div class="box">
-						<p>已省</p>
-						<p><em>¥</em>9.2</p>
-					</div>
-				</div>
-				<div class="outline">
-					<p class="item-info">果园采摘 先进的技术栽培</p>
-					<p class="item-info">口感香甜清爽 细致多汁</p>
-				</div>
-			</div>
-			<div class="item">
-				<a href="//item.samsclub.cn/63618484" title="果园采摘 先进的技术栽培" target="_blank">
-					<div class="i-size-box">
-					<img class="img-agent lazyload" id="lunbo_1" alt="仙佳果园红心猕猴桃18个" data-original="" src="/file/img/index/mihout.jpg">
-					</div>
-					<p>仙佳果园红心猕猴桃18个</p>
-					<span data-pmid="63618484" data-productid=""><em>¥</em> 79.8</span>
-				</a>
-				<div class="marking save">
-					<div class="box">
-						<p>已省</p>
-						<p><em>¥</em>9.2</p>
-					</div>
-				</div>
-				<div class="outline">
-					<p class="item-info">果园采摘 先进的技术栽培</p>
-					<p class="item-info">口感香甜清爽 细致多汁</p>
-				</div>
-			</div>
-			<div class="item">
-				<a href="//item.samsclub.cn/63618484" title="果园采摘 先进的技术栽培" target="_blank">
-					<div class="i-size-box">
-					<img class="img-agent lazyload" id="lunbo_1" alt="仙佳果园红心猕猴桃18个" data-original="" src="/file/img/index/mihout.jpg">
-					</div>
-					<p>仙佳果园红心猕猴桃18个</p>
-					<span data-pmid="63618484" data-productid=""><em>¥</em> 79.8</span>
-				</a>
-				<div class="marking save">
-					<div class="box">
-						<p>已省</p>
-						<p><em>¥</em>9.2</p>
-					</div>
-				</div>
-				<div class="outline">
-					<p class="item-info">果园采摘 先进的技术栽培</p>
-					<p class="item-info">口感香甜清爽 细致多汁</p>
-				</div>
-			</div>
-			<div class="item">
-				<a href="//item.samsclub.cn/63618484" title="果园采摘 先进的技术栽培" target="_blank">
-					<div class="i-size-box">
-					<img class="img-agent lazyload" id="lunbo_1" alt="仙佳果园红心猕猴桃18个" data-original="" src="/file/img/index/mihout.jpg">
-					</div>
-					<p>仙佳果园红心猕猴桃18个</p>
-					<span data-pmid="63618484" data-productid=""><em>¥</em> 79.8</span>
-				</a>
-				<div class="marking save">
-					<div class="box">
-						<p>已省</p>
-						<p><em>¥</em>9.2</p>
-					</div>
-				</div>
-				<div class="outline">
-					<p class="item-info">果园采摘 先进的技术栽培</p>
-					<p class="item-info">口感香甜清爽 细致多汁</p>
-				</div>
-			</div>
+			@endif
+			@endforeach
 		</div>
 		<div class="home-wrap container" style="background-color:">
 			<div class="booth global-center container " style="margin:0 auto;">
@@ -347,42 +156,19 @@
 				</ul>
 			</div>
 			<div class="col-md-9 nr-goods text-center">
+				@foreach($goods as $key => $v)
+				@if($v->id > 0 && $v->id < 5)
 				<div class="col-md-3">
 					<a href="">
 						<div class="nr-img">
-							<img src="/file/img/index/good1.jpg" alt="">
+							<img src="{{$v->pic}}" alt="">
 						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
+						<p>{{$v->title}}</p>
+						<span>￥<b>{{$v->price}}</b></span>
 					</a>
 				</div>
-				<div class="col-md-3">
-					<a href="">
-						<div class="nr-img">
-							<img src="/file/img/index/good1.jpg" alt="">
-						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
-					</a>
-				</div>
-				<div class="col-md-3">
-					<a href="">
-						<div class="nr-img">
-							<img src="/file/img/index/good1.jpg" alt="">
-						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
-					</a>
-				</div>
-				<div class="col-md-3">
-					<a href="">
-						<div class="nr-img">
-							<img src="/file/img/index/good1.jpg" alt="">
-						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
-					</a>
-				</div>
+				@endif
+				@endforeach
 			</div>
 		</div>
 	</div>
@@ -401,42 +187,19 @@
 				</ul>
 			</div>
 			<div class="col-md-9 nr-goods text-center">
+				@foreach($goods as $key => $v)
+				@if($v->id > 16 && $v->id < 21)
 				<div class="col-md-3">
 					<a href="">
 						<div class="nr-img">
-							<img src="/file/img/index/good1.jpg" alt="">
+							<img src="{{$v->pic}}" alt="">
 						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
+						<p>{{$v->title}}</p>
+						<span>￥<b>{{$v->price}}</b></span>
 					</a>
 				</div>
-				<div class="col-md-3">
-					<a href="">
-						<div class="nr-img">
-							<img src="/file/img/index/good1.jpg" alt="">
-						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
-					</a>
-				</div>
-				<div class="col-md-3">
-					<a href="">
-						<div class="nr-img">
-							<img src="/file/img/index/good1.jpg" alt="">
-						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
-					</a>
-				</div>
-				<div class="col-md-3">
-					<a href="">
-						<div class="nr-img">
-							<img src="/file/img/index/good1.jpg" alt="">
-						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
-					</a>
-				</div>
+				@endif
+				@endforeach
 			</div>
 		</div>
 	</div>
@@ -455,42 +218,19 @@
 				</ul>
 			</div>
 			<div class="col-md-9 nr-goods text-center">
+				@foreach($goods as $key => $v)
+				@if($v->id > 33 && $v->id < 38)
 				<div class="col-md-3">
 					<a href="">
 						<div class="nr-img">
-							<img src="/file/img/index/good1.jpg" alt="">
+							<img src="{{$v->pic}}" alt="">
 						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
+						<p>{{$v->title}}</p>
+						<span>￥<b>{{$v->price}}</b></span>
 					</a>
 				</div>
-				<div class="col-md-3">
-					<a href="">
-						<div class="nr-img">
-							<img src="/file/img/index/good1.jpg" alt="">
-						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
-					</a>
-				</div>
-				<div class="col-md-3">
-					<a href="">
-						<div class="nr-img">
-							<img src="/file/img/index/good1.jpg" alt="">
-						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
-					</a>
-				</div>
-				<div class="col-md-3">
-					<a href="">
-						<div class="nr-img">
-							<img src="/file/img/index/good1.jpg" alt="">
-						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
-					</a>
-				</div>
+				@endif
+				@endforeach
 			</div>
 		</div>
 	</div>
@@ -509,42 +249,19 @@
 				</ul>
 			</div>
 			<div class="col-md-9 nr-goods text-center">
+				@foreach($goods as $key => $v)
+				@if($v->id > 64 && $v->id < 69)
 				<div class="col-md-3">
 					<a href="">
 						<div class="nr-img">
-							<img src="/file/img/index/good1.jpg" alt="">
+							<img src="{{$v->pic}}" alt="">
 						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
+						<p>{{$v->title}}</p>
+						<span>￥<b>{{$v->price}}</b></span>
 					</a>
 				</div>
-				<div class="col-md-3">
-					<a href="">
-						<div class="nr-img">
-							<img src="/file/img/index/good1.jpg" alt="">
-						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
-					</a>
-				</div>
-				<div class="col-md-3">
-					<a href="">
-						<div class="nr-img">
-							<img src="/file/img/index/good1.jpg" alt="">
-						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
-					</a>
-				</div>
-				<div class="col-md-3">
-					<a href="">
-						<div class="nr-img">
-							<img src="/file/img/index/good1.jpg" alt="">
-						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
-					</a>
-				</div>
+				@endif
+				@endforeach
 			</div>
 		</div>
 	</div>
@@ -563,42 +280,19 @@
 				</ul>
 			</div>
 			<div class="col-md-9 nr-goods text-center">
+				@foreach($goods as $key => $v)
+				@if($v->id > 48 && $v->id < 53)
 				<div class="col-md-3">
 					<a href="">
 						<div class="nr-img">
-							<img src="/file/img/index/good1.jpg" alt="">
+							<img src="{{$v->pic}}" alt="">
 						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
+						<p>{{$v->title}}</p>
+						<span>￥<b>{{$v->price}}</b></span>
 					</a>
 				</div>
-				<div class="col-md-3">
-					<a href="">
-						<div class="nr-img">
-							<img src="/file/img/index/good1.jpg" alt="">
-						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
-					</a>
-				</div>
-				<div class="col-md-3">
-					<a href="">
-						<div class="nr-img">
-							<img src="/file/img/index/good1.jpg" alt="">
-						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
-					</a>
-				</div>
-				<div class="col-md-3">
-					<a href="">
-						<div class="nr-img">
-							<img src="/file/img/index/good1.jpg" alt="">
-						</div>
-						<p>资生堂 日本进口护理道头皮生机洗发露1L</p>
-						<span>￥<b>528</b></span>
-					</a>
-				</div>
+				@endif
+				@endforeach
 			</div>
 		</div>
 	</div>
@@ -689,202 +383,31 @@
 		</div>
 		<div class="lj_Right pull-right" id="abc">
 			<div class="gdt">
+				@foreach($pl as $key => $val)
 				<div class="comment">
 					<div class="info">
-						<a href="#"><img class="touxiang" width="40" height="40" src="holder.js/40x40"></a>
-						<p class="name">Liiu_Piiing</p>
+						<a href="#"><img class="touxiang" width="40" height="40" src="{{$val->tx}}"></a>
+						<p class="name">{{$val->username}}</p>
 						<a class="des" href="#">@山姆会员商店</a>
 					</div>
 					<div class="comment-text">
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐	
+						{{$val->content}}
 					</div>
 					<div class="show-time">
 						<div class="tabs">
 							<ul class="clear">
-								<li class="show-time-item">
-									<img class="tpfd" src="holder.js/50x50">
-									<img class="tpfd_1" src="holder.js/150x150">
-								</li>
-								<li class="show-time-item">
-									<img class="tpfd" src="holder.js/50x50">
-									<img class="tpfd_1" src="holder.js/150x150">
-								</li>
+								@if(isset($val->plt))
+									@foreach($val->plt as $a=>$b)
+									<li class="show-time-item">
+										<img class="tpfd" src="{{$b}}">
+									</li>
+									@endforeach
+								@endif
 							</ul>
 						</div>
 					</div>
 				</div>
-				<div class="comment">
-					<div class="info">
-						<a href="#"><img class="touxiang" width="40" height="40" src="holder.js/40x40"></a>
-						<p class="name">Liiu_Piiing</p>
-						<a class="des" href="#">@山姆会员商店</a>
-					</div>
-					<div class="comment-text">
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐	
-					</div>
-					<div class="show-time">
-						<div class="tabs">
-							<ul class="clear">
-								<li class="show-time-item">
-									<img class="tpfd" src="holder.js/50x50">
-									<img class="tpfd_1" src="holder.js/150x150">
-								</li>
-								<li class="show-time-item">
-									<img class="tpfd" src="holder.js/50x50">
-									<img class="tpfd_1" src="holder.js/150x150">
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="comment">
-					<div class="info">
-						<a href="#"><img class="touxiang" width="40" height="40" src="holder.js/40x40"></a>
-						<p class="name">Liiu_Piiing</p>
-						<a class="des" href="#">@山姆会员商店</a>
-					</div>
-					<div class="comment-text">
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐	
-					</div>
-					<div class="show-time">
-						<div class="tabs">
-							<ul class="clear">
-								<li class="show-time-item">
-									<img class="tpfd" src="holder.js/50x50">
-									<img class="tpfd_1" src="holder.js/150x150">
-								</li>
-								<li class="show-time-item">
-									<img class="tpfd" src="holder.js/50x50">
-									<img class="tpfd_1" src="holder.js/150x150">
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="comment">
-					<div class="info">
-						<a href="#"><img class="touxiang" width="40" height="40" src="holder.js/40x40"></a>
-						<p class="name">Liiu_Piiing</p>
-						<a class="des" href="#">@山姆会员商店</a>
-					</div>
-					<div class="comment-text">
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐	
-					</div>
-					<div class="show-time">
-						<div class="tabs">
-							<ul class="clear">
-								<li class="show-time-item">
-									<img class="tpfd" src="holder.js/50x50">
-									<img class="tpfd_1" src="holder.js/150x150">
-								</li>
-								<li class="show-time-item">
-									<img class="tpfd" src="holder.js/50x50">
-									<img class="tpfd_1" src="holder.js/150x150">
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="comment">
-					<div class="info">
-						<a href="#"><img class="touxiang" width="40" height="40" src="holder.js/40x40"></a>
-						<p class="name">Liiu_Piiing</p>
-						<a class="des" href="#">@山姆会员商店</a>
-					</div>
-					<div class="comment-text">
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐	
-					</div>
-					<div class="show-time">
-						<div class="tabs">
-							<ul class="clear">
-								<li class="show-time-item">
-									<img class="tpfd" src="holder.js/50x50">
-									<img class="tpfd_1" src="holder.js/150x150">
-								</li>
-								<li class="show-time-item">
-									<img class="tpfd" src="holder.js/50x50">
-									<img class="tpfd_1" src="holder.js/150x150">
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="comment">
-					<div class="info">
-						<a href="#"><img class="touxiang" width="40" height="40" src="holder.js/40x40"></a>
-						<p class="name">Liiu_Piiing</p>
-						<a class="des" href="#">@山姆会员商店</a>
-					</div>
-					<div class="comment-text">
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐	
-					</div>
-					<div class="show-time">
-						<div class="tabs">
-							<ul class="clear">
-								<li class="show-time-item">
-									<img class="tpfd" src="holder.js/50x50">
-									<img class="tpfd_1" src="holder.js/150x150">
-								</li>
-								<li class="show-time-item">
-									<img class="tpfd" src="holder.js/50x50">
-									<img class="tpfd_1" src="holder.js/150x150">
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="comment">
-					<div class="info">
-						<a href="#"><img class="touxiang" width="40" height="40" src="holder.js/40x40"></a>
-						<p class="name">Liiu_Piiing</p>
-						<a class="des" href="#">@山姆会员商店</a>
-					</div>
-					<div class="comment-text">
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐啊
-						这金罐可乐很帅啊 难怪117¥ 山姆会员的牛肉卷真的不错 推荐	
-					</div>
-					<div class="show-time">
-						<div class="tabs">
-							<ul class="clear">
-								<li class="show-time-item">
-									<img class="tpfd" src="holder.js/50x50">
-									<img class="tpfd_1" src="holder.js/150x150">
-								</li>
-								<li class="show-time-item">
-									<img class="tpfd" src="holder.js/50x50">
-									<img class="tpfd_1" src="holder.js/150x150">
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
+				@endforeach
 			</div>
 		</div>
 	</div>

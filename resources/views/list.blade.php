@@ -29,7 +29,6 @@
 		    display: none;
 		    font-size: 15px;
 		}
-		
 		</style>
 </head>
 <body id="body">

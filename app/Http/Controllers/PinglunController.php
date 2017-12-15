@@ -15,6 +15,9 @@ class PinglunController extends Controller
     public function index()
     {
         $pl = DB::table('pinglun')->paginate(10);
+        foreach ($pl as $k => $val) {
+            $val->name = DB::table('user')->where('id',$val->userid)->value('name');
+        }
         return view('admin.pinglun.index',['pl'=>$pl]);
     }
 
@@ -75,7 +78,7 @@ class PinglunController extends Controller
         $shenghe['shenghe']=1;
         $res = DB::table('pinglun')->where('id',$id)->update($shenghe);
         if($res == 1){
-            return redirect('/admin/pinglun')->with(['msg'=>'ok~ 审核成功!','msg_info'=>'alert-success']);
+            return redirect('/admin/pinglun/create')->with(['msg'=>'ok~ 审核成功!','msg_info'=>'alert-success']);
         }else{
             return back()->with(['msg'=>'oh! 审核失败!','msg_info'=>'alert-danger']);
         }
