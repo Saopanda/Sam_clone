@@ -18,13 +18,14 @@ class adminController extends Controller
     }
     //后台登陆验证
     public function dologin(Request $request)
-    {
+    {        
         $data = $request->except('_token');
         $rs = DB::table('manager')->where('name',$data['name'])->first();
         if($rs){
             $rss = Hash::check($request->pwd,$rs->pwd);
             if($rss){
                 session(['admin_name'=>$rs->name]);
+                session(['roles'=>$rs->roles]);
                 return redirect('/admin')->with(['msg'=>'欢迎回来~ 管理员','msg_info'=>'alert-success']);
             }else{
                 return back()->with(['msg'=>'登录失败','msg_info'=>'alert-danger']);
@@ -35,9 +36,8 @@ class adminController extends Controller
     }
     // 后台首页
     public function index()
-    {
-        
-        return view('admin.index');
+    {   
+        return view('admin.index',[session('roles')]);
     }
     //注销登陆
     public function logout()

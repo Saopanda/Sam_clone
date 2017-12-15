@@ -16,7 +16,15 @@
 	.has-error{
 		color: #FF9999;
 	}
-	
+	select[name="roles"]{
+	height: 40px;
+ 	background-color: rgba(0, 0, 0, 0.3);
+ 	border:0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    line-height: 20px;
+  }
 </style>
 
 
@@ -40,7 +48,16 @@
           <label></label>
         </div>
       </div>      
-
+      <div class="form-group">
+        <label for="fullname" class="col-sm-4 control-label">管理员权限</label>
+        <div class="col-sm-8">
+        	<select name="roles" class="col-sm-12">
+        		<option value="1">超级管理员</option>
+        		<option value="2" selected="">普通管理员</option>
+        	</select>          
+          <label></label>
+        </div>
+      </div> 
       <div class="form-group">
         <label for="password" class="col-sm-4 control-label">密码</label>
         <div class="col-sm-8">

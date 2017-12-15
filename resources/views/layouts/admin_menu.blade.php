@@ -24,7 +24,7 @@
             </a>
           </li>           
       </ul>
-    </li>
+    </li>    
     <!-- 用户管理 -->
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>用户管理<b class="fa fa-plus dropdown-plus"></b></a>
@@ -61,11 +61,29 @@
             </a>
           </li>
           <li>
-            <a href="/admin/manager/create">
+            <a href="/admin/manager/create" id="addadmin">
               <i class="fa fa-caret-right"></i>
               添加管理员
             </a>
           </li>
+      </ul>
+    </li>
+    <!-- 后台管理员权限设置 -->
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i>栏目管理<b class="fa fa-plus dropdown-plus"></b></a>
+      <ul class="dropdown-menu">
+          <li>
+            <a href="/admin/menuroles">
+              <i class="fa fa-caret-right"></i>
+              权限管理
+            </a>
+          </li>
+          <li>
+            <a href="/admin/menuroles/create">
+              <i class="fa fa-caret-right"></i>
+              权限添加
+            </a>
+          </li>         
       </ul>
     </li>
     <!-- 广告管理 -->

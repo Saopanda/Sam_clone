@@ -20,11 +20,19 @@ class indexController extends Controller
         $pl = DB::table('pinglun')->where(['shenghe' => 1,'ztid' => 1])->get();
         foreach ($pl as $k => $v) {
             $v->username = DB::table('user')->where('id',$v->userid)->value('name');
-            $v->plt[] = DB::table('pl_img')->where('userid',$v->userid)->value('img_url');
+            $tu = DB::table('pl_img')->where('userid',$v->userid)->select('img_url')->get();
+            foreach($tu as $ks=>$vs){
+                $v->plt[$ks] = $vs->img_url;
+            }            
             $v->tx = DB::table('userinfo')->where('id',$v->userid)->value('touimg');
         }
+        // 商品设置
+        $goods = DB::table('goods')->get();
+        foreach ($goods as $key => &$value) {
+            $value->pic = DB::table('goods_pic')->where('goodsid',$value->id)->where('img_lx',2)->value('imgs');
+        } 
         // 输出视图
-        return view('index',compact('site','ad'));
+        return view('index',compact('site','ad','pl','goods'));
     }
     // 列表页
     public function list($id)

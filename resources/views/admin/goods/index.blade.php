@@ -51,7 +51,13 @@
 				@if($val->huodong == 3)  优惠 @endif
 				</th>
 				<th class="text-center">{{$val->price}}</th>				
-				<th class="text-center">{{$val->flid}}</th>
+				<th class="text-center">
+					@foreach($fl as $k =>$v)
+					@if($v->id == $val->flid)
+						{{$v->flname}}
+					@endif
+					@endforeach
+				</th>
 				<th class="text-center">{{$val->num}}</th>
 				<th class="text-center">
 				@if($val->ztid == 1)上架

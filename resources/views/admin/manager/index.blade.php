@@ -33,14 +33,21 @@
 					<th class="text-center">ID</th>
 					<th class="text-center">管理员帐号</th>
 					<th class="text-center">状态</th>
+					<th class="text-center">权限</th>
 					<th class="text-center" style="width: 140px;">操作</th>
 				</tr>
 			</thead>
+			@if(isset($data))
 			@foreach($data as $key => $val)
 			<tbody> 
 				<tr>					
 					<td class="text-center">{{$val->id}}</td>
 					<td class="text-center">{{$val->name}}</td>
+					<td class="text-center">
+					@if($val->roles == 1)超级管理员
+					@elseif($val->roles == 2)普通管理员
+					@endif
+					</td>
 					<td class="text-center">
 					@if($val->status == 1)正常
 					@elseif($val->status == 2)冻结
@@ -59,6 +66,34 @@
 				</tr>				
 			</tbody>
 			@endforeach
+			@elseif(isset($da))
+			<tbody> 
+				<tr>					
+					<td class="text-center">当前登录账号</td>
+					<td class="text-center">{{$da->name}}</td>
+					<td class="text-center">
+					@if($da->roles == 1)超级管理员
+					@elseif($da->roles == 2)普通管理员
+					@endif
+					</td>
+					<td class="text-center">
+					@if($da->status == 1)正常
+					@elseif($da->status == 2)冻结
+					@endif
+					</td>
+					<td class="text-center" >
+						<a href="/admin/manager/{{$da->id}}/edit">修改</a>
+						&nbsp;
+						<form method="post" action="/admin/manager/{{$da->id}}" style="display: inline-block;">
+							{{csrf_field()}}
+							{{method_field('DELETE')}}
+							<button class="btn-a">删除</button>							
+						</form>
+						
+					</td>
+				</tr>				
+			</tbody>
+			@endif
 		</table>
 	</div>
 <!-- /tile body -->
@@ -66,7 +101,9 @@
 
 <!-- 分页 -->
 <div class="text-right sm-center pull-right">
+	@if(isset($data))
 	{{$data->links()}}
+	@endif
 </div>
 <!-- /tile footer -->
 </section>

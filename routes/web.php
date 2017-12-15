@@ -115,6 +115,8 @@ Route::group(['middleware'=>'Admin_Login'],function(){
 	Route::resource('/admin/pinglun','PinglunController');
 	//后台管理员
 	Route::resource('/admin/manager','ManagerController');
+	//权限管理
+	Route::resource('/admin/menuroles','MenurolesController');
 });
 
 
