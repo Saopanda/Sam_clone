@@ -83,40 +83,29 @@
             <td colspan="3" class="text-right">总价 :</td>
             <td colspan="1" class="text-center">￥{{$order->sum_price}}</td>
           </tr>
-          <form method="post" action="/admin/order">
           <tr>
-            <td colspan="1" class="text-right">选择快递 :</td>
-            <td colspan="3" class="text-center">
-            <div class="col-sm-6">
-              <select name="kuaidi" class="form-control parsley-validated ddd">
-                <option value="">请选择</option>
-                <option value="1">韵达快递</option>
-                <option value="2">中通快递</option>
-                <option value="3">申通快递</option>
-                <option value="4">圆通快递</option>
-                <option value="5">天天快递</option>
-                <option value="6">邮政快递</option>
-                <option value="7">顺丰快递</option>
-              </select>
-            </div>
-            </td>
+            <td colspan="1" class="text-right">快递 :</td>
+            @if($order->kuaidi =='1')
+            <td colspan="3" class="text-left">韵达快递</td>
+            @elseif($order->kuaidi =='2')
+            <td colspan="3" class="text-left">中通快递</td>
+            @elseif($order->kuaidi =='3')
+            <td colspan="3" class="text-left">申通快递</td>
+            @elseif($order->kuaidi =='4')
+            <td colspan="3" class="text-left">圆通快递</td>
+            @elseif($order->kuaidi =='5')
+            <td colspan="3" class="text-left">天天快递</td>
+            @elseif($order->kuaidi =='6')
+            <td colspan="3" class="text-left">邮政快递</td>
+            @else
+            <td colspan="3" class="text-left">顺丰快递</td>
+            @endif
           </tr>
           
            <tr>
             <td colspan="1" class="text-right">快递单号 :</td>
-            <td colspan="3" class="text-center">
-              <div class="col-sm-6">
-                <input name="kuaidihao" type="text" class="form-control parsley-validated" id="fullname" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1">
-              </div>
-              <input type="hidden" name="id" value="{{$order->id}}">
-            </td>
+            <td colspan="3" class="text-left">{{$order->kuaidihao}}</td>
           </tr>
-          {{csrf_field()}}
-          <tr>
-
-            <td colspan="4" class="text-center"><input type="submit" class='btn btn-warning' value="发货"></td>
-          </tr>
-        </form>
         </tbody>
 
       </table>

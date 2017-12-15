@@ -68,7 +68,7 @@ Route::group(['middleware'=>'Login'],function(){
 	Route::get('/pay/zhifubao/{id}','payController@create');
 
 	//支付成功跳转页面
-	Route::get('/home/zfsuccess','HomeController@zfsuccess');
+	Route::get('/home/zfsuccess','PayController@zfsuccess');
 
 	//地址管理
 	Route::get('/home/address/getarea','AddressController@getarea');
@@ -111,6 +111,7 @@ Route::group(['middleware'=>'Admin_Login'],function(){
 	Route::resource('/admin/ad','AdController');
 	//订单管理
 	Route::resource('/admin/order','OrderController');
+	Route::get('/admin/order/{{$v->id}}/fahuo','OrderController@fahuo');
 	//评价管理
 	Route::resource('/admin/pinglun','PinglunController');
 	//后台管理员

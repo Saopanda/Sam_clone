@@ -9,12 +9,16 @@
 </div>
 @stop
 @section('nr')
-
+@foreach($data as $k=>$v)
 	<section class="tile color transparent-black">
 	<!-- tile header -->
 		<div class="tile-header">
 			<!-- 标题 -->
-			<h1><strong>订单</strong>列表</h1>
+			<h1><strong>订单编号</strong>&nbsp;&nbsp;<h2>{{$v->orderid}}</h2></h1>
+			<div class="controls">
+		      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+		      <a href="#" class="remove"><i class="fa fa-times"></i></a>
+		    </div>
 		</div>
 	<!-- /tile header -->
 
@@ -23,41 +27,40 @@
 			<table class="table table-bordered table-sortable">
 				<thead>
 					<tr>					
-						<th class="text-center">ID</th>
 						<th class="text-center">会员名</th>
-						<th class="text-center">商品名称</th>
-						<th class="text-center">收货人名字</th>
-						<th class="text-center">收货地址</th>
-						<th class="text-center">收货电话</th>
+						<th class="text-center">付款时间</th>
+						<th class="text-center">订单金额</th>
 						<th class="text-center">订单状态</th>
 						<th class="text-center" style="width: 140px;">操作</th>
 					</tr>
 				</thead>
 				<tbody>
-				@foreach($data as $k=>$v)
-					<tr>					
-						<td class="text-center">{{$v->id}}</td>
-						<td class="text-center">{{$v->username}}</td>
-						<td class="text-center">{{$v->goodsname}}</td>
-						<td class="text-center">{{$v->address->name}}</td>
-						<td class="text-center">{{$v->pro}} {{$v->city}} {{$v->county}} {{$v->content}}</td>
-						
-						<td class="text-center">{{$v->address->phone}}</td>
+				
+					<tr>
+						<td class="text-center">{{$v->username}}</td>	
+						<td class="text-center">{{$v->date}}</td>
+						<td class="text-center">￥{{$v->sum_price}}</td>
 						@if( $v->dd_status == '0')
 						<td class="text-center">未支付</td>
 						@elseif($v->dd_status == '1')
-						<td class="text-center">已支付</td>
+						<td class="text-center">代发货</td>
 						@elseif($v->dd_status == '2')
-						<td class="text-center">待发货</td>
-						@elseif($v->dd_status == '3')
 						<td class="text-center">已发货</td>
-						@elseif($v->dd_status == '4')
+						@elseif($v->dd_status == '3')
 						<td class="text-center">已收货</td>
 						@else
 						<td class="text-center">待评论</td>
 						@endif
 						<td class="text-center" >
-							<a href="/admin/order/{{$v->id}}/edit">修改</a>
+						@if($v->dd_status == '1')
+							<a href="/admin/order/{{$v->id}}/edit">管理</a>
+						@endif
+						@if($v->dd_status == '2')
+							<a href="/admin/order/{{$v->id}}">管理</a>
+						@endif
+						@if($v->dd_status == '3')
+							<a href="/admin/order/{{$v->id}}">订单以完成</a>
+						@endif
 							&nbsp;
 							<form style="display: inline-block;" action="/admin/order/{{$v->id}}" method="post" class="del">
 							{{method_field('DELETE')}}
@@ -66,7 +69,7 @@
 							</form>
 						</td>
 					</tr>
-				@endforeach
+				
 				</tbody>
 
 			</table>
@@ -81,6 +84,7 @@
 	</div>
 <!-- /tile footer -->
 </section>
+@endforeach
 @endsection
 @section('js')
 <script>
