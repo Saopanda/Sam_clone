@@ -16,15 +16,8 @@ class OrderController extends Controller
         $data = DB::table('order')->get();
         foreach ($data as $key => &$v) {
            $v->username = DB::table('user')->where('id',$v->userid)->value('name');
-           $v->goodsname = DB::table('order_goods')->where('order',$v->id)->get();
-           $v->address = DB::table('address')->where('id',$v->addressid)->first();
-           //收货人名字,省 市 区 详细地址
-           $v->name = DB::table('address')->where('id',$v->addressid)->value('name');
-           $v->pro = DB::table('dt_area')->where('id',$v->address->pro)->value('area_name');
-           $v->city = DB::table('dt_area')->where('id',$v->address->city)->value('area_name');
-           $v->county = DB::table('dt_area')->where('id',$v->address->county)->value('area_name');
-           $v->content = DB::table('address')->where('id',$v->addressid)->value('content');
         }
+        //dd($data);
         // 站点设置
         $site = DB::table('samsite')->where('weizhi','index')->first();
         // 结束
@@ -49,7 +42,20 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=$request->only('kuaidi','kuaidihao','id');
+        $arr['kuaidi']=$request->kuaidi;
+        $arr['kuaidihao']=$request->kuaidihao;
+
+        $info=DB::table('order')->where('id',$request->id)->update($arr);
+        //dd($info);
+        $arres['dd_status']=2;
+        if($info) {
+            DB::table('order')->where('id',$request->id)->update($arres);
+            return redirect('/admin/order')->with(['msg'=>'ok~ 等待处理!','msg_info'=>'alert-success']);
+        }else{
+            return back()->with(['msg'=>'发货失败!','msg_info'=>'alert-danger']);
+        }
+        
     }
 
     /**
@@ -60,7 +66,18 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $data=DB::table('order_goods')->where('order',$id)->get();
+        $order=DB::table('order')->where('id',$id)->first();
+        $addressid=DB::table('order')->where('id',$id)->value('addressid');
+        $dizhi = DB::table('address')->where('id',$addressid)->first();
+        $dizhi->pro= DB::table('dt_area')->where('id',$dizhi->pro)->value('area_name');
+        $dizhi->city = DB::table('dt_area')->where('id',$dizhi->city)->value('area_name');
+        $dizhi->county = DB::table('dt_area')->where('id',$dizhi->county)->value('area_name');
+        foreach ($data as $key => &$v) {
+           $v->goodsname = DB::table('goods')->where('id',$v->goodsid)->value('title');
+           $v->xiaoji = $v->num * $v->price;
+        } 
+        return view('admin.order.show',['goodsinfo'=>$data,'dizhi'=>$dizhi,'order'=>$order]);
     }
 
     /**
@@ -71,7 +88,20 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data=DB::table('order_goods')->where('order',$id)->get();
+        $order=DB::table('order')->where('id',$id)->first();
+        $addressid=DB::table('order')->where('id',$id)->value('addressid');
+        $dizhi = DB::table('address')->where('id',$addressid)->first();
+        $dizhi->pro= DB::table('dt_area')->where('id',$dizhi->pro)->value('area_name');
+        $dizhi->city = DB::table('dt_area')->where('id',$dizhi->city)->value('area_name');
+        $dizhi->county = DB::table('dt_area')->where('id',$dizhi->county)->value('area_name');
+        foreach ($data as $key => &$v) {
+           $v->goodsname = DB::table('goods')->where('id',$v->goodsid)->value('title');
+           $v->xiaoji = $v->num * $v->price;
+        } 
+        //dd($dizhi);
+        //dd($order); 
+        return view('admin.order.edit',['goodsinfo'=>$data,'dizhi'=>$dizhi,'order'=>$order]);
     }
 
     /**
@@ -100,4 +130,5 @@ class OrderController extends Controller
             return back()->with(['msg'=>'ok~ 删除失败!','msg_info'=>'alert-danger']);
         }
     }
+   
 }

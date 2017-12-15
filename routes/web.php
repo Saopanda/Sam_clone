@@ -111,6 +111,7 @@ Route::group(['middleware'=>'Admin_Login'],function(){
 	Route::resource('/admin/ad','AdController');
 	//订单管理
 	Route::resource('/admin/order','OrderController');
+	Route::get('/admin/order/{{$v->id}}/fahuo','OrderController@fahuo');
 	//评价管理
 	Route::resource('/admin/pinglun','PinglunController');
 	//后台管理员
