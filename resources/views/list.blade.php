@@ -29,9 +29,6 @@
 		    display: none;
 		    font-size: 15px;
 		}
-		.search{
-			margin-top: 16px;
-		}
 		</style>
 </head>
 <body id="body">

@@ -16,9 +16,10 @@ class OrderController extends Controller
         $data = DB::table('order')->get();
         foreach ($data as $key => &$v) {
            $v->username = DB::table('user')->where('id',$v->userid)->value('name');
-           $v->goodsname = DB::table('goods')->where('id',$v->goodsid)->value('title');
+           $v->goodsname = DB::table('order_goods')->where('order',$v->id)->get();
            $v->address = DB::table('address')->where('id',$v->addressid)->first();
-           //省 市 区 详细地址
+           //收货人名字,省 市 区 详细地址
+           $v->name = DB::table('address')->where('id',$v->addressid)->value('name');
            $v->pro = DB::table('dt_area')->where('id',$v->address->pro)->value('area_name');
            $v->city = DB::table('dt_area')->where('id',$v->address->city)->value('area_name');
            $v->county = DB::table('dt_area')->where('id',$v->address->county)->value('area_name');
