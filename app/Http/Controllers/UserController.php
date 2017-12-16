@@ -12,9 +12,13 @@ class UserController extends Controller
      */
     public function index()
     {
+        if (session('roles') == 1 || in_array(2, session('menuid'))) {
+            $rs = DB::table('user')->paginate(10);
+            return view('admin.user.liebiao',['rs'=>$rs]);
+        }else{
+            return redirect('/admin')->with(['msg'=>'您不是超级管理员或权限不足,请联系超级管理员','msg_info'=>'alert-danger']);
+        }   
         
-        $rs = DB::table('user')->paginate(10);
-        return view('admin.user.liebiao',['rs'=>$rs]);
     }
 
     /**
@@ -22,7 +26,11 @@ class UserController extends Controller
      */
     public function create()
     {
-        
+        if (session('roles') == 1 || in_array(2, session('menuid'))) {
+            return view('admin.user.add');
+        }else{
+            return redirect('/admin')->with(['msg'=>'您不是超级管理员或权限不足,请联系超级管理员','msg_info'=>'alert-danger']);
+        }
         return view('admin.user.add');
     }
 
@@ -50,13 +58,18 @@ class UserController extends Controller
      * 未激活会员
      */
     public function show($id)
-    {
-        if($id == 'jihuo'){
-            $rs = DB::table('user')->where('ztid','0')->paginate(10);
-            return view('admin.user.jihuo',['rs'=>$rs]);
+    {   
+        if (session('roles') == 1 || in_array(2, session('menuid'))) {
+            if($id == 'jihuo'){
+                $rs = DB::table('user')->where('ztid','0')->paginate(10);
+                return view('admin.user.jihuo',['rs'=>$rs]);
+            }else{
+                abort(404);
+            }
         }else{
-            abort(404);
+            return redirect('/admin')->with(['msg'=>'您不是超级管理员或权限不足,请联系超级管理员','msg_info'=>'alert-danger']);
         }
+        
     }
 
     /**

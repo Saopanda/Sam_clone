@@ -15,11 +15,10 @@ class MenurolesController extends Controller
     public function index()
     {
         if (session('roles') == 1) {
-            $data = DB::table('transfer')->orderby('adminid','asc')->select('adminid','menuid')->paginate(20);
-            dd($data);
+            $data = DB::table('transfer')->orderby('adminid','asc')->paginate(20);
             return view('admin.menu.index',['data'=>$data]);
         }else{
-            return redirect('/admin')->with(['msg'=>'您不是超级管理员,权限不足,请联系超级管理员','msg_info'=>'alert-danger']);
+            return redirect('/admin')->with(['msg'=>'您不是超级管理员或权限不足,请联系超级管理员','msg_info'=>'alert-danger']);
         }
         
     }
@@ -34,7 +33,7 @@ class MenurolesController extends Controller
         if (session('roles') == 1) {
             return view('admin.menu.create');
         }else{
-            return redirect('/admin')->with(['msg'=>'您不是超级管理员,权限不足,请联系超级管理员','msg_info'=>'alert-danger']);
+            return redirect('/admin')->with(['msg'=>'您不是超级管理员或权限不足,请联系超级管理员','msg_info'=>'alert-danger']);
         }
         
     }
@@ -55,7 +54,7 @@ class MenurolesController extends Controller
                 return redirect('/admin/menuroles/create')->with(['msg'=>'oh! 添加失败!','msg_info'=>'alert-danger']);
             }
         }
-        return redirect('/admin/menuroles/create')->with(['msg'=>'oh! 添加成功!','msg_info'=>'alert-danger']);
+        return redirect('/admin/menuroles/create')->with(['msg'=>'oh! 添加成功!','msg_info'=>'alert-success']);
     }
     
     /**
@@ -77,7 +76,7 @@ class MenurolesController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.menu.edit');
+        
     }
 
     /**
@@ -100,6 +99,11 @@ class MenurolesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $res = DB::table('transfer')->where('id',$id)->delete();
+        if ($res > 0) {
+            return redirect('/admin/menuroles')->with(['msg'=>'oh! 删除成功!','msg_info'=>'alert-success']);
+        }else{
+            return back()->with(['msg'=>'oh! 删除失败!','msg_info'=>'alert-danger']);
+        }
     }
 }

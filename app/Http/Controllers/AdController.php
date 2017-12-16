@@ -13,9 +13,13 @@ class AdController extends Controller
      */
     public function index(Request $request)
     {
-        $data=DB::table('ad')->paginate(10);
-        // dd($data);
-        return view('admin.ad.index',['data'=>$data]);
+        if (session('roles') == 1 || in_array(3, session('menuid'))) {
+            $data=DB::table('ad')->paginate(10);
+            return view('admin.ad.index',['data'=>$data]);
+        }else{
+            return redirect('/admin')->with(['msg'=>'您不是超级管理员或者权限不足!请联系超级管理员!','msg_info'=>'alert-danger']);
+        }
+        
     }
 
     /**
@@ -25,7 +29,12 @@ class AdController extends Controller
      */
     public function create()
     {
-        return view('admin.ad.create');
+        if (session('roles') == 1 || in_array(3, session('menuid'))) {
+            return view('admin.ad.create');
+        }else{
+            return redirect('/admin')->with(['msg'=>'您不是超级管理员或者权限不足!请联系超级管理员!','msg_info'=>'alert-danger']);
+        }
+        
     }
 
     /**

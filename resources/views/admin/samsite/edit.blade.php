@@ -78,7 +78,7 @@
       <div class="form-group">
         <label for="fullname" class="col-sm-4 control-label">页面类型</label>
         <div class="col-sm-8">
-          <input name="weizhi" type="text" class="form-control parsley-validated" id="fullname" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1" value="{{$res->weizhi}}">
+          <input name="weizhi" type="text"  disabled="" class="form-control parsley-validated" id="fullname" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1" value="{{$res->weizhi}}" style="color: #fff;">
           <label></label>
         </div>
       </div>

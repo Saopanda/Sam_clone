@@ -13,7 +13,7 @@ class indexController extends Controller
     public function index()
     {   
         // 站点设置
-        $site = DB::table('samsite')->where('weizhi','index')->first();    	
+        $site = DB::table('samsite')->first();    	
         // 广告设置
         $ad = DB::table('ad')->get();
         // 评论设置

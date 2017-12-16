@@ -22,7 +22,7 @@
 					<th class="text-center">用户名</th>
 					<th class="text-center">邮箱</th>
 					<th class="text-center">手机号</th>
-					<th class="text-center sort-asc">状态</th>
+					<th class="text-center">状态</th>
 					<th class="text-center" style="width: 140px;">操作</th>
 				</tr>
 			</thead>

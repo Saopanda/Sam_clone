@@ -21,7 +21,7 @@
 <!-- tile header -->
 	<div class="tile-header">
 		<!-- 标题 -->
-		<h1><strong>管理员</strong> 列表</h1>
+		<h1><strong>管理员栏目权限</strong> 列表</h1>
 	</div>
 <!-- /tile header -->
 
@@ -29,28 +29,28 @@
 	<div class="tile-body nopadding">
 		<table class="table table-bordered table-sortable">
 			<thead>
-				<tr>					
-					<th class="text-center">ID</th>
-					<th class="text-center">管理员帐号</th>
-					<th class="text-center">状态</th>
-					<th class="text-center">权限</th>
+				<tr>
+					<th class="text-center">ID</th>					
+					<th class="text-center">管理员ID</th>
+					<th class="text-center">栏目权限</th>
 					<th class="text-center" style="width: 140px;">操作</th>
 				</tr>
 			</thead>
 			@foreach($data as $key => $val)
 			<tbody> 
-				<tr>					
-					<td class="text-center">1</td>
-					<td class="text-center">1</td>
+				<tr>
+					<td class="text-center">{{$val->id}}</td>					
+					<td class="text-center">{{$val->adminid}}</td>
 					<td class="text-center">
-					
-					</td>
-					<td class="text-center">
-					1
-					</td>
-					<td class="text-center" >
-						<a href="/admin/menuroles/{{$val->id}}/edit">修改</a>
-						&nbsp;
+						@if($val->menuid == 1) 站点管理
+						@elseif($val->menuid == 2) 用户管理
+						@elseif($val->menuid == 3) 广告管理
+						@elseif($val->menuid == 4) 分类管理
+						@elseif($val->menuid == 5) 商品管理
+						@elseif($val->menuid == 6) 评论管理
+						@endif
+					</td>					
+					<td class="text-center">						
 						<form method="post" action="/admin/menuroles/{{$val->id}}" style="display: inline-block;">
 							{{csrf_field()}}
 							{{method_field('DELETE')}}

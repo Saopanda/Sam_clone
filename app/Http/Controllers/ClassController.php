@@ -13,20 +13,20 @@ class ClassController extends Controller
      */
     public function index()
     {
+        if (session('roles') == 1 || in_array(4, session('menuid'))) {
+            //读取分类的信息
+            $data=DB::table('class')->where('pid','0')->get();
+            foreach ($data as $k => &$v) {
+                $v->two =DB::table('class')->where('pid',$v->id)->get();
+                foreach ($v->two as $ka => &$va) {
+                    $va->there =DB::table('class')->where('pid',$va->id)->get();
+                }
+            }
+            return view('admin.class.index',['class'=>$data]);
+        }else{
+            return redirect('/admin')->with(['msg'=>'您不是超级管理员或权限不足,请联系超级管理员','msg_info'=>'alert-danger']);
+        }
         
-        //读取分类的信息
-       $data=DB::table('class')->where('pid','0')->get();
-        foreach ($data as $k => &$v) {
-            //dd($v->pid.'_'.$v->id);
-           $v->two =DB::table('class')->where('pid',$v->id)->get();
-
-           //$v->there = DB::table('class')->where('path',$v->pid.'_'.$v->id)->get();
-        foreach ($v->two as $ka => &$va) {
-            $va->there =DB::table('class')->where('pid',$va->id)->get();
-
-        }
-        }
-        return view('admin.class.index',['class'=>$data]);
     }
 
     /**
@@ -36,10 +36,12 @@ class ClassController extends Controller
      */
     public function create()
     {
-        $fenl=DB::table('class')->where('pid',0)->get();
-       // dd($fenl);
-       return view('admin.class.create',['fenl'=>$fenl]);
-       // 
+        if (session('roles') == 1 || in_array(4, session('menuid'))) {
+            $fenl=DB::table('class')->where('pid',0)->get();
+            return view('admin.class.create',['fenl'=>$fenl]);
+        }else{
+            return redirect('/admin')->with(['msg'=>'您不是超级管理员或权限不足,请联系超级管理员','msg_info'=>'alert-danger']);
+        }       
     }
 
     /**

@@ -16,13 +16,7 @@
               <i class="fa fa-caret-right"></i>
               站点列表
             </a>
-          </li>
-          <li>
-            <a href="/admin/samsite/create">
-              <i class="fa fa-caret-right"></i>
-              站点添加
-            </a>
-          </li>           
+          </li>                    
       </ul>
     </li>    
     <!-- 用户管理 -->

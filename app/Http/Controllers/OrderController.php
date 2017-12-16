@@ -13,15 +13,18 @@ class OrderController extends Controller
      */
     public function index(Request $request)
     {
-        $data = DB::table('order')->get();
-        foreach ($data as $key => &$v) {
-           $v->username = DB::table('user')->where('id',$v->userid)->value('name');
-        }
-        //dd($data);
-        // 站点设置
-        $site = DB::table('samsite')->where('weizhi','index')->first();
-        // 结束
-        return view('admin.order.index',['data'=>$data,'site'=>$site]);
+        if (session('roles') == 1 || in_array(7, session('menuid'))) {
+            $data = DB::table('order')->get();
+            foreach ($data as $key => &$v) {
+               $v->username = DB::table('user')->where('id',$v->userid)->value('name');
+            }
+            // 站点设置
+            $site = DB::table('samsite')->where('weizhi','index')->first();
+            // 结束
+            return view('admin.order.index',['data'=>$data,'site'=>$site]);
+        }else{
+            return redirect('/admin')->with(['msg'=>'您不是超级管理员或权限不足,请联系超级管理员','msg_info'=>'alert-danger']);
+        }        
     }
 
     /**

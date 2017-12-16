@@ -36,7 +36,7 @@
 					<th class="text-center">在网时间</th>
 					<th class="text-center">备案号</th>
 					<th class="text-center">公网备案号</th>
-					<th class="text-center">页面类型</th>					
+					<th class="text-center">页面类型</th>
 					<th class="text-center" style="width: 140px;">操作</th>
 				</tr>
 			</thead>
@@ -51,13 +51,7 @@
 					<td class="text-center">{{$val->gongwangbeian}}</td>
 					<td class="text-center">{{$val->weizhi}}</td>					
 					<td class="text-center" >
-						<a href="/admin/samsite/{{$val->id}}/edit">修改</a>
-						&nbsp;
-						<form method="post" action="/admin/samsite/{{$val->id}}" style="display: inline-block;">
-							{{csrf_field()}}
-							{{method_field('DELETE')}}
-							<button class="btn-a">删除</button>							
-						</form>				
+						<a href="/admin/samsite/{{$val->id}}/edit">修改</a>									
 					</td>
 				</tr>				
 			</tbody>

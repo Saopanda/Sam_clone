@@ -12,9 +12,13 @@ class GoodsController extends Controller
      */
     public function index(Request $request)
     {
-        $goods = DB::table('goods')->paginate(10);
-        $fl = DB::table('class')->get();
-        return view('admin.goods.index',['goods'=>$goods,'fl'=>$fl]);
+        if (session('rolse') == 1 || in_array(5, session('menuid'))) {
+            $goods = DB::table('goods')->paginate(10);
+            $fl = DB::table('class')->get();
+            return view('admin.goods.index',['goods'=>$goods,'fl'=>$fl]);
+        }else{
+            return redirect('/admin')->with(['msg'=>'您不是超级管理员或权限不足,请联系超级管理员','msg_info'=>'alert-danger']);
+        }        
     }
 
     /**
@@ -22,16 +26,20 @@ class GoodsController extends Controller
      */
     public function create()
     {
-        $data=DB::table('class')->where('pid','0')->get(); 
-
-        return view('admin.goods.create',['fenl'=>$data]);
+        if (session('roles') == 1 || in_array(5, session('menuid'))) {
+            $data=DB::table('class')->where('pid','0')->get(); 
+            return view('admin.goods.create',['fenl'=>$data]);
+        }else{
+            return redirect('/admin')->with(['msg'=>'您不是超级管理员或权限不足,请联系超级管理员','msg_info'=>'alert-danger']);
+        }
+        
     }
 
     /**
      * 商品添加操作
      */
     public function store(Request $request)
-    {   
+    {           
         $data = $request->only(['title','price','content','num','ztid','flid','huodong']);
         // dd($data);
         if ($data['price'] > 0 && $data['num'] >= 0) {

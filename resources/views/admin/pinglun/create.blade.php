@@ -32,8 +32,9 @@
 				<tr>					
 					<th class="text-center">ID</th>
 					<th class="text-center">用户id</th>
+					<th class="text-center">用户名</th>
 					<th class="text-center">商品id</th>
-					<th class="text-center">评论信息</th>
+					<th class="text-center" style="width:500px;">评论信息</th>
 					<th class="text-center">状态</th>
 					<th class="text-center">评论时间</th>
 					<th class="text-center">是否审核</th>
@@ -44,6 +45,7 @@
 				<tr>								
 					<td class="text-center">{{$v->id}}</td>
 					<td class="text-center">{{$v->userid}}</td>
+					<td class="text-center">{{$v->name}}</td>
 					<td class="text-center">{{$v->goodsid}}</td>
 					<td class="text-center">{{$v->content}}</td>
 					<td class="text-center">
@@ -68,6 +70,9 @@
 <!-- /tile body -->
 
 </section>
+<div class="text-right sm-center pull-right">
+	{{$pl->links()}}
+</div>
 @stop
 
 @section('js')

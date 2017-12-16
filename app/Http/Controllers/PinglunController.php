@@ -14,11 +14,16 @@ class PinglunController extends Controller
      */
     public function index()
     {
-        $pl = DB::table('pinglun')->paginate(10);
-        foreach ($pl as $k => $val) {
-            $val->name = DB::table('user')->where('id',$val->userid)->value('name');
+        if (session('roles') == 1 || in_array(6, session('menuid'))) {
+            $pl = DB::table('pinglun')->paginate(10);
+            foreach ($pl as $k => $val) {
+                 $val->name = DB::table('user')->where('id',$val->userid)->value('name');
+            }
+            return view('admin.pinglun.index',['pl'=>$pl]);
+        }else{
+            return redirect('/admin')->with(['msg'=>'您不是超级管理员或权限不足,请联系超级管理员','msg_info'=>'alert-danger']);
         }
-        return view('admin.pinglun.index',['pl'=>$pl]);
+        
     }
 
     /**
@@ -28,8 +33,15 @@ class PinglunController extends Controller
      */
     public function create()
     {
-        $pl = DB::table('pinglun')->where('shenghe',2)->paginate(10);
-        return view('admin.pinglun.create',['pl'=>$pl]);
+        if (session('roles') == 1 || in_array(6, session('menuid'))) {
+            $pl = DB::table('pinglun')->where('shenghe',2)->paginate(10);
+            foreach ($pl as $k => $val) {
+                 $val->name = DB::table('user')->where('id',$val->userid)->value('name');
+            }
+            return view('admin.pinglun.create',['pl'=>$pl]);
+        }else{
+            return redirect('/admin')->with(['msg'=>'您不是超级管理员或权限不足,请联系超级管理员','msg_info'=>'alert-danger']);
+        }        
     }
 
     /**

@@ -14,8 +14,14 @@ class samcontroller extends Controller
      */
     public function index(Request $request)
     {
-        $site = DB::table('samsite')->paginate(10);
-        return view('admin.samsite.index',['site'=>$site]);
+        // dd(session('menuid'));
+        // dd(in_array(1, session('menuid')));
+        if (session('roles') == 1 || in_array(1, session('menuid'))) {
+            $site = DB::table('samsite')->paginate(10);
+            return view('admin.samsite.index',['site'=>$site]);
+        }else{
+            return redirect('/admin')->with(['msg'=>'您不是超级管理员或权限不足,请联系超级管理员','msg_info'=>'alert-danger']);
+        }        
     }
 
     /**
@@ -25,7 +31,7 @@ class samcontroller extends Controller
      */
     public function create()
     {
-        return view('admin.samsite.create');
+        
     }
 
     /**
@@ -36,13 +42,7 @@ class samcontroller extends Controller
      */
     public function store(Request $request)
     {
-        $data=$request->except(['_token']);
-        $res = DB::table('samsite')->insert($data);
-        if($res){
-           return redirect('/admin/samsite')->with(['msg'=>'ok~ 添加成功!','msg_info'=>'alert-success']);
-        }else{
-           return back()->with(['msg'=>'oh! 添加失败!','msg_info'=>'alert-danger']);
-        }
+        
     }
 
     /**
@@ -94,16 +94,6 @@ class samcontroller extends Controller
      */
     public function destroy($id)
     {
-        if ($id == 1) {
-            return back()->with(['msg'=>'oh! 删除失败!','msg_info'=>'alert-danger']);
-        }else{
-            $res = DB::table('samsite')->where('id',$id)->delete();
-            if ($res) {
-                return redirect('/admin/samsite')->with(['msg'=>'ok~ 删除成功!','msg_info'=>'alert-success']);
-            }else{
-                return back()->with(['msg'=>'oh! 删除失败!','msg_info'=>'alert-danger']);
-            }
-        }
-      
+       
     }
 }

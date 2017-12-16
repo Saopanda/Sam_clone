@@ -46,14 +46,14 @@
       <div class="form-group">
         <label for="fullname" class="col-sm-4 control-label">请输入管理员ID</label>
         <div class="col-sm-8">
-          <input name="adminid" type="text" class="form-control parsley-validated" id="fullname" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1">
+          <input name="adminid" type="text" class="form-control parsley-validated" id="fullname" parsley-trigger="change" parsley-required="true" parsley-minlength="4" parsley-validation-minlength="1" onkeyup="this.value=this.value.replace(/[^\d]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d]/g,'') ">
           <label></label>
         </div>
       </div>      
       
 	  <div class="form-group">
             <label class="col-sm-4 control-label">添加权限</label>
-            <div class="col-sm-8">
+            <div class="col-sm-8">           	 
 	              <div class="checkbox check-transparent">
 		                <input type="checkbox" name="menuid[]" value="1" id="opt01">
 		                <label for="opt01">站点管理</label>
@@ -68,21 +68,22 @@
 	              </div>
 	              <div class="checkbox check-transparent">
 		                <input type="checkbox" value="4" name="menuid[]" id="opt04">
-		                <label for="opt04">广告管理</label>
+		                <label for="opt04">分类管理</label>
 	              </div>
 	              <div class="checkbox check-transparent">
 		                <input type="checkbox" value="5" name="menuid[]" id="opt05">
-		                <label for="opt05">广告管理</label>
+		                <label for="opt05">商品管理</label>
 	              </div>
 	              <div class="checkbox check-transparent">
 		                <input type="checkbox" value="6" name="menuid[]" id="opt06">
-		                <label for="opt06">广告管理</label>
+		                <label for="opt06">评论管理</label>
+	              </div>
+	              <div class="checkbox check-transparent">
+		                <input type="checkbox" value="7" name="menuid[]" id="opt07">
+		                <label for="opt07">订单管理</label>
 	              </div>
        		</div>
         </div>
-      
-
-
       <div class="form-group form-footer">
         <div class="col-sm-offset-4 col-sm-8">
           <button type="submit" class="btn btn-default">添加</button>
