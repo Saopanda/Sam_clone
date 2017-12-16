@@ -76,7 +76,7 @@
 				@foreach($goods as $key =>$val)
 				@if($key < 4 )
 				<div class="col-md-3">
-					<a href="">
+					<a href="/{{$val->id}}.html">
 						<div class="nr-1-img">
 							<img src="{{$val->pic}}" width="220" height="230" alt="">
 						</div>
@@ -101,7 +101,7 @@
 			@foreach($goods as $k => $v)
 			@if($k < 10)
 			<div class="item">
-				<a href="//item.samsclub.cn/63618484" title="{{$v->title}}" target="_blank">
+				<a href="/{{$v->id}}.html" title="{{$v->title}}" target="_blank">
 					<div class="i-size-box">
 					<img class="img-agent lazyload" id="lunbo_1" alt="{{$v->title}}" data-original="" src="{{$v->pic}}">
 					</div>
@@ -123,7 +123,7 @@
 		</div>
 		<div class="home-wrap container" style="background-color:">
 			<div class="booth global-center container " style="margin:0 auto;">
-				<a href="/" target="_blank">
+				<a href="#/" target="_blank">
 					@foreach($ad as $k => $v)
 					@if($v->show_order == 2 && $v->is_show == 1 && $v->title == '山姆真奇妙')
 					<img class="img-agent lazyload" src="{{$v->img_url}}">
@@ -159,7 +159,7 @@
 				@foreach($goods as $key => $v)
 				@if($v->id > 0 && $v->id < 5)
 				<div class="col-md-3">
-					<a href="">
+					<a href="/{{$v->id}}.html">
 						<div class="nr-img">
 							<img src="{{$v->pic}}" alt="">
 						</div>
@@ -190,7 +190,7 @@
 				@foreach($goods as $key => $v)
 				@if($v->id > 16 && $v->id < 21)
 				<div class="col-md-3">
-					<a href="">
+					<a href="/{{$v->id}}.html">
 						<div class="nr-img">
 							<img src="{{$v->pic}}" alt="">
 						</div>
@@ -221,7 +221,7 @@
 				@foreach($goods as $key => $v)
 				@if($v->id > 33 && $v->id < 38)
 				<div class="col-md-3">
-					<a href="">
+					<a href="/{{$v->id}}.html">
 						<div class="nr-img">
 							<img src="{{$v->pic}}" alt="">
 						</div>
@@ -252,7 +252,7 @@
 				@foreach($goods as $key => $v)
 				@if($v->id > 64 && $v->id < 69)
 				<div class="col-md-3">
-					<a href="">
+					<a href="/{{$v->id}}.html">
 						<div class="nr-img">
 							<img src="{{$v->pic}}" alt="">
 						</div>
@@ -283,7 +283,7 @@
 				@foreach($goods as $key => $v)
 				@if($v->id > 48 && $v->id < 53)
 				<div class="col-md-3">
-					<a href="">
+					<a href="/{{$v->id}}.html">
 						<div class="nr-img">
 							<img src="{{$v->pic}}" alt="">
 						</div>
