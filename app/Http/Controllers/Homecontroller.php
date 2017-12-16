@@ -49,8 +49,29 @@ class Homecontroller extends Controller
     public function order(){
         // 站点设置
         $site = DB::table('samsite')->where('weizhi','index')->first();
+
+        $data = DB::table('order')->where('userid',session('user_id'))->get();
+
+        foreach($data as $k=>&$v){
+
+            $order_goods = DB::table('order_goods')->where('order',$v->id)->select('goodsid','num','price')->get();
+
+            foreach ($order_goods as $key => &$value) {
+                
+                $value->goodstitle = DB::table('goods')->where('id',$value->goodsid)->value('title');
+                $value->goodscontent = DB::table('goods')->where('id',$value->goodsid)->value('content');
+
+                $value->goodsimg = DB::table('goods_pic')->where('goodsid',$value->goodsid)->value('imgs');
+            }
+            $v->goods = $order_goods;
+        }
+        
+        // dd($data);
+
+
+
         // 结束
-        return view('home.order',['site'=>$site]);
+        return view('home.order',['site'=>$site,'data'=>$data]);
     }
     //结算
     public function jiesuan(Request $request){
@@ -74,7 +95,8 @@ class Homecontroller extends Controller
         // 站点设置
         $site = DB::table('samsite')->where('weizhi','index')->first();
         // 结束    
-        return view('home.jiesuan',compact('datas','zongji','addresses','num','site'));
+        $cartid = $request->input('cartid');
+        return view('home.jiesuan',compact('datas','zongji','addresses','num','site','cartid'));
     }
 
     

@@ -65,6 +65,7 @@
 			<div class="car_D1">
 
 				<form action="/home/jiesuan" method="get" style="background: #f8f8f8">					{{csrf_field()}}
+					<input type="hidden" name="cartid" value="{{$rs[0]->id}}">
 					<div class="bg_Top">
 						<span class="glyphicon glyphicon-apple ys" aria-hidden="true"></span>
 				     	<span class="bg_T_wz">普通商品</span>
@@ -87,6 +88,7 @@
 								<td style="width: 160px;">小计(元)</td>
 								<td style="width: 160px;">操作</td>								
 							</tr>
+
 								<!-- 商品开始循环 -->
 								@foreach($rs as $k=>$v)
 								<tr name="tr{{$v->id}}">

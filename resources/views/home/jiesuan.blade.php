@@ -24,7 +24,7 @@
 	<style>
 		ul{
 			overflow: hidden;
-			height: 205px;
+			height: 180px;
 		}
 		.address{
 			cursor: pointer;
@@ -132,6 +132,7 @@
 			<!-- 显示列表开始 -->
 			<form action="/zhifu" method="post">
 				<input type="hidden" name="addressid" value="">
+				<input type="hidden" name="cartid" value="{{$cartid}}">
 				<div class="ads_list">
 					<ul>
 					@foreach($addresses as $k=>$v)

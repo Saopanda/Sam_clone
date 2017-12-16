@@ -17,8 +17,7 @@ class CartController extends Controller
         $site->gwc = '购物车';
         // 结束
         if(session('user_name')){
-            $userid = DB::table('user')->where('name',session('user_name'))->value('id');
-            $rs = DB::table('carts')->where('userid',$userid)->select('id','goodsid','num')->get();
+            $rs = DB::table('carts')->where('userid',session('user_id'))->select('id','goodsid','num')->get();
             foreach($rs as $k=>$v){
                 $v->goods = DB::table('goods')->where('id',$v->goodsid)->select('title','price','content')->first();
                 $v->goods_pic = DB::table('goods_pic')->where(['goodsid'=>$v->goodsid,'img_lx'=>2])->select('imgs')->first();

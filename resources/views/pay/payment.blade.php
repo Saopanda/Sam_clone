@@ -8,6 +8,11 @@
 	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
 	<script src="/bootstrap/js/jquery.js"></script>
 	<script src="/bootstrap/js/bootstrap.js"></script>
+	<style>
+		a img {
+		    width: 100px;
+		}
+	</style>
 </head>
 <body>	
 	<header>
@@ -37,6 +42,8 @@
 	    <input type="hidden" name="orderid" value="{{$bm}}">
 	    <a href="/pay/weixin/{{$bm}}" ><img src="/file/img/wx.jpg" alt=""></a>
 	    <a href="/pay/zhifubao/{{$bm}}" ><img src="/file/img/zfb.jpg" alt=""></a>
+	    <div style="height: 20px"></div>
+	    <p>暂不支付，去<a href="/home/order" style="font-size: 20px">订单中心</a>看看</p>
 	</section>
 	</body>
 

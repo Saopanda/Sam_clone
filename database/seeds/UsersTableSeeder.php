@@ -12,7 +12,7 @@ class UsersTableSeeder extends Seeder
     public function run(Faker $faker)
     {
     	$a = [];
-        for($i=0;$i<20;$i++){
+        for($i=0;$i<40;$i++){
             $data['shengri']=date('y-m-d');
         	$data['touimg']=$faker->imageUrl(40,40);
             $a[]=$data;

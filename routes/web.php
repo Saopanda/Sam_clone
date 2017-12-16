@@ -45,6 +45,9 @@ Route::get('/login','indexController@login');
 	//登陆验证
 Route::post('/login','indexController@dologin');
 
+//支付返回页面
+	Route::get('/pay/info','PayController@info');
+	Route::get('/pay/info2','PayController@info2');
 
 // 前台已登陆界面
 Route::group(['middleware'=>'Login'],function(){
@@ -61,14 +64,12 @@ Route::group(['middleware'=>'Login'],function(){
 	Route::get('/home/cart/num','CartController@num');
 	Route::resource('/home/cart','CartController');
 	//去结算
-	Route::get('/home/jiesuan','HomeController@jiesuan');
-	Route::post('/zhifu','PayController@zhifu');
+	Route::get('/home/jiesuan','HomeController@jiesuan')->middleware('cart');
+	Route::post('/zhifu','PayController@zhifu')->middleware('cart');
 	// 支付接口
-	Route::get('/pay/zhifubao/{id}','payController@create');
+	Route::get('/pay/zhifubao/{id}','PayController@create');
 
-	//支付返回页面
-	Route::get('/pay/info','PayController@info');
-	Route::get('/pay/info2','PayController@info2');
+	
 
 	//地址管理
 	Route::get('/home/address/getarea','AddressController@getarea');
