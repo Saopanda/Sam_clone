@@ -15,20 +15,23 @@ class payController extends Controller
     	$did = $id;
     	//获取订单信息
     	$order = DB::table('order')->where('orderid',$did)->first();
-    	//订单总价
-    	$zongjia = $order->sum_price;
-    	//订单商品
-    	$goods = DB::table('order_goods')->where('order',$order->id)->first();
-    	$goodsname = DB::table('goods')->where('id',$goods->goodsid)->value('title');
-    	//支付接口
-    	$order = [
-            'out_trade_no' => $did,
-            'total_amount' => $zongjia,
-            'subject'      => $goodsname,
-        ];
+        if ($order->dd_status == 0) {
+            //订单总价
+            $zongjia = $order->sum_price;
+            //订单商品
+            $goods = DB::table('order_goods')->where('order',$order->id)->first();
+            $goodsname = DB::table('goods')->where('id',$goods->goodsid)->value('title');
+            //支付接口
+            $order = [
+                'out_trade_no' => $did,
+                'total_amount' => $zongjia,
+                'subject'      => $goodsname,
+            ];
 
-        return Pay::driver('alipay')->gateway('web')->pay($order);
-
+            return Pay::driver('alipay')->gateway('web')->pay($order);
+        }else{
+            return redirect('/home/order');
+        }
     }
 
     // 订单创建成功,选择支付方式

@@ -17,11 +17,10 @@
 		padding-bottom: 10px;
 		background: #ececec;
 	}
-	table{
+	#body table{
 		margin-bottom:0;
 	}
 	#body .order-in{
-		height: 100px;
 		padding:10px 10px;
 	}
 	#body .order-in td{
@@ -38,6 +37,12 @@
 	}
 	.good-in{
 		width: 100px;
+	}
+	tr{
+		border-bottom:1px solid #ececec;
+	}
+	a.btn.pull-right {
+	    margin: 10px;
 	}
 
 </style>
@@ -98,7 +103,8 @@
 												<p>{!!$vs->goodscontent!!}</p>
 											</td>
 											<td class="good-in">
-												<span>{{$vs->price}}</span>
+
+												<span>单价：{{$vs->price}}</span>
 											</td>
 											<td class="good-in">
 												<span>{{$vs->num}}</span>
@@ -113,7 +119,20 @@
 		  								@endforeach
 		  								
 		  							</table>
-	  								<a class="btn btn-info pull-right" href="/pay/zhifubao/{{$v->orderid}}">去支付</a>
+		  							@if($v->dd_status == 0)
+		  							<form action="/home/"></form>
+	  								<a class="btn btn-danger pull-right" href="/pay/zhifubao/{{$v->orderid}}">删除订单</a>
+	  								<a class="btn btn-default pull-right" href="/pay/zhifubao/{{$v->orderid}}">去支付</a>
+	  								@elseif($v->dd_status == 1)
+	  								<a class="btn btn-default pull-right" href="">查看订单</a>
+	  								<a class="btn btn-default pull-right" href="">提醒商家</a>
+	  								@elseif($v->dd_status == 2)
+	  								<a class="btn btn-default pull-right" href="">查看订单</a>
+	  								<a class="btn btn-default pull-right" href="">查看物流</a>
+	  								@elseif($v->dd_status == 3)
+	  								<a class="btn btn-danger pull-right" href="/pay/zhifubao/{{$v->orderid}}">删除订单</a>
+	  								<a class="btn btn-default pull-right" href="">去评价</a>
+									@endif
 		  						</div>
 		  						@endforeach
 		  					</div>

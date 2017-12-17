@@ -66,7 +66,6 @@ class Homecontroller extends Controller
             $v->goods = $order_goods;
         }
         
-        // dd($data);
 
 
 
