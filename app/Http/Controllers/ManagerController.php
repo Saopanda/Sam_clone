@@ -35,7 +35,7 @@ class ManagerController extends Controller
         if(session('roles') == 1){
            return view('admin.manager.create'); 
         }else{
-           returnredirect('/admin')->with(['msg'=>'您不是超级管理员或权限不足,请联系超级管理员!','msg_info'=>'alert-danger']); 
+           return redirect('/admin')->with(['msg'=>'您不是超级管理员或权限不足,请联系超级管理员!','msg_info'=>'alert-danger']); 
         }
         
     }
