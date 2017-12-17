@@ -12,7 +12,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        if (session('roles') == 1 || in_array(2, session('menuid'))) {
+        if (session('roles') == 1 || in_array(2, [session('menuid')]) || in_array(2, session('menuid'))) {
             $rs = DB::table('user')->paginate(10);
             return view('admin.user.liebiao',['rs'=>$rs]);
         }else{
@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        if (session('roles') == 1 || in_array(2, session('menuid'))) {
+        if (session('roles') == 1 || in_array(2, [session('menuid')]) || in_array(2, session('menuid'))) {
             return view('admin.user.add');
         }else{
             return redirect('/admin')->with(['msg'=>'您不是超级管理员或权限不足,请联系超级管理员','msg_info'=>'alert-danger']);
@@ -59,7 +59,7 @@ class UserController extends Controller
      */
     public function show($id)
     {   
-        if (session('roles') == 1 || in_array(2, session('menuid'))) {
+        if (session('roles') == 1 || in_array(2, [session('menuid')]) || in_array(2, session('menuid'))) {
             if($id == 'jihuo'){
                 $rs = DB::table('user')->where('ztid','0')->paginate(10);
                 return view('admin.user.jihuo',['rs'=>$rs]);

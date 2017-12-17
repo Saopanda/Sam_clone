@@ -20,7 +20,7 @@ class adminController extends Controller
     public function dologin(Request $request)
     {        
         $data = $request->except('_token');
-        $rs = DB::table('manager')->where('name',$data['name'])->first();              
+        $rs = DB::table('manager')->where('name',$data['name'])->first();          
         if($rs){
             $rss = Hash::check($request->pwd,$rs->pwd);
             if($rss){
@@ -28,12 +28,15 @@ class adminController extends Controller
                 // 管理员权限
                 session(['roles'=>$rs->roles]);
                 // 栏目权限                
-                $menu = DB::table('transfer')->where('adminid',$rs->id)->get();
+                $menu = DB::table('transfer')->where('adminid',$rs->id)->get();                
                 if (count($menu) > 0) {
                     foreach ($menu as $key => $val) {
                         $menuid[] = $val->menuid;
-                    } 
+                    }
                     session(['menuid'=>$menuid]);
+                }else{
+                    $a[]=$rs->menuid;
+                    session(['menuid'=>$a]);
                 }
                 // 结束
                 return redirect('/admin')->with(['msg'=>'欢迎回来~ 管理员','msg_info'=>'alert-success']);
