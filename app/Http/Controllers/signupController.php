@@ -27,6 +27,9 @@ class signupController extends Controller
 			$data['sta']=str_random(18);
 			$data['pwd']=Hash::make($data['pwd']);
 			$rs = DB::table('user')->insertGetid($data);
+			$info['shengri']='17-12-16';
+			$info['touimg']='https://lorempixel.com/40/40/?62640';
+			DB::table('userinfo')->where('id',$rs)->insert($info);
 			if($rs){
 				return redirect('/signup/send/'.$rs);
 			}else{
@@ -89,6 +92,13 @@ class signupController extends Controller
     //邮箱验证
     public function yz($id)
     {
-        
+    	$ids = session('user_id');
+        $rs = DB::table('user')->where('id',$ids)->value('ztid');
+        if($rs == 0){
+	    	$rs = DB::table('user')->where('sta',$id)->update(['ztid'=>1]);
+			return view('email.yz');
+		}else{
+			return redirect('/login');
+		}
     }
 }

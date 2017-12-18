@@ -31,7 +31,7 @@
 			  </div>
 			  <div class="form-group cols">
 			  	  <a href="#" class="pull-left col">忘记密码</a>
-			  	  <a href="#" class="pull-right">注册</a>
+			  	  <a href="/signup" class="pull-right">注册</a>
 			  </div>
 			  <div class="clearfix info_kuang">@if(session('msg')){{session('msg')}}@endif</div>
   			  <button type="submit" class="btn btn-default col-md-12 input-lg sub" id="tijiao">登录</button>

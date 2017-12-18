@@ -171,7 +171,7 @@
 				  </div>
 				  <div class="form-group cols">
 				  	  <a href="#" class="pull-left col">忘记密码</a>
-				  	  <a href="#" class="pull-right">注册</a>
+				  	  <a href="/signup" class="pull-right">注册</a>
 				  </div>
 				  <div class="clearfix info_kuang" style="color: red">@if(session('msg')){{session('msg')}}
 				  	<script>$('.theme-popover-mask').fadeIn(100);

@@ -61,7 +61,7 @@
 					    <ul class="xxk-tabs" role="tablist">
 						    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">所有订单</a></li>
 						    <div class="line-2"></div>
-						    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">代付款(0)</a></li>
+						    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">待付款(0)</a></li>
 						    <div class="line-2"></div>
 						    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">代发货(0)</a></li>
 						    <div class="line-2"></div>
@@ -73,16 +73,7 @@
 
 					<div class="tab-content gr_nr">
 					    <div role="tabpanel" class="container tab-pane active" id="home">
-					    	<div class="gr_ss">
-				    			<form method="" action="">
-				    				<input type="text" name="" placeholder="请输入商品名称或收件人姓名">
-				    				<button><i class="glyphicon glyphicon-search"></i></button>
-				    				<select>
-				    					<option>网上购买记录</option>
-				    					<option>线下购买记录</option>
-				    				</select>
-				    			</form>
-					    	</div>
+					    
 							@if(empty($data[0]))
 							<div class="g-pur-nulldata">					    		
 					    		您暂时没有任何购买记录
@@ -144,64 +135,234 @@
 
 
 					    <div role="tabpanel" class="container tab-pane" id="profile">
-					    	<div class="gr_ss">
-				    			<form method="" action="">
-				    				<input type="text" name="" placeholder="请输入商品名称或收件人姓名">
-				    				<button><i class="glyphicon glyphicon-search"></i></button>
-				    				<select>
-				    					<option>网上购买记录</option>
-				    					<option>线下购买记录</option>
-				    				</select>
-				    			</form>
+					    	@if(empty($data[0]))
+							<div class="g-pur-nulldata xianshi1" style="display: none;">					    		
+					    		您暂时没有待付款信息
 					    	</div>
-					    	<div class="g-pur-nulldata">
-					    		没有代付款信息
-					    	</div>
+							@else
+		  					<div class="col-md-12 order xianshi2" >
+		  						@foreach($data as $k=>$v)
+								@if($v->dd_status == 0)
+		  						<div class="col-md-12 order-kuang" >
+		  							<p><span>订单日期：</span>{{$v->date}} &nbsp;&nbsp;&nbsp;<span>订单号：{{$v->orderid}}</span></p>
+		  							<table class="table order-in">
+		  								@foreach($v->goods as $ks=>$vs)
+		  								<tr>
+		  									<td class="good-tu">
+			  									<img src="{{$vs->goodsimg}}" alt="">
+			  								</td>
+											<td class="good-title">
+												<h5>{{$vs->goodstitle}}</h5>
+												<p>{!!$vs->goodscontent!!}</p>
+											</td>
+											<td class="good-in">
+
+												<span>单价：{{$vs->price}}</span>
+											</td>
+											<td class="good-in">
+												<span>{{$vs->num}}</span>
+											</td>
+											<td class="good-in">
+												<span>{{$vs->price*$vs->num}}</span>
+											</td>
+											<td class="good-in">
+												<span>@if($v->dd_status == 0)未支付@elseif($v->dd_status == 1)待发货@elseif($v->dd_status == 2)已发货@elseif($v->dd_status == 3)未评价@endif</span>
+											</td>
+		  								</tr>
+		  								@endforeach
+		  								
+		  							</table>
+		  							@if($v->dd_status == 0)
+		  							<form action="/home/"></form>
+	  								<a class="btn btn-danger pull-right" href="/pay/zhifubao/{{$v->orderid}}">删除订单</a>
+	  								<a class="btn btn-default pull-right" href="/pay/zhifubao/{{$v->orderid}}">去支付</a>
+	  								@elseif($v->dd_status == 1)
+	  								<a class="btn btn-default pull-right" href="">查看订单</a>
+	  								<a class="btn btn-default pull-right" href="">提醒商家</a>
+	  								@elseif($v->dd_status == 2)
+	  								<a class="btn btn-default pull-right" href="">查看订单</a>
+	  								<a class="btn btn-default pull-right" href="">查看物流</a>
+	  								@elseif($v->dd_status == 3)
+	  								<a class="btn btn-danger pull-right" href="/pay/zhifubao/{{$v->orderid}}">删除订单</a>
+	  								<a class="btn btn-default pull-right" href="">去评价</a>
+									@endif
+		  						</div>
+								@endif
+		  						@endforeach
+		  					</div>
+							@endif
+					    	
 					    </div>
 					    <div role="tabpanel" class="container pinpai tab-pane" id="messages">
-					    	<div class="gr_ss">
-				    			<form method="" action="">
-				    				<input type="text" name="" placeholder="请输入商品名称或收件人姓名">
-				    				<button><i class="glyphicon glyphicon-search"></i></button>
-				    				<select>
-				    					<option>网上购买记录</option>
-				    					<option>线下购买记录</option>
-				    				</select>
-				    			</form>
+					    	@if(empty($data[0]))
+							<div class="g-pur-nulldata">					    		
+					    		您暂时没有待发货信息
 					    	</div>
-					    	<div class="g-pur-nulldata">
-					    		暂时没有您的发货信息
-					    	</div>
+							@else
+		  					<div class="col-md-12 order" >
+		  						@foreach($data as $k=>$v)
+								@if($v->dd_status == 1)
+		  						<div class="col-md-12 order-kuang" >
+		  							<p><span>订单日期：</span>{{$v->date}} &nbsp;&nbsp;&nbsp;<span>订单号：{{$v->orderid}}</span></p>
+		  							<table class="table order-in">
+		  								@foreach($v->goods as $ks=>$vs)
+		  								<tr>
+		  									<td class="good-tu">
+			  									<img src="{{$vs->goodsimg}}" alt="">
+			  								</td>
+											<td class="good-title">
+												<h5>{{$vs->goodstitle}}</h5>
+												<p>{!!$vs->goodscontent!!}</p>
+											</td>
+											<td class="good-in">
+
+												<span>单价：{{$vs->price}}</span>
+											</td>
+											<td class="good-in">
+												<span>{{$vs->num}}</span>
+											</td>
+											<td class="good-in">
+												<span>{{$vs->price*$vs->num}}</span>
+											</td>
+											<td class="good-in">
+												<span>@if($v->dd_status == 0)未支付@elseif($v->dd_status == 1)待发货@elseif($v->dd_status == 2)已发货@elseif($v->dd_status == 3)未评价@endif</span>
+											</td>
+		  								</tr>
+		  								@endforeach
+		  								
+		  							</table>
+		  							@if($v->dd_status == 0)
+		  							<form action="/home/"></form>
+	  								<a class="btn btn-danger pull-right" href="/pay/zhifubao/{{$v->orderid}}">删除订单</a>
+	  								<a class="btn btn-default pull-right" href="/pay/zhifubao/{{$v->orderid}}">去支付</a>
+	  								@elseif($v->dd_status == 1)
+	  								<a class="btn btn-default pull-right" href="">查看订单</a>
+	  								<a class="btn btn-default pull-right" href="">提醒商家</a>
+	  								@elseif($v->dd_status == 2)
+	  								<a class="btn btn-default pull-right" href="">查看订单</a>
+	  								<a class="btn btn-default pull-right" href="">查看物流</a>
+	  								@elseif($v->dd_status == 3)
+	  								<a class="btn btn-danger pull-right" href="/pay/zhifubao/{{$v->orderid}}">删除订单</a>
+	  								<a class="btn btn-default pull-right" href="">去评价</a>
+									@endif
+		  						</div>
+								@endif
+		  						@endforeach
+		  					</div>
+							@endif
 					    </div>
 					    <div role="tabpanel" class="container pinpai tab-pane" id="settings">
-					    	<div class="gr_ss">
-				    			<form method="" action="">
-				    				<input type="text" name="" placeholder="请输入商品名称或收件人姓名">
-				    				<button><i class="glyphicon glyphicon-search"></i></button>
-				    				<select>
-				    					<option>网上购买记录</option>
-				    					<option>线下购买记录</option>
-				    				</select>
-				    			</form>
+							<div class="g-pur-nulldata xianshi1" style="display: none;">					    		
+					    		您暂时没有待收货信息
 					    	</div>
-					     	<div class="g-pur-nulldata">
-					    		暂时没有您的收货信息
-					    	</div>
+		  					<div class="col-md-12 order xianshi2" >
+		  						@foreach($data as $k=>$v)
+								@if($v->dd_status == 2)
+		  						<div class="col-md-12 order-kuang" >
+		  							<p><span>订单日期：</span>{{$v->date}} &nbsp;&nbsp;&nbsp;<span>订单号：{{$v->orderid}}</span></p>
+		  							<table class="table order-in">
+		  								@foreach($v->goods as $ks=>$vs)
+		  								<tr>
+		  									<td class="good-tu">
+			  									<img src="{{$vs->goodsimg}}" alt="">
+			  								</td>
+											<td class="good-title">
+												<h5>{{$vs->goodstitle}}</h5>
+												<p>{!!$vs->goodscontent!!}</p>
+											</td>
+											<td class="good-in">
+
+												<span>单价：{{$vs->price}}</span>
+											</td>
+											<td class="good-in">
+												<span>{{$vs->num}}</span>
+											</td>
+											<td class="good-in">
+												<span>{{$vs->price*$vs->num}}</span>
+											</td>
+											<td class="good-in">
+												<span>@if($v->dd_status == 0)未支付@elseif($v->dd_status == 1)待发货@elseif($v->dd_status == 2)已发货@elseif($v->dd_status == 3)未评价@endif</span>
+											</td>
+		  								</tr>
+		  								@endforeach
+		  								
+		  							</table>
+		  							@if($v->dd_status == 0)
+		  							<form action="/home/"></form>
+	  								<a class="btn btn-danger pull-right" href="/pay/zhifubao/{{$v->orderid}}">删除订单</a>
+	  								<a class="btn btn-default pull-right" href="/pay/zhifubao/{{$v->orderid}}">去支付</a>
+	  								@elseif($v->dd_status == 1)
+	  								<a class="btn btn-default pull-right" href="">查看订单</a>
+	  								<a class="btn btn-default pull-right" href="">提醒商家</a>
+	  								@elseif($v->dd_status == 2)
+	  								<a class="btn btn-default pull-right" href="">查看订单</a>
+	  								<a class="btn btn-default pull-right" href="">查看物流</a>
+	  								@elseif($v->dd_status == 3)
+	  								<a class="btn btn-danger pull-right" href="/pay/zhifubao/{{$v->orderid}}">删除订单</a>
+	  								<a class="btn btn-default pull-right" href="">去评价</a>
+									@endif
+		  						</div>
+								@endif
+		  						@endforeach
+		  					</div>
 					    </div>
 					    <div role="tabpanel" class="container tab-pane" id="zixun">
-					    	<div class="gr_ss">
-				    			<form method="" action="">
-				    				<input type="text" name="" placeholder="请输入商品名称或收件人姓名">
-				    				<button><i class="glyphicon glyphicon-search"></i></button>
-				    				<select>
-				    					<option>网上购买记录</option>
-				    					<option>线下购买记录</option>
-				    				</select>
-				    			</form>
+					    	@if(empty($data[0]))
+							<div class="g-pur-nulldata">					    		
+					    		您暂时没有待评价商品
 					    	</div>
-					    	<div class="g-pur-nulldata">
-					    		您暂没有需要评价的商品
-					    	</div>
+							@else
+		  					<div class="col-md-12 order" >
+		  						@foreach($data as $k=>$v)
+								@if($v->dd_status == 2)
+		  						<div class="col-md-12 order-kuang" >
+		  							<p><span>订单日期：</span>{{$v->date}} &nbsp;&nbsp;&nbsp;<span>订单号：{{$v->orderid}}</span></p>
+		  							<table class="table order-in">
+		  								@foreach($v->goods as $ks=>$vs)
+		  								<tr>
+		  									<td class="good-tu">
+			  									<img src="{{$vs->goodsimg}}" alt="">
+			  								</td>
+											<td class="good-title">
+												<h5>{{$vs->goodstitle}}</h5>
+												<p>{!!$vs->goodscontent!!}</p>
+											</td>
+											<td class="good-in">
+
+												<span>单价：{{$vs->price}}</span>
+											</td>
+											<td class="good-in">
+												<span>{{$vs->num}}</span>
+											</td>
+											<td class="good-in">
+												<span>{{$vs->price*$vs->num}}</span>
+											</td>
+											<td class="good-in">
+												<span>@if($v->dd_status == 0)未支付@elseif($v->dd_status == 1)待发货@elseif($v->dd_status == 2)已发货@elseif($v->dd_status == 3)未评价@endif</span>
+											</td>
+		  								</tr>
+		  								@endforeach
+		  								
+		  							</table>
+		  							@if($v->dd_status == 0)
+		  							<form action="/home/"></form>
+	  								<a class="btn btn-danger pull-right" href="/pay/zhifubao/{{$v->orderid}}">删除订单</a>
+	  								<a class="btn btn-default pull-right" href="/pay/zhifubao/{{$v->orderid}}">去支付</a>
+	  								@elseif($v->dd_status == 1)
+	  								<a class="btn btn-default pull-right" href="">查看订单</a>
+	  								<a class="btn btn-default pull-right" href="">提醒商家</a>
+	  								@elseif($v->dd_status == 2)
+	  								<a class="btn btn-default pull-right" href="">查看订单</a>
+	  								<a class="btn btn-default pull-right" href="">查看物流</a>
+	  								@elseif($v->dd_status == 3)
+	  								<a class="btn btn-danger pull-right" href="/pay/zhifubao/{{$v->orderid}}">删除订单</a>
+	  								<a class="btn btn-default pull-right" href="">去评价</a>
+									@endif
+		  						</div>
+								@endif
+		  						@endforeach
+		  					</div>
+							@endif
 					    </div>
   					</div>
 
@@ -209,4 +370,20 @@
 				</div>
 			</div>
 			<!-- 个人中心右侧结束 -->
+@stop
+
+@section('js')
+<script>
+	$(function(){
+		var xs2 = $('.xianshi2')
+		xs2.each(function() {
+			if($(this).html() == ''){
+				alert(1)
+				$(this).siblings('.xianshi1').css('display', 'block');
+			}
+		});
+		
+	})
+</script>
+	
 @stop

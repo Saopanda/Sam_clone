@@ -57,35 +57,46 @@
 				<div class="gp-user-menu">
 					<dl>
 						<dt><i></i>订单管理</dt>
-						<dd class="cur gr-active"><a href="/home/order">我的购买记录</a></dd>
-						<dd><a href="">退换货</a></dd>
+						<dd class="cur"><a href="/home/order">我的购买记录</a></dd>
+						<dd class="cur"><a href="">退换货</a></dd>
 					</dl>
 					<div style="width:164px;height: 1px;background: black;margin: auto;"></div>
 					<dl>
 						<dt><i></i>个人信息管理</dt>
-						<dd><a href="/home">编辑个人信息</a></dd>
-						<dd><a href="">会籍管理</a></dd>
-						<dd><a href="">修改密码</a></dd>
-						<dd><a href="/home/address">地址管理</a></dd>
+						<dd class="cur"><a href="/home">编辑个人信息</a></dd>
+						<dd class="cur"><a href="">会籍管理</a></dd>
+						<dd class="cur"><a href="">修改密码</a></dd>
+						<dd class="cur"><a href="/home/address">地址管理</a></dd>
 					</dl>
 					<div style="width:164px;height: 1px;background: black;margin: auto;"></div>
 					<dl>
 						<dt><i></i>我的专区</dt>
-						<dd><a href="">我的优惠券</a></dd>
-						<dd><a href="">常购清单</a></dd>
-						<dd><a href="/pinglun">商品点评</a></dd>
-						<dd><a href="">购物咨询</a></dd>
+						<dd class="cur"><a href="">我的优惠券</a></dd>
+						<dd class="cur"><a href="">常购清单</a></dd>
+						<dd class="cur"><a href="/pinglun">商品点评</a></dd>
+						<dd class="cur"><a href="">购物咨询</a></dd>
 					</dl>
 					<div style="width:164px;height: 1px;background: black;margin: auto;"></div>
 					<dl>
-						<dt><i></i>服务中心</dt><dd><a href="">到货通知</a></dd>
-						<dd><a href="">降价通知</a></dd>
-						<dd><a href="">我的购物卡</a></dd>
-						<dd><a href="" target="_blank">山姆实体店</a></dd>
-						<dd><a href="">山姆线上店</a></dd>
+						<dt><i></i>服务中心</dt><dd class="cur"><a href="">到货通知</a></dd>
+						<dd class="cur"><a href="">降价通知</a></dd>
+						<dd class="cur"><a href="">我的购物卡</a></dd>
+						<dd class="cur"><a href="" target="_blank">山姆实体店</a></dd>
+						<dd class="cur"><a href="">山姆线上店</a></dd>
 					</dl>
 				</div>
 			</div>
+			<script>
+    			var path = location.pathname;
+				$('.cur').each(function() {
+			      if(path != '/admin'){
+			        if($(this).find('a').attr('href') == path){
+			          $(this).addClass('gr-active')
+			        }
+			      }
+			    });
+				
+			</script>
 			<!-- 个人中心左侧结束 -->
 			<!-- 个人中心右侧导航开始 -->
 			@section('right')

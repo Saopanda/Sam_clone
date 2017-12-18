@@ -12,7 +12,7 @@ class GoodsController extends Controller
      */
     public function index(Request $request)
     {
-        if (session('rolse') == 1  || in_array(5, session('menuid'))) {
+        if (session('roles') == 1  || in_array(5, session('menuid'))) {
             $goods = DB::table('goods')->paginate(10);
             $fl = DB::table('class')->get();
             return view('admin.goods.index',['goods'=>$goods,'fl'=>$fl]);

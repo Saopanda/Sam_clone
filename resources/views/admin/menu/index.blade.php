@@ -48,6 +48,7 @@
 						@elseif($val->menuid == 4) 分类管理
 						@elseif($val->menuid == 5) 商品管理
 						@elseif($val->menuid == 6) 评论管理
+						@elseif($val->menuid == 7) 订单管理
 						@endif
 					</td>					
 					<td class="text-center">						

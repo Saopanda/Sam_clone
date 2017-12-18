@@ -131,12 +131,14 @@
 			<!-- 弹出窗结束 -->
 			<!-- 显示列表开始 -->
 			<form action="/zhifu" method="post">
-				<input type="hidden" name="addressid" value="">
+				
 				<input type="hidden" name="cartid" value="{{$cartid}}">
 				<div class="ads_list">
 					<ul>
 					@foreach($addresses as $k=>$v)
-						<li class="address address{{$v->id}}" onclick="dizhi({{$v->id}})">
+						@if($k==0)<input type="hidden" name="addressid" value="{{$v->id}}">@endif
+						
+						<li class="address address{{$v->id}} @if($k==0)actives @endif" onclick="dizhi({{$v->id}})">
 							<div class="ads-name"><b>{{$v->name}}</b></div>
 							<div class="ads-phone">{{$v->phone}}</div>
 							<div class="ads-address">{{$v->pname}} {{$v->cname}} {{$v->xname}} {{$v->content}} </div>

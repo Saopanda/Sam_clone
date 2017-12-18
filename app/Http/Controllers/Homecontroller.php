@@ -61,7 +61,7 @@ class Homecontroller extends Controller
                 $value->goodstitle = DB::table('goods')->where('id',$value->goodsid)->value('title');
                 $value->goodscontent = DB::table('goods')->where('id',$value->goodsid)->value('content');
 
-                $value->goodsimg = DB::table('goods_pic')->where('goodsid',$value->goodsid)->value('imgs');
+                $value->goodsimg = DB::table('goods_pic')->where(['goodsid'=>$value->goodsid,'img_lx'=>0])->value('imgs');
             }
             $v->goods = $order_goods;
         }
